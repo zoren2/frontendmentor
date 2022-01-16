@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;600&display=swap');
 
-* {
+body {
     font-family: Outfit;
-    font-size: 18px;
     background-color: hsl(217, 54%, 11%);
 }
+
 .attribution { 
     font-size: 11px; 
     text-align: center; 
@@ -14,26 +14,43 @@
     color: hsl(228, 45%, 44%); 
 }
 
+/* Card Styling */
+.card-container {
+    border-radius: 10px;
+    background: hsl(216, 50%, 16%);
+    width: 25%;
+    margin: 10em auto; 
+    padding: 2%;
+}
+
 .card-image {
     margin-left: auto;
     margin-right: auto;
-    width: 85%;
+    width: 95%;
     display: block;
-    padding-top: 25px;
-    background: hsl(216, 50%, 16%);
     border-radius: 10px;
 }
+
+.card-image-over {
+    display: none;
+}
+
 .card-header{
     color: hsl(0, 0%, 100%);
     text-align: center;
-    background: hsl(216, 50%, 16%);
 }
 
 .card-description {
     color: hsl(215, 51%, 70%);
-    background: hsl(216, 50%, 16%);
 }
 
+/* Card Hover */
+
+.card:hover #view {
+    display: block;
+}
+
+/* Icon Styling */
 .eth-value {
     float: left;
     background: hsl(216, 50%, 16%);
@@ -53,11 +70,3 @@
     background: hsl(216, 50%, 16%);
 }
 
-.card-container {
-    border-radius: 10px;
-    background: hsl(216, 50%, 16%);
-    width: 25%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
