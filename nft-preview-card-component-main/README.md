@@ -30,8 +30,7 @@ Users should be able to:
 
 ### Continued development
 
-Focusing and on different core CSS skills such as the use of Flexbox, Grid, Responsive Design and the continued learning of basic CSS.
-Refactoring the project to address these goals.
+Using perhaps grid system instead of Flexbox. Refactor using SASS. Learning CSS tricks such as transitions over elements using pseudo-elements.
 
 ### Useful resources
 
