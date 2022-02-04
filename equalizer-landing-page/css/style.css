@@ -139,8 +139,21 @@ p {
 }
 
 /* Premium Image section */
+.premium-eq {
+  position: relative;
+  max-width: 1366px;
+  width: 100%;
+  margin: auto;
+  margin-top: 6.125rem; /* bumps the design down a little */
+  border-radius: .8rem;
+  background: url(/assets/bg-pattern-2.svg), #191826;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 80%;
+}
 
 .premium-eq-img {
   width: clamp(1px, 55vw, 26.4rem);
   margin: auto;
+  transform: translateY(-6.125rem);
 }
