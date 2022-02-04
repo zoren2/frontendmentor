@@ -109,6 +109,7 @@ header::before {
   z-index: -1;
 }
 
+/* Linear scalings based on Figma design */
 header::after {
   top: -9rem;
   right: 0;
@@ -121,11 +122,10 @@ header::after {
 
 .hero {
   padding: 0 1.5rem 0.75rem 1.5rem;
-  
-  
   font-size: 2.5rem;
   margin: auto;
 }
+
 
 h1 {
   font-size: clamp(2.5rem, 1.0687rem + 6.1069vw, 4rem);
@@ -134,5 +134,13 @@ h1 {
 }
 
 p {
-  font-size: 1rem;
+  font-size: clamp(1rem, 0.8897rem + 0.4902vw, 1.125rem);
+  line-height: clamp(1.625rem, 1.5147rem + 0.4902vw, 1.75rem);
+}
+
+/* Premium Image section */
+
+.premium-eq-img {
+  width: clamp(1px, 55vw, 26.4rem);
+  margin: auto;
 }
