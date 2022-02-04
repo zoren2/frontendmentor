@@ -239,3 +239,31 @@ button:last-of-type {
 button:last-of-type:hover {
   background-color: #FFB964;
 }
+
+footer {
+  padding: 3rem 1.5rem;
+}
+
+footer img {
+  margin-bottom: 2rem;
+}
+
+footer span {
+  font-weight: 700;
+}
+
+footer p:last-of-type {
+  margin-bottom: 4rem;
+  max-width: 22.75rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding-left: 0;
+}
+.socials a {
+  font-size: 1.5rem;
+  color: #191826;
+}
