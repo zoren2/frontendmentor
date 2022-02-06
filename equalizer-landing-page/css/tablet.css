@@ -1,0 +1,112 @@
+/*
+ * Font scaling based on Figma designs.
+ * Image scaling based on Figma + Trial and error.
+ */
+
+/* Banner */
+@media screen and (min-width: 768px) {
+    main::after {
+        content: "";
+        position: absolute;
+        width: clamp(1px, 34.635vw, 23.56rem);
+        height: 30rem;
+        right: 0;
+        top: -10rem;
+        background-image: url(../assets/bg-pattern-1.svg);
+        background-repeat: no-repeat;
+        background-size: 90% auto;
+        background-position: right -2rem;
+    }
+}
+@media screen and (min-width: 768px) {
+    main {
+        padding-left: 2rem; 
+        padding-right: 2rem;
+    }    
+}
+
+/* Hero */
+@media screen and (min-width: 768px) {
+    section.hero {
+      margin-bottom: 5rem;
+    }
+    section.premium-eq {
+      margin-bottom: 7.5rem;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .hero {
+        margin-bottom: 3rem;
+    }
+    .hero h1 {
+        width: calc(520px + 13vw);
+        font-size: clamp(4rem, 2.0736rem + 4.0134vw, 5.5rem);
+        line-height: clamp(4rem, 2.0736rem + 4.0134vw, 5.5rem); 
+    }
+    .hero p {
+        width: 70%;
+        font-size: clamp(1.125rem, 0.9645rem + 0.3344vw, 1.25rem);
+    }
+}
+
+  /* Premium Card */
+  @media screen and (min-width: 768px) {
+    section.premium-eq {
+      position: relative;
+      background-position-x: calc(50% + 1.5625rem);
+      background-size: 18rem;
+      width: 100%;
+      height: 38rem;
+    }
+    .premium-eq-card {
+      max-width: 27rem;
+      position: absolute;
+      right: 3.625rem;
+      bottom: -6rem;
+    }
+
+    /* Undo the transform for Tablet devices */
+    .premium-eq > .premium-eq-img {
+      position: absolute;
+      margin: 0;
+      left: 4rem;
+      top: -8.5rem;
+      transform: unset;
+    }
+  }
+
+/* Fuzzy oval background */
+header::before {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../assets/bg-main-tablet.png);
+    left: 0;
+    top: 0;
+    background-position: center top;
+    background-size: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    body header::after {
+        display: none;
+    }
+    body header::before {
+        display: unset;
+    }
+}
+
+/* Footer - Extended margin bottom for scaling line heights.*/
+@media screen and (min-width: 768px) {
+    footer {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+    
+    footer ul.socials {
+        position: absolute;
+        top: 40%;
+        right: 1.5rem;
+    }
+}
