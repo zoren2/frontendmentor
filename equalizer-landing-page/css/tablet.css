@@ -101,7 +101,6 @@ header::before {
 @media screen and (min-width: 768px) {
     footer {
         position: relative;
-        margin-bottom: 2rem;
     }
     
     footer ul.socials {

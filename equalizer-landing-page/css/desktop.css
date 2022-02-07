@@ -1,0 +1,55 @@
+@media screen and (min-width: 1366x) {
+    .hero h1 {
+        width: unset;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    body header {
+        position: unset;
+    }
+    body header::before {
+        height: 100%;
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        background-image: url(../assets/bg-main-desktop.png);
+        background-size: 120%;
+        background-position: center right;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    section.premium-eq {
+      background-position-x: calc(50% - 12px);
+    }
+    .premium-eq > .premium-eq-img {
+      left: 6rem;
+      top: -10rem;
+      margin: 0;
+      transform: unset;
+    }
+    .premium-eq > .premium-eq-card {
+      right: 6rem;
+    }
+  }
+
+@media screen and (min-width: 1366px) {
+    footer {
+        max-width: 1110px;
+        display: flex;
+        gap: 8.6rem;
+    }
+    footer img.logo {
+        margin: 0 0 auto 0;
+        height: fit-content;
+    }
+    footer .footer-text p:last-of-type {
+        margin-bottom: unset;
+    }
+    footer ul.socials li {
+        display: flex;
+        margin: auto;
+    }
+}

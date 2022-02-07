@@ -94,10 +94,27 @@ main {
 
 main, header {
   position: relative;
+  z-index: 2;
+}
+
+/* 
+ * Max desktop size 
+ * Logo snaps at maximum size
+ */
+header,
+footer,
+.hero {
+  max-width: 1110px;
+  margin: auto;
 }
 
 header {
   padding: 2.5rem 1.5rem 4rem 1.5rem;
+}
+
+header img {
+  height: 2rem;
+  z-index: 2;
 }
 
 header::after,
@@ -148,7 +165,7 @@ p {
 /* Premium Image section */
 .premium-eq {
   position: relative;
-  max-width: 1366px;
+  max-width: 1110px;
   width: 100%;
   margin: auto;
   margin-top: 6.125rem; /* bumps the design down a little */
@@ -266,4 +283,13 @@ footer p:last-of-type {
 .socials a {
   font-size: 1.5rem;
   color: #191826;
+}
+
+a {
+  cursor: pointer;
+  transition: .15s linear;
+}
+
+a:hover {
+  color: #FA7453;
 }
