@@ -176,8 +176,9 @@ p {
   background-size: 75%;
 }
 
+/* Image scales regardless of device size */
 .premium-eq-img {
-  width: clamp(1px, 55vw, 26.4rem);
+  width: clamp(1px, 55vw, 20rem);
   margin: auto;
   transform: translateY(-6.125rem);
 }
