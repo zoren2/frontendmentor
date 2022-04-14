@@ -1,0 +1,32 @@
+<div #gameContainer class="rps-game-container rps-game-container-bg">
+  <div #game class="rps-game-container-top">
+    <button #paperButton id="paper" (click)="onRPSButtonSelected(paperButton)"
+      class="btn-paper"></button>
+    <button #scissorButton id="scissor" (click)="onRPSButtonSelected(scissorButton)"
+      class="rps-game-house-bg btn-scissor"></button>
+  </div>
+  <div id='game-selection' *ngIf="userSelectedRPS === true">
+    <p>YOU PICKED</p>
+    <p>THE HOUSE PICKED</p>
+  </div>
+  <div #result id="result" [hidden]="true">
+    <p>{{getResult()}}</p>
+  </div>
+  <div id="reset">
+    <button #reset class="hide-element" (click)="resetGame(rockButton, paperButton, scissorButton)">PLAY AGAIN</button>
+  </div>
+  <div class="rps-game-container-bottom">
+    <button #rockButton id="rock" (click)="onRPSButtonSelected(rockButton)" [ngClass]="userSelectedRPS?'hide-element':''"
+      class="btn-rock"></button>
+  </div>
+</div>
+<div class="btn-rules-container">
+  <button (click)="onRuleButtonClicked();" class="btn-rules">RULES</button>
+</div>
+<div [ngClass]="ruleModalOpened?'show-modal':''" class="rules-modal">
+  <p class="rules-modal-header"> RULES </p>
+  <img class="rules-modal-content-img" src="../../assets/image-rules.svg" alt="Game Rules">
+  <img (click)="onCloseModalClicked()" class="rules-modal-content-close" src="../../assets/icon-close.svg"
+    alt="Close Game Rules">
+
+</div>

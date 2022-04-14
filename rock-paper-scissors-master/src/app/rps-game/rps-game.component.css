@@ -1,0 +1,239 @@
+/*
+ *  Main Container
+ */
+.rps-game-container-bg {
+  background-image: url("../../assets/bg-triangle.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: clamp(225px, 70vw, 350px);
+}
+
+.rps-game-container {
+  width: 95vw;
+  height: 45vh;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 6.5rem;
+  justify-content: space-between;
+}
+
+.rps-game-container-top {
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: space-around;
+}
+
+.rps-game-house-bg {
+  border-radius: 50%;
+  border: none;
+  width: 35vw;
+  height: 35vw;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+
+
+#game-selection {
+  display: flex;
+  justify-content: space-around;
+  padding-right: 1%;
+}
+
+#game-selection p {
+  display: inline;
+  font-weight: 600;
+  letter-spacing: 1.88px;
+  font-size: .75rem;
+  color: white;
+  padding-left: 10%;
+  padding-right: 3.15%;
+}
+
+.rps-game-container-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+#reset {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-paper {
+  background-image: url("../../assets/icon-paper.svg");
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  border: 15px solid #4664F4;
+  border-radius: 50%;
+  box-shadow: inset 0 5px #BABFD4, 0 6px #2A45C2;
+  cursor: pointer;
+  width: min(35vw, 155px);
+  height: min(35vw, 155px);
+}
+
+.hide-element {
+  display: none;
+}
+
+.btn-scissor {
+  background-image: url("../../assets/icon-scissors.svg");
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  border: 15px solid #EB9F0E;
+  border-radius: 50%;
+  box-shadow: inset 0 5px #BABFD4, 0 6px #C76C1B;
+  cursor: pointer;
+  /* width: 35vw; */
+  width: min(35vw, 155px);
+  height: min(35vw, 155px);
+}
+
+.btn-rock {
+  background-image: url("../../assets/icon-rock.svg");
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  border: 15px solid #DB2E4D;
+  border-radius: 50%;
+  box-shadow: inset 0 5px #BABFD4, 0 6px #9D1634;
+  cursor: pointer;
+  width: min(35vw, 155px);
+  height: min(35vw, 155px);
+  align-self: flex-end;
+}
+
+.btn-rules-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+ * Result Display (Win, Lose, Draw) 
+ */
+
+#result {
+  display: flex;
+  justify-content: center;
+}
+
+#result p {
+  color: white;
+  font-size: 3.5rem;
+}
+
+/*
+ * Reset
+ */
+.btn-reset {
+  height: 6vh;
+  width: 55vw;
+  padding: 2% 6%;
+  text-align: center;
+  outline: none;
+  background-color: white;
+  border: 1px solid #FFF;
+  border-radius: .5rem;
+  color: #3B4262;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+.btn-reset:hover {
+  background: transparent;
+  transition: 0.15s linear;
+  color: white;
+}
+
+/*
+ * Rule Modal
+ */
+.btn-rules {
+  height: 2.5rem;
+  width: 8.5rem;
+  padding: 2% 6%;
+  text-align: center;
+  outline: none;
+  background: transparent;
+  border: 1px solid #FFF;
+  border-radius: .5rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+.btn-rules:hover {
+  background: #f0f2f4;
+  color: #3B4262;
+  transition: 0.15s linear;
+}
+
+.rules-modal {
+  position: absolute;
+  visibility: hidden;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 13vh;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rules-modal-header {
+  font-weight: 600;
+  font-size: 2rem;
+  color: #3B4262;
+  margin-bottom: 14vh;
+}
+
+.rules-modal-content-close {
+  float: right;
+  cursor: pointer;
+}
+
+.rules-modal-content-img {
+  display: block;
+  margin-bottom: 20vh;
+}
+
+.show-modal {
+  visibility: visible;
+}
+
+/*
+ * Animations
+ */
+
+.animate {
+  animation: pulse-animation 1.5s ease-out infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
