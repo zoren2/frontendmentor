@@ -33,11 +33,6 @@ Mobile design
 
 ![](./design/screenshot.jpg)
 
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-
 ## My process
 
 ### Built with
@@ -64,7 +59,19 @@ Modifying DOM elements directly using .nativeElement is very likely not kosher i
 Moving state modification to a Angular renderer2 seems to be an easy fix but continues to bloat a relatively simple
 project.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+### Directions to run
+
+Simply clone the project and through your terminal run in the directory
+
+```
+ng serve
+```
+
+Then go to your favorite browser and run the project through port 4200 (or whatever your terminal tells you)
+
+```
+localhost:4200
+```
 
 ### Useful resources
 
