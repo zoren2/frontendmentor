@@ -7,14 +7,11 @@
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -45,19 +42,17 @@ Mobile design
 
 ### What I learned
 
-I learned that managing race conditions for a simple project is an interesting task. I managed
-in this case for a simple rock-paper-scissors game yet it is a learn in progress. Using
-Angular compared to vanilla JS more than likely added a few extra get/set functions that make it
-a little over complicated for the task but was a good "excuse" to learn a JS framework!
+I learned to manage race conditions by ordering tasks so that they don't interfere with each other. 
+Using Angular compared to vanilla JS more than likely added a few extra get/set functions that make it
+a little over complicated for the task but was a good "excuse" to learn a JS framework.
 
 I learned to manage component state and making them responsive on a plethora of devices. A powerhouse
 to accomplish this was the powerful CSS function clamp().
 
 ### Continued development
 
-Modifying DOM elements directly using .nativeElement is very likely not kosher in a security sensitive application.
-Moving state modification to a Angular renderer2 seems to be an easy fix but continues to bloat a relatively simple
-project.
+Modifying DOM elements directly using .nativeElement is very likely not a good idea in a security sensitive application.
+Moving state modification to a Angular renderer2 seems to be an easy.
 
 ### Directions to run
 
