@@ -5,14 +5,13 @@
   background-image: url("../../assets/bg-triangle.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: clamp(225px, 70vw, 350px);
+  background-size: clamp(225px, 70vw, 305px);
 }
 
 .rps-game-container {
-  width: 95vw;
-  height: 45vh;
-  margin-left: 0;
-  margin-right: 0;
+  width: min(85vw, 375px);
+  height: 46vh;
+  margin: auto;
   margin-bottom: 6.5rem;
   justify-content: space-between;
 }
@@ -20,16 +19,16 @@
 .rps-game-container-top {
   display: flex;
   margin-bottom: 2rem;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
+/* Dark dot during house selection */
 .rps-game-house-bg {
   border-radius: 50%;
   border: none;
-  width: 35vw;
-  height: 35vw;
+  width: min(35vw, 155px);
+  height: min(35vw, 155px);
   background-color: rgba(0, 0, 0, 0.5);
-
 }
 
 
@@ -134,7 +133,6 @@
 .btn-reset {
   height: 6vh;
   width: 55vw;
-  padding: 2% 6%;
   text-align: center;
   outline: none;
   background-color: white;
@@ -159,7 +157,6 @@
 .btn-rules {
   height: 2.5rem;
   width: 8.5rem;
-  padding: 2% 6%;
   text-align: center;
   outline: none;
   background: transparent;
@@ -235,5 +232,76 @@
   100% {
     transform: scale(1);
     opacity: 0.5;
+  }
+}
+
+.scale {
+  transform: scale(2);
+}
+
+/*
+ * Desktop Design
+ * - Move rule buttun to bottom right
+ * - Add hover effects to game buttons
+ * - Increase font in game result state
+ */
+
+@media screen and (min-width: 1151px) {
+
+
+  /* Widen game container to bigger desktop size */
+  .rps-game-container {
+    width: min(85vw, 650px);
+    height: 46vh;
+    margin: auto;
+    margin-bottom: 6.5rem;
+    justify-content: space-between;
+  }
+
+  .rps-game-container-top {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2rem;
+    justify-content: space-evenly;
+  }
+
+  .btn-rock:hover,
+  .btn-paper:hover,
+  .btn-scissor:hover {
+    transform: scale(1.15);
+  }
+
+  .btn-rules-container {
+    padding-left: 80vw;
+  }
+
+  .btn-reset {
+    height: 6vh;
+    width: 25vw;
+    text-align: center;
+    outline: none;
+    background-color: white;
+    border: 1px solid #FFF;
+    border-radius: .5rem;
+    color: #3B4262;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    cursor: pointer;
+  }
+
+  #game-selection {
+    display: flex;
+    justify-content: center;
+    padding-left: 2%;
+  }
+
+  #game-selection p {
+    display: inline;
+    font-weight: 600;
+    letter-spacing: 3px;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    color: white;
   }
 }

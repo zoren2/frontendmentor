@@ -1,7 +1,6 @@
 .scoreboard {
   height: 6rem;
-  /* width: 19.4375rem; */
-  /* width: 83vw;  */
+  width: min(85vw, 550px);
   border: 2px solid #565468;
   border-radius: 5px;
   display: flex;
@@ -11,7 +10,6 @@
   padding: .75rem .75rem .75rem 1.4375rem;
   /* Bottom of the container */
   margin-bottom: 5rem;
-  /* background-repeat: no-repeat; */
 }
 
 .scoreboard-logo {
@@ -25,13 +23,9 @@
   background-color: white;
   border-radius: 4px;
   height: 4.5rem;
-  width: 21.33vw;
+  width: min(115px, 21.33vw);
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-    justify-content: center; */
-  /* padding-top: .625rem;
-    padding-bottom: .625rem; */
 }
 
 .scoreboard-header {
@@ -49,4 +43,38 @@
   font-size: 2.5rem;
   line-height: 2.5rem;
   margin: auto;
+}
+
+/*
+ * Desktop Design
+ */
+
+@media screen and (min-width: 1151px) {
+  .scoreboard {
+    width: 40vw;
+    height: 7rem;
+    border: 2px solid #565468;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem .75rem .75rem 1.4375rem;
+    /* Bottom of the container */
+    margin-bottom: 5rem;
+  }
+
+  .scoreboard-logo {
+    height: 5rem;
+  }
+
+  /* User points with the white background */
+  .scoreboard-score-container {
+    background-color: white;
+    border-radius: 4px;
+    height: 5.5rem;
+    width: min(115px, 21.33vw);
+    display: flex;
+    flex-direction: column;
+  }
 }
