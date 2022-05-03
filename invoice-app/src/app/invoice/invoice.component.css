@@ -20,6 +20,13 @@
     line-height: 0.9375rem;
 }
 
+.invoice-card-container:hover {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #7C5DFA;
+    cursor: pointer;
+}
+
 .invoice-info-left {
     display: flex;
     flex-direction: column;

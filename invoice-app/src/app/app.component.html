@@ -10,12 +10,12 @@
   </div>
 </div>
 <!-- Top Row Under The Nav-->
-<div class="invoice-nav">
+<div class="invoice-nav" *ngIf="hasInvoices && !editingInvoice">
   <div class="invoice-info">
     <h1 class="invoice-info-header"> Invoices </h1>
     <p class="invoice-info-content"> # of Invoices </p>
   </div>
-  <button class="filter-button">
+  <button mat-button [matMenuTriggerFor]="menu" class="filter-button">
     <span class="filter-button-container">
       <h2 class="filter-select"> Filter </h2>
       <img class="icon-arrow-down" src="../assets/icon-arrow-down.svg">
@@ -32,8 +32,8 @@
 </div>
 
 <!-- Invoices -->
-<app-invoice *ngIf="hasInvoices"></app-invoice>
-<div class="no-invoices" *ngIf="!hasInvoices">
+<app-invoice *ngIf="hasInvoices && !editingInvoice" (click)="toggleEdit()"></app-invoice>
+<div class="no-invoices" *ngIf="!hasInvoices && !editingInvoice">
   <img src="../assets/illustration-empty.svg">
   <div class="no-invoices-header">
     <h2> There is nothing here </h2>
@@ -42,3 +42,20 @@
     <p> Create an invoice by clicking the <b>New</b> button and get started</p>
   </div>
 </div>
+
+<!-- Filter Menu -->
+<mat-menu class="filter-menu" #menu="matMenu">
+  <section class="filter-selection">
+    <div>
+      <mat-checkbox class="example-margin" (click)="$event.stopPropagation();">Draft</mat-checkbox>
+    </div>
+    <div>
+      <mat-checkbox class="example-margin" (click)="$event.stopPropagation();">Pending</mat-checkbox>
+    </div>
+    <div>
+      <mat-checkbox class="example-margin" (click)="$event.stopPropagation();">Paid</mat-checkbox>
+    </div>
+  </section>
+</mat-menu>
+
+<app-view-invoice *ngIf="editingInvoice" (endEdit)="backToMain($event)"></app-view-invoice>
