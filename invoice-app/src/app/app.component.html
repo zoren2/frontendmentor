@@ -7,7 +7,7 @@
   <img class="theme-button" src="../assets/icon-sun.svg">
   <div class="user-icon-box">
     <img class="user-icon" src="../assets/image-avatar.jpg">
-  </div> 
+  </div>
 </div>
 <!-- Top Row Under The Nav-->
 <div class="invoice-nav">
@@ -15,9 +15,13 @@
     <h1 class="invoice-info-header"> Invoices </h1>
     <p class="invoice-info-content"> # of Invoices </p>
   </div>
-    <h2 class="filter-select"> Filter </h2>
-  <img class="icon-arrow-down" src="../assets/icon-arrow-down.svg">
-  <button class="new-invoice-btn">
+  <button class="filter-button">
+    <span class="filter-button-container">
+      <h2 class="filter-select"> Filter </h2>
+      <img class="icon-arrow-down" src="../assets/icon-arrow-down.svg">
+    </span>
+  </button>
+  <button class="new-invoice-btn" (click)="toggleHasInvoice()">
     <div class="add-indicator">
       <img class="add-indicator-img" src="../assets/icon-plus.svg">
     </div>
@@ -25,4 +29,16 @@
       <p>New</p>
     </div>
   </button>
+</div>
+
+<!-- Invoices -->
+<app-invoice *ngIf="hasInvoices"></app-invoice>
+<div class="no-invoices" *ngIf="!hasInvoices">
+  <img src="../assets/illustration-empty.svg">
+  <div class="no-invoices-header">
+    <h2> There is nothing here </h2>
+  </div>
+  <div class="no-invoices-text">
+    <p> Create an invoice by clicking the <b>New</b> button and get started</p>
+  </div>
 </div>
