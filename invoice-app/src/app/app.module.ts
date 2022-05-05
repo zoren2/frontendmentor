@@ -9,23 +9,45 @@ import { InvoiceComponent } from './invoice/invoice.component';
 /* Material Imports */
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatIconModule } from '@angular/material/icon'; 
+
+/* Forms */
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { InvoiceViewComponent } from './invoice-view/invoice-view.component';
 import { InvoiceItemComponent } from './invoice-item/invoice-item.component';
+import { InvoiceEditComponent } from './invoice-edit/invoice-edit.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     InvoiceComponent,
-    ViewInvoiceComponent,
-    InvoiceItemComponent
+    InvoiceViewComponent,
+    InvoiceItemComponent,
+    InvoiceEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

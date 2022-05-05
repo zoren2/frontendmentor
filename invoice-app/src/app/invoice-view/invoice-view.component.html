@@ -1,12 +1,3 @@
-<div class="edit-card-nav">
-    <button class="go-back-button" (click)="returnToMain()">
-        <span class="go-back-button-container">
-            <img src="../../assets/icon-arrow-left.svg">
-            <h3>Go Back</h3>
-        </span>
-    </button>
-</div>
-
 <div class="status-container">
     <p>Status</p>
     <div class="invoice-status">
@@ -95,13 +86,29 @@
 </div>
 
 <div class="invoice-edit-delete-mark">
-    <button class="invoice-edit-btn">
+    <button class="invoice-edit-btn" (click)="startEditInvoice()">
         <p>Edit</p>
     </button>
-    <button class="invoice-delete-btn">
+    <button class="invoice-delete-btn" (click)="openDeleteDialog(template)">
         <p>Delete</p>
     </button>
     <button class="invoice-mark-btn">
         <p>Mark as Paid</p>
     </button>
 </div>
+
+<!-- Modals !-->
+<ng-template #template>
+    <h2 mat-dialog-title></h2>
+    <mat-dialog-content class="mat-typography">
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to delete invoice 
+            #XM9141? This action cannot be undone.
+        </p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button mat-dialog-close>Delete</button>
+        <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+    </mat-dialog-actions>
+</ng-template>

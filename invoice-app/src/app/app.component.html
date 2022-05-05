@@ -10,7 +10,18 @@
   </div>
 </div>
 <!-- Top Row Under The Nav-->
-<div class="invoice-nav" *ngIf="hasInvoices && !editingInvoice">
+
+<!-- Back to Main Invoice Page-->
+<div class="view-edit-card-nav" *ngIf="viewingInvoice || editingInvoice">
+  <button class="go-back-button" (click)="returnToMain()">
+      <span class="go-back-button-container">
+          <img src="../../assets/icon-arrow-left.svg">
+          <h3>Go Back</h3>
+      </span>
+  </button>
+</div>
+
+<div class="invoice-nav" *ngIf="hasInvoices && !editingInvoice && !viewingInvoice">
   <div class="invoice-info">
     <h1 class="invoice-info-header"> Invoices </h1>
     <p class="invoice-info-content"> # of Invoices </p>
@@ -32,7 +43,7 @@
 </div>
 
 <!-- Invoices -->
-<app-invoice *ngIf="hasInvoices && !editingInvoice" (click)="toggleEdit()"></app-invoice>
+<app-invoice *ngIf="hasInvoices && !editingInvoice && !viewingInvoice" (click)="toggleViewingInvoice()"></app-invoice>
 <div class="no-invoices" *ngIf="!hasInvoices && !editingInvoice">
   <img src="../assets/illustration-empty.svg">
   <div class="no-invoices-header">
@@ -58,4 +69,6 @@
   </section>
 </mat-menu>
 
-<app-view-invoice *ngIf="editingInvoice" (endEdit)="backToMain($event)"></app-view-invoice>
+<!-- Display View / Edit / New-->
+<app-invoice-view *ngIf="viewingInvoice" (startEdit)="this.editMode($event)"></app-invoice-view>
+<app-invoice-edit *ngIf="editingInvoice"></app-invoice-edit>
