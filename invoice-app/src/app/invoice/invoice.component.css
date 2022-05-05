@@ -33,7 +33,7 @@
     justify-content: space-around;
 }
 
-.invoice-number {
+/* .invoice-number {
     font-size: 0.75rem;
     letter-spacing: -0.25px;
     line-height: 0.9375rem;
@@ -43,7 +43,7 @@
 .invoice-number::before {
     content: '#';
     color: #7E88C3;
-}
+} */
 
 .invoice-due-date {
     color: #7E88C3;
@@ -67,7 +67,7 @@
     align-self: center;
 }
 
-.invoice-client-name p{
+.invoice-client-name p {
     font-weight: 500;
     color: #858BB2;
 }
@@ -94,4 +94,9 @@
 
 .invoice-status-info {
     color: #33D69F;
+}
+
+.invoice-number  div p{
+    color: #7E88C3;
+
 }

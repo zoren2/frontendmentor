@@ -1,0 +1,22 @@
+.invoice-item-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 7.5rem;
+    padding: 2.25rem;
+}
+
+.invoice-item-quantity {
+    color: #7E88C3;
+}
+
+.quantity-total-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.item-total-price {
+    align-self: center;
+}

@@ -17,7 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
 a {
@@ -52,3 +52,60 @@ p {
     line-height: 0.9375rem;
     letter-spacing: -0.25px;
 }
+
+.invoice-status {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2fcf9;
+    width: 33vw;
+    height: 2.5rem;
+    border-radius: 0.375rem;
+    /* margin: auto; */
+}
+
+.invoice-status-indicator-paid {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #33D69F;
+    border-radius: 50%;
+    margin-right: .75rem;
+}
+
+.invoice-status-info-paid {
+    color: #33D69F;
+}
+
+/*
+ * Invoice Text #XMFG12
+ */
+
+.invoice-number {
+    display: inline;
+    font-size: 0.75rem;
+    letter-spacing: -0.25px;
+    line-height: 0.9375rem;
+    font-weight: 700;
+    margin-bottom: .75rem;
+}
+
+.invoice-number h3{
+    display: inline;
+}
+
+.invoice-number::before {
+    display: inline;
+    content: '#';
+    color: #7E88C3;
+}
+
+/* Sketch has this </p> tag individually styled */
+/* .invoice-client-name {
+    align-self: center;
+}
+
+.invoice-client-name p{
+    font-weight: 500;
+    color: #858BB2;
+} */

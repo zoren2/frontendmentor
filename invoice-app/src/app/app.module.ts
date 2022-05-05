@@ -10,13 +10,15 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
+import { InvoiceItemComponent } from './invoice-item/invoice-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     InvoiceComponent,
-    ViewInvoiceComponent
+    ViewInvoiceComponent,
+    InvoiceItemComponent
   ],
   imports: [
     BrowserModule,

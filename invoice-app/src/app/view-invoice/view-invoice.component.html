@@ -7,9 +7,101 @@
     </button>
 </div>
 
-<!-- <button mat-button [matMenuTriggerFor]="menu" class="filter-button">
-    <span class="filter-button-container">
-        <h2 class="filter-select"> Filter </h2>
-        <img class="icon-arrow-down" src="../assets/icon-arrow-down.svg">
-    </span>
-</button> -->
+<div class="status-container">
+    <p>Status</p>
+    <div class="invoice-status">
+        <div class="invoice-status-indicator-paid"></div>
+        <div class="invoice-status-info-paid">
+            <p>Paid</p>
+        </div>
+    </div>
+</div>
+
+<div class="client-info-container">
+    <div class="client-info-upper-left">
+        <div class="invoice-number">
+            <h3>XM9141</h3>
+        </div>
+        <div class="invoice-sale-type">
+            <p>Graphic Design</p>
+        </div>
+        <div class="client-info-street">
+            <p>19 Union Terrace</p>
+        </div>
+        <div class="client-info-city">
+            <p>London</p>
+        </div>
+        <div>
+            <p>E1 3EZ</p>
+        </div>
+        <div>
+            <p>United Kingdom</p>
+        </div>
+    </div>
+    <div class="client-info-middle">
+        <div class="client-info-middle-left">
+            <div>
+                <p>Invoice Date</p>
+            </div>
+            <div class="client-info-duedate">
+                <h3>21 Aug 2021</h3>
+            </div>
+            <div>
+                <p>Payment Due</p>
+            </div>
+            <div>
+                <h3>
+                    20 Sep 2021
+                </h3>
+            </div>
+        </div>
+        <div class="client-info-middle-right">
+            <div>
+                <p>Bill To</p>
+            </div>
+            <div>
+                <h3>Alex Grim</h3>
+            </div>
+            <div>
+                <p>84 Church Way</p>
+            </div>
+            <div>
+                <p>Bradford</p>
+            </div>
+            <div>
+                <p>BD1 9PB</p>
+            </div>
+            <div>
+                <p>United Kingdom </p>
+            </div>
+        </div>
+    </div>
+    <div class="client-info-email">
+        <div class="client-info-email-header">
+            <p>Sent to</p>
+        </div>
+        <div>
+            <h3>alexgrim@mail.com</h3>
+        </div>
+    </div>
+    <!-- Will need an ng directive -->
+    <div class="client-info-itemized">
+        <app-invoice-item></app-invoice-item>
+    </div>
+    <div class="client-info-grandtotal">
+        <p>Grand Total</p>
+        <h2>£ 556.00</h2>
+    </div>
+</div>
+
+<div class="invoice-edit-delete-mark">
+    <button class="invoice-edit-btn">
+        <p>Edit</p>
+    </button>
+    <button class="invoice-delete-btn">
+        <p>Delete</p>
+    </button>
+    <button class="invoice-mark-btn">
+        <p>Mark as Paid</p>
+    </button>
+</div>
