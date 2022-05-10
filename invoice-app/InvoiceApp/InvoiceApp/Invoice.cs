@@ -13,14 +13,22 @@ namespace InvoiceApp
         [Key]
         public Guid Id { get; set; }
 
-        public Client Client { get; set; }
-
-        public Sender Sender { get; set; }
-   
         public string Status { get; set; }
 
         public string PaymentTerms { get; set; }
 
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime DateDue { get; set; }
+
         public double TotalDue { get; set; } = 0.00;
+
+        /*
+         * Relationships
+         */
+
+        // Invoice has One Client and One Sender
+        public Client Client { get; set; }
+
+        public Sender Sender { get; set; }
     }
 }

@@ -22,6 +22,12 @@ builder.Services.AddCors(options =>
         builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
     });
 });
+
+builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

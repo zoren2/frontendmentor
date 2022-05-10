@@ -4,15 +4,22 @@ namespace InvoiceApp
 {
     public class Client
     {
-        public int ClientId { get; set; }
-
+        public int Id { get; set; }
+        [ForeignKey("Invoice")]
+        public Guid InvoiceId { get; set; }
         public string Name { get; set; } = string.Empty;
-
         public string Email { get; set; } = string.Empty;
+        public string Street { get; set; } = string.Empty;
+        public string City { get; set; } = string.Empty;
+        public string PostCode { get; set; } = string.Empty;
+        public string Country { get; set; } = string.Empty;
 
-        //[ForeignKey("AddressId")]
-        public Address? Address { get; set; }
 
-        public List<Item>? Items { get; set; }
+        /*
+         * Relationships
+         */
+        
+        //Client has many items
+        public ICollection<Item>? Item { get; set; }
     }
 }

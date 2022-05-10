@@ -22,19 +22,30 @@ namespace InvoiceApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("InvoiceApp.Address", b =>
+            modelBuilder.Entity("InvoiceApp.Client", b =>
                 {
-                    b.Property<int>("AddressId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddressId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("InvoiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -46,33 +57,10 @@ namespace InvoiceApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("AddressId");
+                    b.HasKey("Id");
 
-                    b.ToTable("Address");
-                });
-
-            modelBuilder.Entity("InvoiceApp.Client", b =>
-                {
-                    b.Property<int>("ClientId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClientId"), 1L, 1);
-
-                    b.Property<int?>("AddressId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ClientId");
-
-                    b.HasIndex("AddressId");
+                    b.HasIndex("InvoiceId")
+                        .IsUnique();
 
                     b.ToTable("Client");
                 });
@@ -83,41 +71,32 @@ namespace InvoiceApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("ClientId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("DateDue")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int?>("PaymentTermsId")
-                        .HasColumnType("int");
+                    b.Property<string>("PaymentTerms")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SenderId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("StatusId")
-                        .HasColumnType("int");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("TotalDue")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId");
-
-                    b.HasIndex("PaymentTermsId");
-
-                    b.HasIndex("SenderId");
-
-                    b.HasIndex("StatusId");
-
                     b.ToTable("Invoice");
                 });
 
             modelBuilder.Entity("InvoiceApp.Item", b =>
                 {
-                    b.Property<int>("ItemId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ItemId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int?>("ClientId")
                         .HasColumnType("int");
@@ -135,7 +114,7 @@ namespace InvoiceApp.Migrations
                     b.Property<double>("TotalPrice")
                         .HasColumnType("float");
 
-                    b.HasKey("ItemId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ClientId");
 
@@ -167,12 +146,29 @@ namespace InvoiceApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("AddressId")
-                        .HasColumnType("int");
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("InvoiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PostCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AddressId");
+                    b.HasIndex("InvoiceId")
+                        .IsUnique();
 
                     b.ToTable("Sender");
                 });
@@ -196,59 +192,41 @@ namespace InvoiceApp.Migrations
 
             modelBuilder.Entity("InvoiceApp.Client", b =>
                 {
-                    b.HasOne("InvoiceApp.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId");
-
-                    b.Navigation("Address");
-                });
-
-            modelBuilder.Entity("InvoiceApp.Invoice", b =>
-                {
-                    b.HasOne("InvoiceApp.Client", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId");
-
-                    b.HasOne("InvoiceApp.PaymentTerms", "PaymentTerms")
-                        .WithMany()
-                        .HasForeignKey("PaymentTermsId");
-
-                    b.HasOne("InvoiceApp.Sender", "Sender")
-                        .WithMany()
-                        .HasForeignKey("SenderId");
-
-                    b.HasOne("InvoiceApp.Status", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId");
-
-                    b.Navigation("Client");
-
-                    b.Navigation("PaymentTerms");
-
-                    b.Navigation("Sender");
-
-                    b.Navigation("Status");
+                    b.HasOne("InvoiceApp.Invoice", null)
+                        .WithOne("Client")
+                        .HasForeignKey("InvoiceApp.Client", "InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("InvoiceApp.Item", b =>
                 {
                     b.HasOne("InvoiceApp.Client", null)
-                        .WithMany("Items")
+                        .WithMany("Item")
                         .HasForeignKey("ClientId");
                 });
 
             modelBuilder.Entity("InvoiceApp.Sender", b =>
                 {
-                    b.HasOne("InvoiceApp.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId");
-
-                    b.Navigation("Address");
+                    b.HasOne("InvoiceApp.Invoice", null)
+                        .WithOne("Sender")
+                        .HasForeignKey("InvoiceApp.Sender", "InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("InvoiceApp.Client", b =>
                 {
-                    b.Navigation("Items");
+                    b.Navigation("Item");
+                });
+
+            modelBuilder.Entity("InvoiceApp.Invoice", b =>
+                {
+                    b.Navigation("Client")
+                        .IsRequired();
+
+                    b.Navigation("Sender")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
