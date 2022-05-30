@@ -1,57 +1,58 @@
 <div>
     <form class="form-container">
-        <h2 class="form-header"> Edit <span class="form-header-hash">#</span>{{this.invoiceId | slice:0:6}}</h2>
+        <h2 *ngIf="this.addingInvoiceMode == true" class="form-header"> Adding <span>New </span>Draft</h2>
+        <h2 *ngIf="this.addingInvoiceMode == false" class="form-header"> Edit <span class="form-header-hash">#</span>{{this.invoiceId | slice:0:6}}</h2>
         <div class="mb-3">
             <h3>Bill From</h3>
-            <label for="street" class="form-label">
+            <label for="sender-street" class="form-label">
                 <p>Street Address</p>
             </label>
-            <input type="text" class="form-control" name="street" [(ngModel)]="invoiceSender.street">
-            <label class="form-label">
+            <input type="text" class="form-control" name="sender-street" [(ngModel)]="invoiceSender.street">
+            <label for="sender-city" class="form-label">
                 <p>City</p>
             </label>
-            <input type="text" class="form-control" name="city" [(ngModel)]="invoiceSender.city">
-            <label for="postCode" class="form-label">
+            <input type="text" class="form-control" name="sender-city" [(ngModel)]="invoiceSender.city">
+            <label for="sender-postCode" class="form-label">
                 <p>Post Code</p>
             </label>
-            <input type="text" class="form-control" name="postCode" [(ngModel)]="invoiceSender.postCode">
-            <label for="country" class="form-label">
+            <input type="text" class="form-control" name="sender-postCode" [(ngModel)]="invoiceSender.postCode">
+            <label for="sender-country" class="form-label">
                 <p>Country</p>
             </label>
-            <input type="text" class="form-control" name="country" [(ngModel)]="invoiceSender.country">
+            <input type="text" class="form-control" name="sender-country" [(ngModel)]="invoiceSender.country">
         </div>
         <div class="mb-3">
             <h3>Bill To</h3>
-            <label for="name" class="form-label">
+            <label for="client-name" class="form-label">
                 <p>Client's Name</p>
             </label>
-            <input type="text" class="form-control" name="name" [(ngModel)]="invoiceClient.name">
-            <label for="email" class="form-label">
+            <input type="text" class="form-control" name="client-name" [(ngModel)]="invoiceClient.name">
+            <label for="client-email" class="form-label">
                 <p>Client's Email</p>
             </label>
-            <input type="text" class="form-control" name="email" [(ngModel)]="invoiceClient.email">
+            <input type="text" class="form-control" name="client-email" [(ngModel)]="invoiceClient.email">
             <!-- NgModel-->
-            <label for="street" class="form-label">
+            <label for="client-street" class="form-label">
                 <p>Street Address</p>
             </label>
-            <input type="text" class="form-control" name="street" [(ngModel)]="invoiceClient.street">
-            <label class="form-label" for="city">
+            <input type="text" class="form-control" name="client-street" [(ngModel)]="invoiceClient.street">
+            <label for="client-city" class="form-label">
                 <p>City</p>
             </label>
-            <input type="text" class="form-control" name="city" [(ngModel)]="invoiceClient.city">
-            <label class="form-label" for="postCode">
+            <input type="text" class="form-control" name="client-city" [(ngModel)]="invoiceClient.city">
+            <label for="client-postCode" class="form-label">
                 <p>Post Code</p>
             </label>
-            <input type="text" class="form-control" name="postCode" [(ngModel)]="invoiceClient.postCode">
-            <label class="form-label" for="country">
+            <input type="text" class="form-control" name="client-postCode" [(ngModel)]="invoiceClient.postCode">
+            <label for="client-country" class="form-label">
                 <p>Country</p>
             </label>
-            <input type="text" class="form-control" name="country" [(ngModel)]="invoiceClient.country">
+            <input type="text" class="form-control" name="client-country" [(ngModel)]="invoiceClient.country">
             <label class="form-label" for="dueDate">
                 <p>Invoice Due Date</p>
             </label>
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY">
+                <input name="dueDate" matInput [matDatepicker]="picker" [(ngModel)]="invoiceDateDue">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker panelClass="datepickerOne"></mat-datepicker>
             </mat-form-field>
@@ -89,17 +90,20 @@
                 <label class="form-label">
                     <p>Quantity</p>
                 </label>
+                <!-- Inline onKeyPress allows only numbers-->
                 <input type="number" class="form-control" name="quantity{{index}}"
-                    [(ngModel)]="editItems[index].quantity">
+                    [(ngModel)]="editItems[index].quantity"
+                    onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
                 <label class="form-label">
                     <p>Price</p>
                 </label>
                 <input type="number" step="0.01" min="0" class="form-control" name="price{{index}}"
-                    [(ngModel)]="editItems[index].price">
+                    [(ngModel)]="editItems[index].price"
+                    onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
                 <label class="form-label" for="total">
                     <p>Total</p>
                 </label>
-                <input disabled [value]="calculateTotal(item)" class="form-control">
+                <input disabled name="total-price{{index}}" [value]="calculateTotal(item)" class="form-control">
                 <div class="trash-can-item-btn" (click)="deleteItem(index)">
                     <img src="../../assets/icon-delete.svg">
                 </div>
@@ -111,22 +115,26 @@
             </span>
         </button>
     </form>
+    <h2 class="add-edit-grand-total">Grand Total</h2>
 </div>
 
 <div class="invoice-edit-delete-mark">
-    <button class="invoice-edit-btn">
+    <!-- Edit mode buttons -->
+    <button *ngIf="!addingInvoiceMode" class="invoice-edit-btn" (click)="editReturnToMain()">
         <p>Cancel</p>
     </button>
-    <button class="invoice-edit-btn">
+    <button *ngIf="!addingInvoiceMode" class="invoice-mark-btn" (click)="saveChanges()">
+        <p>Save Changes</p>
+    </button>
+
+    <!-- Add mode buttons -->
+    <button *ngIf="addingInvoiceMode" class="invoice-edit-btn" (click)="editReturnToMain()">
         <p>Discard</p>
     </button>
-    <button class="invoice-delete-btn">
-        <p>Delete</p>
-    </button>
-    <button class="invoice-save-btn">
+    <button *ngIf="addingInvoiceMode" class="invoice-save-btn" (click)="saveToDraft()">
         <p>Save as Draft</p>
     </button>
-    <button class="invoice-mark-btn">
+    <button *ngIf="addingInvoiceMode" class="invoice-mark-btn" (click)="saveAndSend()">
         <p>Save and Send</p>
     </button>
 </div>

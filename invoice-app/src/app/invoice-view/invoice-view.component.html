@@ -1,32 +1,31 @@
 <div class="status-container">
     <p>Status</p>
-    <div class="invoice-status">
-        <div class="invoice-status-indicator-paid"></div>
-        <div class="invoice-status-info-paid">
-            <p>Paid</p>
+    <div [ngClass]="getStatus()">
+        <div [ngClass]="getStatusDot()">
         </div>
+        <p>{{viewInvoice.status | titlecase }}</p>
     </div>
 </div>
 
 <div class="client-info-container">
     <div class="client-info-upper-left">
         <div class="invoice-number">
-            <h3>XM9141</h3>
+            <h3>{{viewInvoice.id | slice:0:6}}</h3>
         </div>
         <div class="invoice-sale-type">
             <p>Graphic Design</p>
         </div>
         <div class="client-info-street">
-            <p>19 Union Terrace</p>
+            <p>{{viewInvoice.sender.street}}</p>
         </div>
         <div class="client-info-city">
-            <p>London</p>
+            <p>{{viewInvoice.sender.city}}</p>
         </div>
         <div>
-            <p>E1 3EZ</p>
+            <p>{{viewInvoice.sender.postCode}}</p>
         </div>
         <div>
-            <p>United Kingdom</p>
+            <p>{{viewInvoice.sender.country}}</p>
         </div>
     </div>
     <div class="client-info-middle">
@@ -35,14 +34,14 @@
                 <p>Invoice Date</p>
             </div>
             <div class="client-info-duedate">
-                <h3>21 Aug 2021</h3>
+                <h3>Aug-21-2021</h3>
             </div>
             <div>
                 <p>Payment Due</p>
             </div>
             <div>
                 <h3>
-                    20 Sep 2021
+                    {{viewInvoice.dateDue | date:'LLLL-dd-yyyy'}}
                 </h3>
             </div>
         </div>
@@ -51,19 +50,19 @@
                 <p>Bill To</p>
             </div>
             <div>
-                <h3>Alex Grim</h3>
+                <h3>{{viewInvoice.client.name}}</h3>
             </div>
             <div>
-                <p>84 Church Way</p>
+                <p>{{viewInvoice.client.street}}</p>
             </div>
             <div>
-                <p>Bradford</p>
+                <p>{{viewInvoice.client.city}}</p>
             </div>
             <div>
-                <p>BD1 9PB</p>
+                <p>{{viewInvoice.client.postCode}}</p>
             </div>
             <div>
-                <p>United Kingdom </p>
+                <p>{{viewInvoice.client.country}}</p>
             </div>
         </div>
     </div>
@@ -72,43 +71,76 @@
             <p>Sent to</p>
         </div>
         <div>
-            <h3>alexgrim@mail.com</h3>
+            <h3>{{viewInvoice.client.email}}</h3>
         </div>
     </div>
-    <!-- Will need an ng directive -->
+
+    <!-- Items List -->
     <div class="client-info-itemized">
-        <app-invoice-item></app-invoice-item>
+        <!-- <app-invoice-item></app-invoice-item> -->
+        <div *ngFor="let item of itemsForInvoice" class="invoice-item-container">
+            <div class="quantity-total-container">
+                <h3>{{item.name}}</h3>
+                <p class="invoice-item-quantity">{{item.quantity}} x £ {{item.price | number : '1.2-2'}}</p>
+            </div>
+            <h3 class="item-total-price">£ {{item.totalPrice | number : '1.2-2'}}</h3>
+        </div>
+
     </div>
     <div class="client-info-grandtotal">
         <p>Grand Total</p>
-        <h2>£ 556.00</h2>
+        <h2>£ {{viewInvoice.totalDue | number : '1.2-2' }}</h2>
     </div>
 </div>
 
+<!--
+    Buttons
+-->
 <div class="invoice-edit-delete-mark">
     <button class="invoice-edit-btn" (click)="startEditInvoice()">
         <p>Edit</p>
     </button>
-    <button class="invoice-delete-btn" (click)="openDeleteDialog(template)">
+    <button class="invoice-delete-btn" (click)="openDialog(delete)">
         <p>Delete</p>
     </button>
-    <button class="invoice-mark-btn">
+    <button *ngIf="viewInvoice.status.toLowerCase() == 'pending'" class="invoice-mark-btn"
+        (click)="openDialog(markAsPaid)">
         <p>Mark as Paid</p>
     </button>
 </div>
 
-<!-- Modals !-->
-<ng-template #template>
+<!-- 
+    Modals 
+!-->
+
+<!-- Confirm Delete Modal -->
+<ng-template #delete>
     <h2 mat-dialog-title></h2>
     <mat-dialog-content class="mat-typography">
         <h2>Confirm Deletion</h2>
-        <p>Are you sure you want to delete invoice 
-            #XM9141? This action cannot be undone.
+        <p>Are you sure you want to delete invoice
+            #{{viewInvoice.id | slice:0:6}}? This action cannot be undone.
         </p>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-button mat-dialog-close>Delete</button>
+        <button mat-button mat-dialog-close class="invoice-edit-btn" style="margin-right:1rem;">Cancel</button>
+        <button (click)="deleteInvoice()" mat-button mat-dialog-close class="invoice-delete-btn">Delete</button>
+        <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+    </mat-dialog-actions>
+</ng-template>
+
+<!-- Mark As Paid Modal -->
+<ng-template #markAsPaid>
+    <h2 mat-dialog-title></h2>
+    <mat-dialog-content class="mat-typography">
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to mark invoice
+            #{{viewInvoice.id | slice:0:6}} as paid? This action cannot be undone.
+        </p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close class="invoice-edit-btn" style="margin-right:1rem;">Cancel</button>
+        <button (click)="markInvoiceAsPaid()" mat-dialog-close class="invoice-mark-btn">Mark as Paid</button>
         <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
     </mat-dialog-actions>
 </ng-template>

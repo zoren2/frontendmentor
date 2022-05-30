@@ -1,5 +1,5 @@
 <div class="navbar-top">
-  <div class="logo-container">
+  <div class="logo-container" (click)="returnToMain()">
     <div class="logo-upper"></div>
     <div class="logo-bottom"></div>
     <img class="logo-image" src="../assets/logo.svg">
@@ -14,10 +14,10 @@
 <!-- Back to Main Invoice Page-->
 <div class="view-edit-card-nav" *ngIf="viewingInvoice || editingInvoice">
   <button class="go-back-button" (click)="returnToMain()">
-      <span class="go-back-button-container">
-          <img src="../../assets/icon-arrow-left.svg">
-          <h3>Go Back</h3>
-      </span>
+    <span class="go-back-button-container">
+      <img src="../../assets/icon-arrow-left.svg">
+      <h3>Go Back</h3>
+    </span>
   </button>
 </div>
 
@@ -32,7 +32,8 @@
       <img class="icon-arrow-down" src="../assets/icon-arrow-down.svg">
     </span>
   </button>
-  <button class="new-invoice-btn" (click)="toggleHasInvoice()">
+  <!-- Toggle New Invoice !-->
+  <button class="new-invoice-btn" (click)="toggleAdd()">
     <div class="add-indicator">
       <img class="add-indicator-img" src="../assets/icon-plus.svg">
     </div>
@@ -42,9 +43,8 @@
   </button>
 </div>
 
-<!-- Invoices -->
-<app-invoice *ngIf="hasInvoices && !editingInvoice && !viewingInvoice" (click)="toggleViewingInvoice()"></app-invoice>
-<div class="no-invoices" *ngIf="!hasInvoices && !editingInvoice">
+<!-- Background Image If No Invoices Found-->
+<div class="no-invoices" *ngIf="(invoices$ | async)?.length == 0 && !editingInvoice">
   <img src="../assets/illustration-empty.svg">
   <div class="no-invoices-header">
     <h2> There is nothing here </h2>
@@ -54,21 +54,50 @@
   </div>
 </div>
 
+<!-- <p *ngFor="let invoice of invoices$  | async "> 
+  {{invoice.id}}  
+</p> -->
+
+<!-- Event Emitter will signal to main component to Edit-->
+<ng-container *ngIf="!editingInvoice && !viewingInvoice">
+  <app-invoice *ngFor="let invoice of invoices$ | async; trackBy: trackInvoiceFn"
+    (showInvoice)="toggleViewingInvoice($event)" [invoice]="invoice" [showDraftsChecked]="showDraftsChecked"
+    [showPaidChecked]="showPaidChecked" [showPendingChecked]="showPendingChecked">
+  </app-invoice>
+</ng-container>
+
 <!-- Filter Menu -->
 <mat-menu class="filter-menu" #menu="matMenu">
   <section class="filter-selection">
     <div>
-      <mat-checkbox class="example-margin" (click)="$event.stopPropagation();">Draft</mat-checkbox>
+      <mat-checkbox class="example-margin" (click)="$event.stopPropagation();" [(ngModel)]="showDraftsChecked"
+        name="showDraftsChecked">Draft</mat-checkbox>
     </div>
     <div>
-      <mat-checkbox class="example-margin" (click)="$event.stopPropagation();">Pending</mat-checkbox>
+      <mat-checkbox class="example-margin" (click)="$event.stopPropagation();" [(ngModel)]="showPendingChecked">Pending
+      </mat-checkbox>
     </div>
     <div>
-      <mat-checkbox class="example-margin" (click)="$event.stopPropagation();">Paid</mat-checkbox>
+      <mat-checkbox class="example-margin" (click)="$event.stopPropagation();" [(ngModel)]="showPaidChecked">Paid
+      </mat-checkbox>
     </div>
   </section>
 </mat-menu>
 
 <!-- Display View / Edit / New-->
-<app-invoice-view *ngIf="viewingInvoice" (startEdit)="this.editMode($event)"></app-invoice-view>
-<app-invoice-edit *ngIf="editingInvoice"></app-invoice-edit>
+<app-invoice-view *ngIf="viewingInvoice" 
+  (startEdit)="this.changeMode($event)"
+  (deleteInvoiceEmit)="deleteInvoice($event)" 
+  (endView)="this.changeMode($event)" 
+  [viewInvoice]="currentInvoice"
+  [itemsForInvoice]="currentItems"
+></app-invoice-view>
+
+<app-invoice-edit *ngIf="editingInvoice" 
+  (endEdit)="this.changeMode($event)" 
+  (saveDraft)="this.saveDraft($event)"
+  (addInvoice)="addInvoiceToMain($event)" 
+  [editInvoice]="currentInvoice" 
+  [editInvoiceItems]="currentItems"
+  [addingInvoiceMode]="addingInvoice">
+</app-invoice-edit>

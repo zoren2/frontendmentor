@@ -16,8 +16,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDialogModule } from '@angular/material/dialog'; 
-import { MatIconModule } from '@angular/material/icon'; 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 /* Forms */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +28,10 @@ import { InvoiceItemComponent } from './invoice-item/invoice-item.component';
 import { InvoiceEditComponent } from './invoice-edit/invoice-edit.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 
+/* Date formats */
+import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MY_DATE_FORMATS } from './my-date-formats';
 
 
 @NgModule({
@@ -47,14 +51,18 @@ import { InvoiceComponent } from './invoice/invoice.component';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatInputModule,
     MatDialogModule,
     MatIconModule,
-    HttpClientModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MomentDateModule
   ],
-  providers: [],
+  providers: [
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

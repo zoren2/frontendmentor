@@ -32,3 +32,17 @@
         "country": "United Kingdom"
     }
 }
+
+.pipe(
+      map(([invoices, clientMap, senderMap]) => Object.keys(invoices)
+        .map(invoiceKey => {
+          const invoice = invoices[invoiceKey];
+          const client = clientMap[invoiceKey];
+          const sender = senderMap[invoiceKey];
+          return {
+            ...invoice,
+            client,
+            sender
+          };
+        })
+      ))

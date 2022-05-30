@@ -1,9 +1,13 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectorRef } from '@angular/core';
 import { Client } from '../client.model';
 import { Invoice } from '../invoice.model';
 import { Item } from '../item.model';
 import { Sender } from '../sender.model';
+import { Guid } from 'guid-typescript';
+
+/* Material Imports */
 import { MatFormFieldControl } from '@angular/material/form-field';
+import { InvoiceApiService } from '../invoice-api.service';
 
 
 @Component({
@@ -23,13 +27,14 @@ export class InvoiceEditComponent implements OnInit {
    * Inputs 
    */
   @Input() editInvoice!: Invoice;
-  @Input() editItemsInvoice!: Item[];
+  @Input() editInvoiceItems!: Item[];
 
   /*
    * Outputs
    */
   @Output() endEdit = new EventEmitter();
-
+  @Output() saveDraft = new EventEmitter();
+  @Output() addInvoice = new EventEmitter();
 
   /*
    * Form Fields
@@ -42,38 +47,54 @@ export class InvoiceEditComponent implements OnInit {
   invoiceClient!: Client;
   invoiceSender!: Sender;
   editItems!: Item[];
+  totalDue!: number;
 
   /*
    * Edit / Add Mode 
-   * - Controlled explicitly by boolean values
+   * - If Adding Invoice is true then serve an empty object.
    */
+  @Input() addingInvoiceMode !: boolean;
 
+  constructor(private apiService: InvoiceApiService, private cdr: ChangeDetectorRef) { }
 
-  constructor() { }
-
+  /* Populate temporary invoice fields in order to submit them to the back end */
   ngOnInit(): void {
-    console.log(this.editInvoice);
-    this.invoiceId = this.editInvoice.id;
-    this.invoiceStatus = this.editInvoice.status;
-    this.invoiceDateDue = this.editInvoice.dateDue;
-    this.invoiceAmountDue = this.editInvoice.totalDue;
-    this.invoicePaymentTerms = this.editInvoice.paymentTerms;
-    this.invoiceClient = this.editInvoice.client;
-    this.invoiceSender = this.editInvoice.sender;
+    if (this.addingInvoiceMode == true) {
+      this.invoiceId = "";
+      this.invoiceStatus = "";
+      this.invoiceDateDue = new Date;
+      this.invoiceAmountDue = 0;
+      this.invoicePaymentTerms = "Net 1 Day";
+      this.invoiceClient = new Client();
+      this.invoiceSender = new Sender();
+      this.editItems = new Array();
+      this.editInvoiceItems = new Array();
+      this.addItem();
+    }
 
-    this.editItems = new Array();
-    this.editItemsInvoice.forEach(item => this.editItems.push(item))
-
-    console.log(this.invoiceSender);
-    console.log(this.editItems);
+    /* User is editing an existing invoice */
+    else {
+      this.invoiceId = this.editInvoice.id;
+      this.invoiceStatus = this.editInvoice.status;
+      this.invoiceDateDue = this.editInvoice.dateDue;
+      this.invoiceAmountDue = this.editInvoice.totalDue;
+      this.invoicePaymentTerms = this.editInvoice.paymentTerms;
+      this.invoiceClient = this.editInvoice.client;
+      this.invoiceSender = this.editInvoice.sender;
+      this.totalDue = this.editInvoice.totalDue;
+      if (this.editItems == null)  // User saved a partially filled draft
+        this.editItems = new Array();
+      this.editInvoiceItems.forEach(item => this.editItems.push(item));
+    }
   }
 
   returnToMain(): void {
-    this.endEdit.emit('back-to-main');
+    this.endEdit.emit('main');
   }
 
   calculateTotal(item: Item): number {
-    return item.price * item.quantity;
+    /* Fixes falsey values to return 0 instead of unhelpful NaN */
+    return item.price * item.quantity || 0;
   }
 
   deleteItem(index: number): void {
@@ -81,6 +102,146 @@ export class InvoiceEditComponent implements OnInit {
   }
 
   addItem(): void {
-    this.editItems.push(new Item());
+    let addNewItem = new Item(); // Need to set item variables to prepare it for the back end
+    addNewItem.setClientId(this.invoiceClient.id);
+    this.editItems.push(addNewItem);
+  }
+
+  /*
+   * HTTP Post 
+   * Grabs unused ID's for Client and Sender models
+   * from the back end before submitting.
+   */
+  saveAndSend(): void {
+    this.calculatePrices();
+    this.processItems();
+
+    let tempInvoice = new Invoice();
+    tempInvoice.setId(Guid.create().toString());
+    tempInvoice.setStatus("Pending");
+    tempInvoice.setPaymentTerms(this.invoicePaymentTerms);
+    tempInvoice.setDateDue(this.invoiceDateDue);
+    tempInvoice.setTotalDue(this.totalDue);
+    tempInvoice.setClient(this.invoiceClient);
+    tempInvoice.setSender(this.invoiceSender);
+
+    /* Set items */
+    this.editItems.forEach
+      (item => {
+        tempInvoice.getClient().setItem(item)
+        this.apiService.addItem(item);
+      });
+
+    this.apiService.addInvoice(tempInvoice).subscribe();
+
+    this.returnToMain();
+  }
+
+  /* 
+   * HTTP Post Invoice
+   * Posts a draft
+   */
+  saveToDraft(): void {
+    this.calculatePrices();
+    this.processItems();
+
+    let tempInvoice: Invoice = new Invoice(
+      Guid.create().toString(),
+      "Draft",
+      this.invoicePaymentTerms,
+      this.invoiceDateDue,
+      this.totalDue,
+      this.invoiceClient,
+      this.invoiceSender);
+
+    /* Set items then the Invoice */
+    this.editItems.forEach
+      (item => {
+        tempInvoice.getClient().setItem(item)
+        this.apiService.addItem(item);
+      });
+
+    this.apiService.addInvoice(tempInvoice).subscribe();
+
+    this.returnToMain();
+  }
+
+  /*
+   * HTTP Put Invoice
+   * Edit Existing Invoice
+   */
+  saveChanges() {
+    this.calculatePrices();
+    this.processItems();
+
+    let tempInvoice: Invoice = new Invoice(
+      this.invoiceId,
+      this.invoiceStatus,
+      this.invoicePaymentTerms,
+      this.invoiceDateDue,
+      this.totalDue,
+      this.invoiceClient,
+      this.invoiceSender
+    )
+
+    /* Entityframework each table to be explicitly edited */
+    this.editItems.forEach(
+      item => {
+        this.apiService.updateItems(item.id, item)
+      }
+    );
+
+    /* If Invoice is a draft save it as a permanent one in the Pending state */
+    if (this.invoiceStatus.toLowerCase() === "draft")
+      this.apiService.updateInvoice(this.invoiceId, new Invoice(
+        this.invoiceId,
+        "Pending",
+        this.invoicePaymentTerms,
+        this.invoiceDateDue,
+        this.totalDue,
+        this.invoiceClient,
+        this.invoiceSender
+      ));
+    else
+      this.apiService.updateInvoice(this.invoiceId, new Invoice(
+        this.invoiceId,
+        this.invoiceStatus,
+        this.invoicePaymentTerms,
+        this.invoiceDateDue,
+        this.totalDue,
+        this.invoiceClient,
+        this.invoiceSender
+      ));
+
+    this.returnToMain();
+  }
+
+  /*
+   * Private Class Methods
+   */
+
+  private calculatePrices() {
+    /* Calculate total price*/
+    let tempTotal = 0;
+    this.editItems.forEach(item => {
+      item.totalPrice = item.quantity * item.price;
+      tempTotal += item.quantity * item.price || 0
+    });
+    this.totalDue = tempTotal;
+  }
+
+  private processItems() {
+    this.editInvoiceItems.forEach(item => {
+      if (item !== null)
+        this.editItems.push(item);
+    });
+  }
+
+  /*
+   * Emitted Events
+   */
+  editReturnToMain(): void {
+    // this.cdr.markForCheck();
+    this.endEdit.emit("main");
   }
 }

@@ -77,7 +77,7 @@ form h3 {
     width: 19.5vw;
     height: 3rem;
     border: none;
-    background-color: #F9FAFE;
+    background-color: #dfe4f7;
     color: #7E88C3;
     text-align: center;
     border-radius: 1.5rem;
@@ -138,4 +138,10 @@ form h3 {
 
 .add-new-item-btn:hover {
     opacity: .5
+}
+
+.add-edit-grand-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
