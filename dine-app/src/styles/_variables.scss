@@ -1,0 +1,65 @@
+/* 
+ * Primary Colors 
+ */
+$primary-color: #9e7f66;
+$primary-text: #111111;
+$primary-white: #FFFFFF;
+
+/*
+ * Secondary Colors
+ */
+$secondary-color: #242b37;
+$secondary-body: #5c6779;
+$secondary-body-2: #17192b;
+
+/*
+ * Headers
+ */
+
+$font-weight-header: (
+    "xl": 300,
+    "l": 700,
+    "m": 700,
+    "s": 600
+);
+
+$font-size-header: (
+    "xl": 5rem,
+    "l": 3rem,
+    "m": 1.25rem,
+    "s": 1.0625rem
+);
+
+$line-height-header: (
+    "xl": 5rem,
+    "l": 3rem,
+    "m": 1.5rem,
+    "s": 1.75rem
+);
+
+$letter-spacing: (
+    "xl": -1px,
+    "l": -.5px,
+    "m": -.25px,
+    "s": 2.5px,
+    "none": 0px
+);
+
+/*
+ * Body Paragraphs
+ */
+
+$font-weight-body: (
+    "body": 400,
+    "body-2": 400
+);
+
+$font-size-body: (
+    "body-1": 1.25rem,
+    "body-2": 1rem
+);
+
+$line-height-body: (
+    "body-1": 1.875rem,
+    "body-2": 1.625rem
+);

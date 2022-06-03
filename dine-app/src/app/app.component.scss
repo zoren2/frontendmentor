@@ -1,0 +1,55 @@
+@import "../styles/styles";
+@import "../styles/variables";
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.main-container img {
+    max-width: 100%;
+    display: block;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    height: 619px;
+    width: 100vw;
+    position: absolute;
+    margin-top: 215px;
+    align-items: center;
+    background-color: black;
+    padding: 1.5rem;
+}
+
+.hero-header-logo {
+    @include font-style(
+        $primary-white,
+        map-get($font-weight-header, "l"),
+        map-get($font-size-header, "l"),
+        map-get($line-height-header, "l"),
+        map-get($letter-spacing, "l")
+    );
+    margin-bottom: 2rem;
+}
+
+/* Figma design doc doesn't adhere to its own design...*/
+.hero-header {
+    @include font-style($primary-white, map-get($font-weight-header, "xl"), (2rem), (2.5rem), (-0.4px));
+    width: 60%;
+    text-align: center;
+    margin-bottom: 1.3rem;
+}
+
+.hero-text {
+    @include font-style(
+        $primary-white,
+        map-get($font-weight-body, "body"),
+        map-get($font-size-body, "body-2"),
+        map-get($line-height-body, "body-2"),
+        map-get($letter-spacing, "none")
+    );
+    text-align: center;
+}
