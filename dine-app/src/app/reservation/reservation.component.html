@@ -1,0 +1,124 @@
+<div class=main-container>
+    <img class="hero-shrimp" src="../../assets/booking/hero-bg-mobile@2x.jpg" alt="hero-bg-mobile">
+
+    <div class="hero-container-transparent">
+        <h2 class="hero-header-logo"><a class="home-logo-link" routerLink="/home"> dine </a></h2>
+        <h1 class="hero-header">Reservations</h1>
+        <p class="hero-text">
+            We can’t wait to host you. If you have any special requirements please feel free to call on the phone number
+            below. We’ll be happy to accommodate you.
+        </p>
+        <button class="book-button-transparent reserve-button">RESERVE PLACE</button>
+
+        <!-- Template-Driven Forms !-->
+        <div class="form-container">
+            <div [hidden]="submitted">
+                <form (ngSubmit)="onSubmit()" #reservationForm="ngForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-input" id="name" required
+                            [(ngModel)]="reservation.name" name="name" #name="ngModel" placeholder="Name"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" [ngClass]="
+                            {'error-message': !name.valid && !name.untouched}">
+
+                        <!-- Error Message Name-->
+                        <div [hidden]="name.valid || name.untouched" class="error">
+                            Name is required
+                        </div>
+
+                        <input type="text" class="form-control form-input" id="email" required
+                            [(ngModel)]="reservation.email" name="email" #email="ngModel" placeholder="Email"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" [ngClass]="
+                            {'error-message': !email.valid && !email.untouched}">
+                        <!-- Error Message Email-->
+                        <div [hidden]="email.valid || email.untouched" class="error">
+                            Email is required
+                        </div>
+
+                        <label for=" time" class="label">Pick A Date</label>
+                        <div class="date-container">
+                            <input type="text" pattern="\d*" class="date-input" id="month" required maxlength="2"
+                                placeholder="MM" name="month" #month="ngModel" [(ngModel)]="reservation.month"
+                                [ngClass]="
+                            {'error-message': 
+                            (!month.valid && !month.untouched) || (!day.valid && !day.untouched) || (!year.valid && !year.untouched)
+                        }">
+
+                            <input type="text" pattern="\d*" class="date-input" id="day" required maxlength="2"
+                                placeholder="DD" name="day" #day="ngModel" [(ngModel)]="reservation.day" [ngClass]="
+                            {'error-message': 
+                            (!month.valid && !month.untouched) || (!day.valid && !day.untouched) || (!year.valid && !year.untouched)
+                        }">
+
+                            <input type="text" pattern="\d*" class="date-input" id="year" required maxlength="4"
+                                placeholder="YYYY" name="year" #year="ngModel" [(ngModel)]="reservation.year" [ngClass]="
+                            {'error-message': 
+                            (!month.valid && !month.untouched) || (!day.valid && !day.untouched) || (!year.valid && !year.untouched)
+                        }">
+
+                        </div>
+
+                        <!-- Error Message Date-->
+                        <div *ngIf="(!month.valid && !month.untouched) || (!day.valid && !day.untouched) || (!year.valid && !year.untouched)"
+                            class="error">
+                            The field is incomplete.
+                        </div>
+                        <label for="time" class="label">Pick A Time</label>
+                        <div class="date-container">
+                            <input type="text" pattern="\d*" class="date-input" id="hour" required maxlength="2"
+                                placeholder="HH" name="hour" #hour="ngModel" [(ngModel)]="reservation.hour" [ngClass]="
+                            {'error-message': 
+                            (!hour.valid && !hour.untouched) || (!minute.valid && !minute.untouched)}">
+                            <input type="text" pattern="\d*" class="date-input" id="minute" required maxlength="2"
+                                placeholder="MM" name="minute" #minute="ngModel" [(ngModel)]="reservation.minute"
+                                [ngClass]="
+                            {'error-message': 
+                            (!hour.valid && !hour.untouched) || (!minute.valid && !minute.untouched)}">
+                            <!-- AM/PM !-->
+                            <select class="form-control dropdown" id="meridiem" required [ngClass]="
+                            {'error-message': 
+                            (!hour.valid && !hour.untouched) || (!minute.valid && !minute.untouched)}">
+                                <option>AM</option>
+                                <option>PM</option>
+                            </select>
+                        </div>
+                        <!-- Error Message Time-->
+                        <div *ngIf="(!hour.valid && !hour.untouched) || (!minute.valid && !minute.untouched)"
+                            class="error">
+                            The field is incomplete.
+                        </div>
+                        <div class="persons-container">
+                            <button class="persons-button-minus" (click)="onSubtract()"></button>
+                            <input type="text" class="persons-input" readonly [value]="getPeople()">
+                            <button class="persons-button-plus" (click)="onAdd()"></button>
+                        </div>
+                    </div>
+                    <!-- Submit !-->
+                    <button type="submit" class="btn btn-success book-button-reservation"
+                        [disabled]="!reservationForm.form.valid">MAKE RESERVATION</button>
+                </form>
+                <!-- Invisible Part After Submission-->
+                <!-- <div [hidden]="!submitted">
+                <h2>You submitted the following:</h2>
+                <div class="row">
+                    <div class="col-xs-3">Name</div>
+                    <div class="col-xs-9">{{ model.name }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">Alter Ego</div>
+                    <div class="col-xs-9">{{ model.alterEgo }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">Power</div>
+                    <div class="col-xs-9">{{ model.power }}</div>
+                </div>
+                <br>
+                <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+            </div> -->
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="filler-container">
+    </div>

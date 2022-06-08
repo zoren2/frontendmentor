@@ -1,0 +1,185 @@
+@import "../../styles/styles";
+@import "../../styles/variables";
+
+/* Mixins in ../styles/mixin */
+.main-container {
+    @include container((flex), (column), (100vw), null);
+}
+
+.main-container .hero-shrimp {
+    max-width: 100%;
+}
+
+.hero-container {
+    @include container((flex), (column), (100vw), (null));
+    position: absolute;
+    margin-top: 215px;
+    align-items: center;
+    background-color: transparent;
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+
+    justify-content: space-evenly;
+}
+
+.hero-header-logo {
+    @include font-style(
+        $primary-white,
+        map-get($font-weight-header, "l"),
+        map-get($font-size-header, "l"),
+        map-get($line-height-header, "l"),
+        map-get($letter-spacing, "l")
+    );
+    margin-bottom: 2rem;
+}
+
+/* Figma design doc doesn't adhere to its own design...*/
+.hero-header {
+    @include font-style($primary-white, map-get($font-weight-header, "xl"), (2rem), (2.5rem), (-0.4px));
+    width: 60%;
+    text-align: center;
+    margin-bottom: 1.3rem;
+}
+
+.hero-text {
+    @include font-style(
+        $primary-white,
+        map-get($font-weight-body, "body"),
+        map-get($font-size-body, "body-2"),
+        map-get($line-height-body, "body-2"),
+        map-get($letter-spacing, "none")
+    );
+    text-align: center;
+    margin-bottom: 1.3rem;
+}
+
+.home-logo-link {
+    all: unset;
+}
+.home-logo-link:hover {
+    cursor: pointer;
+}
+
+.form-container {
+    @include container((flex), (column), (87vw), null);
+    background-color: $primary-white;
+    padding: 2rem;
+    box-shadow: 0 25px 6px -6px #cccaca;
+    // position: absolute;
+    // margin-top: 100rem;
+}
+
+.form-input {
+    // background-color: purple;
+    width: 100%;
+    height: 2.5rem;
+    padding-left: 1rem;
+    border: none;
+    border-bottom: 1px solid $secondary-body;
+    padding: 5px 10px;
+    outline: none;
+    caret-color: $primary-color;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.date-container {
+    @include container((flex), (row), (100%), null);
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.date-input {
+    height: 2.5rem;
+    width: 25%;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid $secondary-body;
+    outline: none;
+    caret-color: $primary-color;
+    font-size: 1.5rem;
+    margin: 1rem 0 2rem 0;
+    text-align: center;
+}
+
+.persons-container {
+    @include container((flex), (row), (100%), (3.25rem));
+    @include font-style($primary-text, (700), (1.25rem), (1.5rem), (-0.25px));
+    border-bottom: 1px solid $secondary-body;
+    margin-bottom: 2rem;
+}
+.persons-input {
+    width: 100%;
+    padding-bottom: 1rem;
+    border: none;
+    outline: none;
+    caret-color: $primary-color;
+    font-size: 1.5rem;
+    appearance: none;
+    text-align: center;
+}
+
+.filler-container {
+    @include container((null), (null), (100%), (600px));
+}
+
+/*
+ * Buttons
+ */
+.persons-button-minus {
+    all: unset;
+    background-image: url(../../assets/icons/icon-minus.svg);
+    background-repeat: no-repeat;
+    width: 2rem;
+    transform: translateY(1rem);
+    margin-left: 1rem;
+}
+
+.persons-button-plus {
+    all: unset;
+    background-image: url(../../assets/icons/icon-plus.svg);
+    background-repeat: no-repeat;
+    width: 2rem;
+    margin-left: 1rem;
+    transform: translateY(1rem);
+}
+
+.reserve-button {
+    margin-bottom: 9rem;
+}
+button:hover {
+    cursor: pointer;
+}
+
+/*
+ * Custom Select
+ */
+.dropdown {
+    background-position: right;
+    background-image: url(../../assets/icons/icon-arrow.svg);
+    background-repeat: no-repeat;
+    border: none;
+    appearance: none;
+    background-color: white;
+    border-bottom: 1px solid $secondary-body;
+    color: $primary-text;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    width: 20%;
+}
+
+/*
+ * Error Messages
+ */
+
+.error {
+    height: 2rem;
+    color: $error-message;
+    margin-bottom: 2rem;
+}
+
+.error-message {
+    color: $error-message;
+    border-bottom: 1px solid $error-message;
+    margin-bottom: 0.25rem;
+}
