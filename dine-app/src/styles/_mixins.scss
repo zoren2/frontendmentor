@@ -5,3 +5,12 @@
     line-height: $line-height;
     letter-spacing: $letter-spacing;
 }
+
+@mixin container($flex, $direction, $width, $height) {
+    display: $flex;
+    flex-direction: $direction;
+    width: $width;
+    height: $height;
+}
+@mixin button-style() {
+}

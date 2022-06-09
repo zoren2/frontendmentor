@@ -9,13 +9,17 @@ import { Reservation } from '../reservation.model';
 })
 export class ReservationComponent implements OnInit {
 
-  submitted: boolean = false;
+  submitted: boolean;
   reservation!: Reservation;
   counter: number = 1;
-  constructor() { }
+
+  constructor() {
+    this.reservation = new Reservation();
+    this.submitted = false;
+  }
 
   ngOnInit(): void {
-    this.reservation = new Reservation();
+
   }
 
   onAdd() {
@@ -26,8 +30,21 @@ export class ReservationComponent implements OnInit {
     if (this.counter > 1)
       this.counter--;
   }
-  onSubmit() {
+  onSubmit(reservationForm: any) {
+    reservationForm.form.markAllAsTouched();
+    if (!reservationForm.form.valid)
+      return;
+    console.log(reservationForm.form.value);
+    this.submitted = true;
+  }
 
+  toggleSubmitted() {
+    this.submitted = !this.submitted;
+    console.log('hi');
+    alert('hi');
+  }
+  touchAll(reservationForm: any) {
+    reservationForm.form.markAllAsTouched();
   }
 
   getPeople(): string {

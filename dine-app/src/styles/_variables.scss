@@ -3,14 +3,28 @@
  */
 $primary-color: #9e7f66;
 $primary-text: #111111;
-$primary-white: #FFFFFF;
+$primary-white: #ffffff;
 
 /*
  * Secondary Colors
  */
 $secondary-color: #242b37;
+$secondary-header: #4c4c4c;
 $secondary-body: #5c6779;
 $secondary-body-2: #17192b;
+
+/*
+ * Color misc
+ */
+$divide: #9e7f66;
+$error-message: #b54949;
+
+/*
+ * Breakpoints
+ */
+
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1440px;
 
 /*
  * Headers
@@ -20,29 +34,29 @@ $font-weight-header: (
     "xl": 300,
     "l": 700,
     "m": 700,
-    "s": 600
+    "s": 600,
 );
 
 $font-size-header: (
     "xl": 5rem,
     "l": 3rem,
     "m": 1.25rem,
-    "s": 1.0625rem
+    "s": 1.0625rem,
 );
 
 $line-height-header: (
     "xl": 5rem,
     "l": 3rem,
     "m": 1.5rem,
-    "s": 1.75rem
+    "s": 1.75rem,
 );
 
 $letter-spacing: (
     "xl": -1px,
-    "l": -.5px,
-    "m": -.25px,
+    "l": -0.5px,
+    "m": -0.25px,
     "s": 2.5px,
-    "none": 0px
+    "none": 0px,
 );
 
 /*
@@ -51,15 +65,15 @@ $letter-spacing: (
 
 $font-weight-body: (
     "body": 400,
-    "body-2": 400
+    "body-2": 400,
 );
 
 $font-size-body: (
     "body-1": 1.25rem,
-    "body-2": 1rem
+    "body-2": 1rem,
 );
 
 $line-height-body: (
     "body-1": 1.875rem,
-    "body-2": 1.625rem
+    "body-2": 1.625rem,
 );

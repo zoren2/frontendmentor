@@ -49,7 +49,7 @@
         map-get($letter-spacing, "none")
     );
     text-align: center;
-    margin-bottom: 1.3rem;
+    margin-bottom: 3rem;
 }
 
 .home-logo-link {
@@ -75,7 +75,7 @@
     padding-left: 1rem;
     border: none;
     border-bottom: 1px solid $secondary-body;
-    padding: 5px 10px;
+    padding: 5px 15px;
     outline: none;
     caret-color: $primary-color;
     font-size: 1.5rem;
@@ -85,7 +85,6 @@
 .date-container {
     @include container((flex), (row), (100%), null);
     justify-content: space-between;
-    margin-bottom: 2rem;
 }
 
 .date-input {
@@ -119,7 +118,7 @@
 }
 
 .filler-container {
-    @include container((null), (null), (100%), (600px));
+    @include container((null), (null), (100%), (615px));
 }
 
 /*
@@ -175,11 +174,18 @@ button:hover {
 .error {
     height: 2rem;
     color: $error-message;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .error-message {
     color: $error-message;
     border-bottom: 1px solid $error-message;
     margin-bottom: 0.25rem;
+}
+
+/* Mobile one looks nice - only change container sizes */
+@media screen and (min-width: $tablet-breakpoint) {
+    .filler-container {
+        height: 0;
+    }
 }

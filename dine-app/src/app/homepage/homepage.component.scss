@@ -1,5 +1,5 @@
-@import "../styles/styles";
-@import "../styles/variables";
+@import "../../styles/styles";
+@import "../../styles/variables";
 
 /* Mixins in ../styles/mixin */
 .main-container {
@@ -17,7 +17,6 @@
     align-items: center;
     background-color: black;
     padding: 1.5rem 1.5rem 3rem 1.5rem;
-
     justify-content: space-evenly;
 }
 
@@ -52,52 +51,6 @@
     margin-bottom: 1.3rem;
 }
 
-.book-button-white {
-    border: 2px solid white;
-    background-color: black;
-    color: white;
-    height: 50px;
-    width: 65%;
-    transition: 0.3s;
-}
-
-.book-button-white:hover {
-    cursor: pointer;
-    background-color: white;
-    color: black;
-}
-
-.book-button-black {
-    border: 2px solid black;
-    background-color: white;
-    color: black;
-    height: 50px;
-    width: 65%;
-    padding: 1rem;
-    transition: 0.3s;
-    padding-bottom: 2rem;
-}
-
-.book-button-black:hover {
-    cursor: pointer;
-    background-color: black;
-    color: white;
-}
-
-.book-button-transparent {
-    border: 2px solid white;
-    background-color: transparent;
-    color: white;
-    height: 50px;
-    width: 65%;
-    transition: 0.3s;
-}
-.book-button-transparent:hover {
-    cursor: pointer;
-    background-color: white;
-    color: rgba(0, 0, 0, 0.5);
-}
-
 .family-container {
     @include container((flex), (column), (100vw), (null));
     background-color: white;
@@ -115,7 +68,8 @@
 .family-forest-img {
     width: 87vw;
     align-self: center;
-    transform: translateY(-65px);
+    margin-bottom: -45px;
+    transform: translateY(265px) translateY(-95vw);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07),
         0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
@@ -178,7 +132,7 @@
         map-get($letter-spacing, "m")
     );
     text-align: center;
-    width: 80%;
+    width: 100%;
     margin-bottom: 0.8125rem;
 }
 
@@ -207,6 +161,20 @@
     margin-bottom: 2.25rem;
 }
 
+/* 
+ * Highlight Items 
+ */
+.menu-items-highlight-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-items-highlight-description {
+    display: flex;
+    flex-direction: column;
+}
+
 .family-gathering-container {
     @include container((flex), (column), (100vw), (null));
     background-color: white;
@@ -215,12 +183,21 @@
     margin-bottom: 10rem;
 }
 
+.family-lines {
+    align-self: flex-start;
+    padding-left: 23px;
+    transform: translate(-280px, 35px);
+    position: relative;
+    z-index: 2;
+}
+
 .family-gathering-img {
     width: 87vw;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07),
         0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
     margin-bottom: 3rem;
     align-self: center;
+    position: relative;
 }
 
 .family-gathering-header-small {
@@ -253,42 +230,165 @@
 
 .reservation-container {
     @include container((flex), (column), (100vw), (328px));
-    background-image: image-url("../assets/homepage/ready-bg-mobile@2x.jpg");
+    background-image: url(../../assets/homepage/ready-bg-mobile@2x.jpg);
     background-repeat: no-repeat;
-    background-position: initial;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.footer {
-    @include container((flex), (column), (100vw), (375px));
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    padding: 1.5rem;
-}
-
-.info-container {
-    @include container((flex), (column), (100vw), (200px));
-    margin-bottom: 10px;
-}
-
-.footer-text {
-    @include font-style($primary-white, map-get($font-weight-body, "body"), (14px), (10px), (0px));
-    margin-bottom: 1.3rem;
-    text-align: center;
-}
+/*
+ * Tablet
+ */
 
 @media screen and (min-width: $tablet-breakpoint) {
-    .footer {
-        @include container((flex), (row), (100vw), (300px));
-        align-items: center;
-        // justify-content: space-around;
-        padding-left: 10px;
+    .hero-container {
+        margin-top: 375px;
+        height: 570px;
+        padding: 0;
+        justify-content: unset;
+    }
+    .hero-text {
+        color: #ffffff;
+        font-weight: 400;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        letter-spacing: 0px;
+        text-align: center;
+        margin-bottom: 3.25rem;
+        width: 75vw;
     }
 
-    .info-container {
-        height: 100px;
-        width: 33vw;
+    .hero-header {
+        color: #ffffff;
+        font-weight: 300;
+        font-size: 3rem;
+        line-height: 4rem;
+        letter-spacing: -0.4px;
+        text-align: center;
+        margin-bottom: 1.3rem;
+        width: 40vw;
+    }
+
+    .book-button-white {
+        width: 32vw;
+        // margin-bottom: 7.5rem;
+    }
+
+    .family-forest-img {
+        margin-bottom: calc(-10px - 30vw) ; /* :( */
+        transform: translateY(310px) translateY(-55vw);
+    }
+
+    .family-header {
+        width: 50vw;
+        color: #111111;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 3rem;
+        letter-spacing: -0.5px;
+        text-align: center;
+        margin-bottom: 0.8125rem;
+    }
+
+    .family-text {
+        color: #111111;
+        font-weight: 400;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        letter-spacing: 0px;
+        text-align: center;
+        margin-bottom: 0;
+        width: 60vw;
+    }
+
+    .menu-items-main-header {
+        width: 50vw;
+        color: white;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 3rem;
+        letter-spacing: -0.5px;
+        text-align: center;
+        margin-bottom: 0.8125rem;
+    }
+
+    .menu-item-img {
+        width: 87vw;
+        margin-bottom: 2rem;
+    }
+    
+    .menu-items-header {
+        text-align: unset;
+        width: 100%;
+    }
+
+    .menu-items-text {
+        color: white;
+        font-weight: 400;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        letter-spacing: 0px;
+        text-align: center;
+        margin-bottom: 3.375rem;
+        width: 55vw;
+        text-align: left;
+        padding: 0;
+    }
+
+    .menu-items-highlight-container {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid $secondary-body;
+        width: 85vw;
+        margin-bottom: 2.1rem;
+    }
+
+    .menu-items-highlight-description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 2rem 2rem 2rem;
+    }
+
+    .menu-item-img {
+        width: 25vw;
+    }
+
+    .pattern-img {
+        transform: translate(-50vw, -0vw);
+        margin-bottom: -100px;
+    }
+
+    .pattern-img-left {
+        transform: translate(-52vw, 0px);
+        margin-bottom: -250px;
+        opacity: 1;
+        position: relative;
+        z-index:0;
+    }
+
+    .family-container {
+        margin-bottom: 5rem;
+    }
+    .family-text {
+        margin-bottom: 5rem;
+    }
+
+    .reservation-container {
+        @include container((flex), (column), (100vw), (328px));
+        background-image: image-url("../../assets/homepage/ready-bg-tablet@2x.jpg");
+        background-size: cover;
+    }
+
+    button {
+        width: 32vw !important;
     }
 }
+
+/*
+ * Desktop Design
+ */
+
+ @media screen and (min-width: $desktop-breakpoint) {
+     
+ }
