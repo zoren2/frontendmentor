@@ -1,16 +1,24 @@
 <div class=main-container>
-    <img class="hero-shrimp" src="../../assets/booking/hero-bg-mobile@2x.jpg" alt="hero-bg-mobile">
-
+    <img class="hero-shrimp" srcset="
+    ../../assets/booking/hero-bg-mobile@2x.jpg 350w,
+    ../../assets/booking/hero-bg-tablet@2x.jpg 768w,
+    ../../assets/booking/hero-bg-desktop@2x.jpg 1440w
+    " src="../../assets/booking/hero-bg-mobile@2x.jpg" alt="hero-bg-mobile">
     <div class="hero-container-transparent">
-        <h2 class="hero-header-logo"><a class="home-logo-link" routerLink="/home"> dine </a></h2>
-        <h1 class="hero-header">Reservations</h1>
-        <p class="hero-text">
-            We can’t wait to host you. If you have any special requirements please feel free to call on the phone number
-            below. We’ll be happy to accommodate you.
-        </p>
-        <button class="book-button-transparent reserve-button" onclick="document.getElementById('name').focus()">RESERVE
-            PLACE</button>
-        <!-- Template-Driven Forms !-->
+
+        <div class="hero-desktop-container">
+            <h2 class="hero-header-logo"><a class="home-logo-link" routerLink="/home"> dine </a></h2>
+            <h1 class="hero-header">Reservations</h1>
+            <p class="hero-text">
+                We can’t wait to host you. If you have any special requirements please feel free to call on the phone
+                number
+                below. We’ll be happy to accommodate you.
+            </p>
+            <button class="book-button-transparent reserve-button"
+                onclick="document.getElementById('name').focus()">RESERVE
+                PLACE</button>
+        </div>
+        <!-- Template-Driven Forms!-->
         <div class="form-container">
             <form (ngSubmit)="onSubmit(reservationForm)" #reservationForm="ngForm" [hidden]="submitted">
                 <div class="form-group">
@@ -106,6 +114,13 @@
         </div>
     </div>
 
-</div>
-<div class="filler-container" id="scroll">
-</div>
+    <div class="filler-container" id="scroll">
+        <img class="pattern-img"
+            srcset="../../assets/patterns/null.jpg 1w, ../../assets/patterns/pattern-curve-bottom-right.svg 768w"
+            src="../../assets/patterns/pattern-curve-bottom-right.svg">
+
+        <picture>
+            <source media="(min-width: 768px)" srcset="../assets/patterns/pattern-lines.svg">
+            <img class="family-lines">
+        </picture>
+    </div>

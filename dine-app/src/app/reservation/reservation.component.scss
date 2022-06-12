@@ -64,12 +64,9 @@
     background-color: $primary-white;
     padding: 2rem;
     box-shadow: 0 25px 6px -6px #cccaca;
-    // position: absolute;
-    // margin-top: 100rem;
 }
 
 .form-input {
-    // background-color: purple;
     width: 100%;
     height: 2.5rem;
     padding-left: 1rem;
@@ -186,6 +183,73 @@ button:hover {
 /* Mobile one looks nice - only change container sizes */
 @media screen and (min-width: $tablet-breakpoint) {
     .filler-container {
-        height: 0;
+        height: calc(550px + 20vw);
+    }
+
+    .pattern-img {
+        display: none;
+    }
+    .family-lines {
+        display: none;
+    }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+    .form-container {
+        z-index: 2;
+    }
+
+    .filler-container {
+        height: 420px;
+        display: flex;
+    }
+
+    .family-lines {
+        display: flex;
+        position: absolute;
+        transform: translate(-44vw, 15vw) translate(10px, 10px);
+        z-index: 1;
+    }
+
+    .pattern-img {
+        display: flex;
+        transform: translateX(-15vw);
+    }
+
+    .hero-container-transparent {
+        padding-top: 258px;
+        flex-direction: row;
+    }
+
+    .hero-header {
+        font-size: 80px;
+        line-height: 80px;
+        letter-spacing: -1px;
+        text-align: left;
+    }
+
+    .book-button-transparent {
+        display: none;
+    }
+
+    .hero-text {
+        font-size: 20px;
+        line-height: 30px;
+        width: 30vw;
+        text-align: left;
+    }
+    .hero-desktop-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 279px;
+    }
+
+    .form-container {
+        width: 37.5vw;
+        max-height: 600px;
+    }
+
+    .error {
+        min-height: 10px;
     }
 }

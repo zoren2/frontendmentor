@@ -11,7 +11,7 @@ body {
     @include container((flex), (column), (100vw), null);
 }
 
-.main-container .hero-shrimp {
+.hero-shrimp {
     max-width: 100%;
 }
 

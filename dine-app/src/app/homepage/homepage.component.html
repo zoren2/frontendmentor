@@ -17,80 +17,97 @@
 
   <div class="family-container">
     <!-- Family Image-->
-    <picture>
-      <source media="(min-width: 1440px)" srcset="../../assets/homepage/enjoyable-place-desktop@2x.jpg">
-      <source media="(min-width: 768px)" srcset="../../assets/homepage/enjoyable-place-tablet@2x.jpg">
-      <img class="family-forest-img" src="../assets/homepage/enjoyable-place-mobile@2x.jpg" alt="enjoyable-place">
-    </picture>
+    <img class="family-forest-img" srcset=" ../../assets/homepage/enjoyable-place-mobile@2x.jpg 350w;
+              ../../assets/homepage/enjoyable-place-tablet@2x.jpg 768w , 
+              ../../assets/homepage/enjoyable-place-desktop@2x.jpg 1440w"
+      src="../../assets/homepage/enjoyable-place-mobile@2x.jpg">
 
     <!-- Pattern -->
-    <picture>
-      <source media="(min-width: 768px)" srcset="../../assets/patterns/pattern-curve-top-right.svg">
-      <img class="pattern-img">
-    </picture>
+    <img class="pattern-img"
+      srcset="../../assets/patterns/null.jpg 1w, ../../assets/patterns/pattern-curve-top-right.svg 768w"
+      src="../../assets/patterns/pattern-curve-top-right.svg">
 
-    <img class="divide" src="../assets/patterns/pattern-divide.svg">
-    <h2 class="family-header">Enjoyable place for all the family</h2>
-
-    <p class="family-text">Our relaxed surroundings make dining with us a great experience for everyone. We can even
-      arrange
-      a tour of the farm before your meal.</p>
+    <!-- Start a new flexbox here-->
+    <div class="family-info-desktop">
+      <img class="divide" src="../assets/patterns/pattern-divide.svg">
+      <h2 class="family-header">Enjoyable place for all the family</h2>
+      <p class="family-text">Our relaxed surroundings make dining with us a great experience for everyone. We can even
+        arrange
+        a tour of the farm before your meal.</p>
+    </div>
   </div>
 
   <div class="locally-sourced-container">
+    <!-- Pattern -->
+    <!-- <img class="family-lines" srcset="../../assets/patterns/pattern-lines.svg 768w"
+      src="../../assets/patterns/pattern-lines.svg"> -->
 
-    <!-- Locally Sourced Scallop Thing-->
     <picture>
-      <source media="(min-width: 1440px)" srcset="../../assets/homepage/locally-sourced-desktop@2x.jpg">
-      <source media="(min-width: 768px)" srcset="../../assets/homepage/locally-sourced-tablet@2x.jpg">
-      <img class="locally-sourced-img" src="../../assets/homepage/locally-sourced-mobile@2x.jpg" alt="locally-sourced">
+      <source media="(min-width: 768px)" srcset="../assets/patterns/pattern-lines.svg">
+      <img class="family-lines">
     </picture>
 
-    <img class="divide" src="../../assets/patterns/pattern-divide.svg">
-    <h2 class="family-header">The most locally sourced food</h2>
-    <p class="family-text">All our ingredients come directly from our farm or local fishery. So you can be sure that
-      you’re eating the freshest, most sustainable food.</p>
+    <!-- Locally Sourced Scallop Thing-->
+    <img class="locally-sourced-img" srcset=" 
+    ../../assets/homepage/locally-sourced-mobile@2x.jpg 350w ,
+    ../../assets/homepage/locally-sourced-tablet@2x.jpg 768w , 
+    ../../assets/homepage/locally-sourced-desktop@2x.jpg 1440w"
+      src="../../assets/homepage/enjoyable-place-mobile@2x.jpg">
+
+    <div class="locally-sourced-desktop">
+      <img class="divide" src="../../assets/patterns/pattern-divide.svg">
+      <h2 class="locally-sourced-header">The most locally sourced food</h2>
+      <p class="locally-sourced-text">All our ingredients come directly from our farm or local fishery. So you can be
+        sure that you’re eating the freshest, most sustainable food.</p>
+    </div>
   </div>
 
   <div class="menu-items-container">
-    <img class="divide" src="../../assets/patterns/pattern-divide.svg">
-    <h2 class="menu-items-main-header">A few highlights from our menu</h2>
-    <p class="menu-items-text">We cater for all dietary requirements, but here’s a glimpse at some of our diner’s
-      favourites. Our menu is revamped every season.
-    </p>
 
-    <!-- Design of the menu items is Flexbox of Flexboxes !-->
-    <div class="menu-items-highlight-container">
-      <img class="menu-item-img" src="../assets/homepage/salmon-mobile@2x.jpg" alt="seared-salmon">
-      <!-- Flexbox !-->
-      <div class="menu-items-highlight-description">
-        <h2 class="menu-items-header">Seared Salmon Fillet</h2>
-        <p class="menu-items-text">Our locally sourced salmon served with a refreshing buckwheat summer salad.</p>
-        <!-- <hr class="menu-item-line"> -->
-      </div>
+    <!-- Extra container !-->
+    <div class="menu-items-desktop">
+      <img class="divide" src="../../assets/patterns/pattern-divide.svg">
+      <h2 class="menu-items-main-header">A few highlights from our menu</h2>
+      <p class="menu-items-text">We cater for all dietary requirements, but here’s a glimpse at some of our diner’s
+        favourites. Our menu is revamped every season.
+      </p>
     </div>
 
-    <div class="menu-items-highlight-container">
-      <img class="menu-item-img" src="../assets/homepage/beef-mobile@2x.jpg" alt="filet-mignon">
-      <!-- Flexbox !-->
-      <div class="menu-items-highlight-description">
-        <h2 class="menu-items-header">Rosemary Filet Mignon</h2>
-        <p class="menu-items-text">Our prime beef served to your taste with a delicious choice of seasonal sides.</p>
+    <!-- Mested Flexbox Design, Row of Flexboxes !-->
+    <div class="menu-highlight-container">
+      <div class="menu-items-highlight-container">
+        <img class="menu-item-img" srcset=" ../../assets/homepage/salmon-mobile@2x.jpg 350w,
+      ../../assets/homepage/salmon-desktop-tablet@2x.jpg 768w" src="../../assets/homepage/salmon-mobile@2x.jpg"
+          alt="seared-salmon">
+        <!-- Flexbox !-->
+        <div class="menu-items-highlight-description">
+          <h2 class="menu-items-header">Seared Salmon Fillet</h2>
+          <p class="menu-items-text">Our locally sourced salmon served with a refreshing buckwheat summer salad.</p>
+        </div>
       </div>
-      <!-- <hr class="menu-item-line"> -->
-    </div>
-
-    <div class="menu-items-highlight-container">
-      <img class="menu-item-img" src="../assets/homepage/chocolate-mobile@2x.jpg" alt="chocolate-mousse">
-      <!-- Flexbox !-->
-      <div class="menu-items-highlight-description">
-        <h2 class="menu-items-header">Summer Fruit Chocolate Mousse</h2>
-        <p class="menu-items-text">Creamy mousse combined with summer fruits and dark chocolate shavings.</p>
+      <div class="menu-items-highlight-container">
+        <img class="menu-item-img" srcset="../../assets/homepage/beef-mobile@2x.jpg 350w,
+      ../../assets/homepage/beef-desktop-tablet@2x.jpg 768w
+      " src="../../assets/homepage/beef-mobile@2x.jpg" alt="filet-mignon">
+        <!-- Flexbox !-->
+        <div class="menu-items-highlight-description">
+          <h2 class="menu-items-header">Rosemary Filet Mignon</h2>
+          <p class="menu-items-text">Our prime beef served to your taste with a delicious choice of seasonal sides.</p>
+        </div>
+      </div>
+      <div class="menu-items-highlight-container">
+        <img class="menu-item-img" src="../assets/homepage/chocolate-mobile@2x.jpg" alt="chocolate-mousse">
+        <!-- Flexbox !-->
+        <div class="menu-items-highlight-description">
+          <h2 class="menu-items-header">Summer Fruit Chocolate Mousse</h2>
+          <p class="menu-items-text">Creamy mousse combined with summer fruits and dark chocolate shavings.</p>
+        </div>
       </div>
     </div>
   </div>
 
 
+  <!-- Family Gathering Section !-->
   <div class="family-gathering-container">
     <!-- Pattern -->
     <picture>
@@ -102,29 +119,32 @@
       <img class="family-lines">
     </picture>
 
-    <picture>
-      <source media="(min-width: 1440px)" srcset="../assets/homepage/family-gathering-desktop@2x.jpg">
-      <source media="(min-width: 768px)" srcset="../assets/homepage/family-gathering-tablet@2x.jpg">
-      <img class="family-gathering-img" src="../assets/homepage/family-gathering-mobile@2x.jpg">
-    </picture>
+    <img class="family-gathering-img" srcset="
+    ../assets/homepage/family-gathering-mobile@2x.jpg 350w
+    ../assets/homepage/family-gathering-tablet@2x.jpg 768w,
+    ../assets/homepage/family-gathering-desktop@2x.jpg 1440w,
+     " src="../assets/homepage/family-gathering-mobile@2x.jpg">
 
-    <h4 class="family-gathering-header-small">FAMILY GATHERING</h4>
-    <hr class="family-gathering-divide">
-    <h4 class="family-gathering-header-small family-header-shaded">SPECIAL EVENTS</h4>
-    <h4 class="family-gathering-header-small family-header-shaded">SOCIAL EVENTS</h4>
-    <hr>
+    <!-- Extra container for desktop design !-->
+    <div class="family-gathering-desktop">
+      <h4 class="family-gathering-header-small">FAMILY GATHERING</h4>
+      <hr class="family-gathering-divide">
+      <h4 class="family-gathering-header-small family-header-shaded">SPECIAL EVENTS</h4>
+      <h4 class="family-gathering-header-small family-header-shaded">SOCIAL EVENTS</h4>
+      <hr>
 
-    <h2 class="family-gathering-header-large">Family Gathering</h2>
+      <h2 class="family-gathering-header-large">Family Gathering</h2>
 
-    <p class="family-text">We love catering for entire families. So please bring everyone along for a special meal with
-      your loved ones. We’ll provide a memorable experience for all.</p>
+      <p class="family-text">We love catering for entire families. So please bring everyone along for a special meal
+        with
+        your loved ones. We’ll provide a memorable experience for all.</p>
 
 
-    <button routerLink="/reservation" class="book-button-black">BOOK A TABLE</button>
+      <button routerLink="/reservation" class="book-button-black">BOOK A TABLE</button>
+    </div>
   </div>
   <div class="reservation-container">
     <h2 class="menu-items-main-header">Ready to make a reservation?</h2>
     <button routerLink="/reservation" class="book-button-transparent">BOOK A TABLE</button>
   </div>
-
 </div>

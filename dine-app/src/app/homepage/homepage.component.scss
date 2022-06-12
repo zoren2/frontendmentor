@@ -59,10 +59,21 @@
     margin-bottom: 5rem;
 }
 
+.family-info-desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .divide {
     width: 80px;
     align-self: center;
     margin-bottom: 2.25rem;
+}
+
+.pattern-img {
+    display: none;
 }
 
 .family-forest-img {
@@ -109,6 +120,25 @@
     margin-bottom: 2rem;
 }
 
+.locally-sourced-header,
+.locally-sourced-text {
+    text-align: center;
+}
+
+.locally-sourced-header {
+    width: 62vw;
+    margin-bottom: 13px;
+}
+
+.locally-sourced-text {
+    padding: 1rem;
+}
+
+.locally-sourced-desktop {
+    @include container((flex), (column), (100vw), (null));
+    align-items: center;
+}
+
 .menu-items-container {
     @include container((flex), (column), (100vw), (null));
     background-color: $primary-text;
@@ -136,6 +166,10 @@
     margin-bottom: 0.8125rem;
 }
 
+.menu-items-desktop {
+    @include container((flex), (column), (100vw), (null));
+    align-items: center;
+}
 .menu-items-text {
     @include font-style(
         $primary-white,
@@ -183,6 +217,10 @@
     margin-bottom: 10rem;
 }
 
+.family-gathering-desktop {
+    @include container((flex), (column), (100vw), (null));
+    align-items: center;
+}
 .family-lines {
     align-self: flex-start;
     padding-left: 23px;
@@ -271,11 +309,10 @@
 
     .book-button-white {
         width: 32vw;
-        // margin-bottom: 7.5rem;
     }
 
     .family-forest-img {
-        margin-bottom: calc(-10px - 30vw) ; /* :( */
+        margin-bottom: calc(-10px - 30vw); /* :( */
         transform: translateY(310px) translateY(-55vw);
     }
 
@@ -301,6 +338,18 @@
         width: 60vw;
     }
 
+    .locally-sourced-header {
+        font-size: 3rem;
+        line-height: 3rem;
+        letter-spacing: 0.5px;  
+    }
+
+    .locally-sourced-text {
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        letter-spacing: 0;
+        width: 60vw;
+    }
     .menu-items-main-header {
         width: 50vw;
         color: white;
@@ -316,7 +365,7 @@
         width: 87vw;
         margin-bottom: 2rem;
     }
-    
+
     .menu-items-header {
         text-align: unset;
         width: 100%;
@@ -355,6 +404,7 @@
     }
 
     .pattern-img {
+        display: inline;
         transform: translate(-50vw, -0vw);
         margin-bottom: -100px;
     }
@@ -364,7 +414,7 @@
         margin-bottom: -250px;
         opacity: 1;
         position: relative;
-        z-index:0;
+        z-index: 0;
     }
 
     .family-container {
@@ -387,8 +437,225 @@
 
 /*
  * Desktop Design
+ * Mostly visual jiu jitsu with transforms and unsetting margins due to unique design.
  */
 
- @media screen and (min-width: $desktop-breakpoint) {
-     
- }
+@media screen and (min-width: $desktop-breakpoint) {
+    .hero-container {
+        margin-top: 0;
+        width: 35vw;
+        height: 85%;
+        align-items: flex-start;
+        padding: 4rem 0 0 13.3vw;
+    }
+
+    .hero-header-logo {
+        margin-bottom: 9.5rem;
+    }
+
+    .hero-header {
+        font-size: 80px;
+        font-weight: 300;
+        line-height: 80px;
+        font-style: normal;
+        letter-spacing: -1px;
+        text-align: left;
+    }
+
+    .hero-text {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+        text-align: left;
+        width: 29vw;
+    }
+
+    .family-container {
+        flex-direction: row;
+        width: 100vw;
+        transform: unset;
+        justify-content: center;
+        padding: 0 11.5vw 0 11.5rem;
+        z-index: 2;
+        margin-bottom: -6rem;
+    }
+
+    .family-header {
+        text-align: left;
+        width: 25vw;
+    }
+
+    .divide {
+        margin-right: 300px;
+        transform: translateX(-2vw);
+    }
+
+    .pattern-img {
+        transform: unset;
+        position: absolute;
+        height: 320px;
+        transform: translateX(-18vw);
+        width: 65vw;
+    }
+
+    .family-info-desktop {
+        align-items: baseline;
+        margin-left: 10vw;
+    }
+
+    .family-text {
+        padding: unset;
+        text-align: left;
+    }
+
+    .family-forest-img {
+        all: unset;
+        width: 37.5vw;
+        transform: translateY(-50px);
+    }
+
+    .family-text {
+        width: 100%;
+    }
+
+    /* Flexbox goes right to left which requires changes direction of text-align and order of the elements */
+    .locally-sourced-container {
+        flex-direction: row;
+        direction: rtl;
+        justify-content: space-between;
+    }
+
+    .locally-sourced-img {
+        width: 37.5vw;
+        transform: translate(-10vw, 200px);
+    }
+
+    .locally-sourced-desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin-left: 13vw;
+        align-self: center;
+        transform: translateY(150px);
+    }
+
+    .locally-sourced-header {
+        width: 25vw;
+        color: #111111;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 3rem;
+        letter-spacing: -0.5px;
+        margin-bottom: 0.8125rem;
+        direction: ltr;
+        text-align: left;
+        transform: translateX(1vw);
+    }
+
+    .locally-sourced-text {
+        color: #111111;
+        font-weight: 400;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        letter-spacing: 0px;
+        text-align: left;
+        direction: ltr;
+        width: 30vw;
+    }
+
+    .family-lines {
+        width: 11vw;
+        transform: translate(-2vw, 75px);
+        position: absolute;
+    }
+
+    .menu-items-container {
+        flex-direction: row;
+    }
+
+    .menu-items-desktop {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        align-items: center;
+        margin-bottom: 250px;
+    }
+
+    .menu-highlight-container {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        padding-top: 100px;
+    }
+
+    .menu-items-main-header {
+        width: 35vw;
+        text-align: left;
+        margin-left: 8%;
+    }
+
+    // Pictures of Seared Salmon, Filet Mignon, Mousse
+    .menu-items-highlight-container {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .menu-items-highlight-container:last-child {
+        border-bottom: none;
+        margin-bottom: 7.5rem;
+    }
+
+    .menu-items-text {
+        width: 31vw;
+        margin-bottom: 0;
+    }
+    .menu-item-img {
+        width: 11.25vw;
+    }
+
+    .family-gathering-container {
+        all: unset;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100vw;
+        margin: 10rem 0 10rem 0;
+    }
+
+    .family-gathering-container .family-lines {
+        transform: translate(-6vw, -24vw);
+    }
+
+    .family-gathering-img {
+        display: flex;
+        width: 37.5vw;
+        margin-right: 8.6vw;
+        transform: translateX(-35px);
+    }
+
+    .family-gathering-desktop {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 50vw;
+        padding-right: 11.11vw;
+    }
+
+    // Line
+    .family-gathering-divide {
+        transform: translate(0px, -0.5rem);
+    }
+
+    .reservation-container {
+        @include container((flex), (row), (100vw), (328px));
+        background-image: url(../../assets/homepage/ready-bg-mobile@2x.jpg);
+        background-repeat: no-repeat;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .book-button-transparent {
+        margin-right: 10vw;
+    }
+}
