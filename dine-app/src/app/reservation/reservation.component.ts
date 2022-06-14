@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Reservation } from '../reservation.model';
 
 @Component({
@@ -19,7 +18,6 @@ export class ReservationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   onAdd() {
