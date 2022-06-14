@@ -118,6 +118,11 @@
     @include container((null), (null), (100%), (615px));
 }
 
+.reservation-submitted {
+    text-align: center;
+}
+
+
 /*
  * Buttons
  */
@@ -142,6 +147,7 @@
 .reserve-button {
     margin-bottom: 9rem;
 }
+
 button:hover {
     cursor: pointer;
 }
@@ -247,6 +253,11 @@ button:hover {
     .form-container {
         width: 37.5vw;
         max-height: 600px;
+    }
+
+    .reservation-submitted {
+        height: 600px;
+        padding-top: 35%
     }
 
     .error {

@@ -33,13 +33,14 @@
                     </div>
 
                     <input type="text" class="form-control form-input" id="email" required
-                        pattern="[^@\s]+@[^@\s]+\.[^@\s]+" [(ngModel)]="reservation.email" name="email" #email="ngModel"
-                        placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'"
-                        [ngClass]="
+                        pattern="[^@\s]+@[^@\s]+\.[^@\s]+[\s]*" [(ngModel)]="reservation.email" name="email"
+                        #email="ngModel" placeholder="Email" onfocus="this.placeholder = ''"
+                        onblur="this.placeholder = 'Email'" [ngClass]="
                             {'error-message': !email.valid && !email.untouched}">
                     <!-- Error Message Email-->
                     <div [hidden]="email.valid || email.untouched" class="error">
-                        Email is required
+                        <small *ngIf="email.errors?.['required']">Email address is required</small>
+                        <small *ngIf="email.errors?.['pattern']">Email address is invalid</small>
                     </div>
 
                     <label for=" time" class="label">Pick A Date</label>
@@ -103,13 +104,14 @@
             </form>
             <!-- Confirm Reservation Submission-->
             <div class="reservation-submitted" [hidden]="!submitted">
-                <h1>We'll see you soon.</h1>
-                <div class="row">
-                    <div class="col-xs-3">We'll see you {{ reservation.name }} soon</div>
-                    <div class="col-xs-9"></div>
+                <h1>Congratulations {{ reservation.name }}!</h1>
+                <div class=>
+                    <div class="submitted-text">We will see you soon at {{reservation.hour}}:{{reservation.minute}} on
+
+                        {{reservation.month}}/{{reservation.day}}/{{reservation.year}}.
+                    </div>
                 </div>
                 <br>
-                <button class="btn btn-primary" (click)="toggleSubmitted()">Edit</button>
             </div>
         </div>
     </div>
