@@ -1,0 +1,255 @@
+<div>
+    <!-- Use Reactive Forms Next Time... -->
+    <form class="form-container" #invoiceForm="ngForm">
+        <h2 *ngIf="this.addingInvoiceMode == true" class="form-header"> Adding <span>New </span>Invoice</h2>
+        <h2 *ngIf="this.addingInvoiceMode == false" class="form-header"> Edit <span
+                class="form-header-hash">#</span>{{this.invoiceId | slice:0:6}}</h2>
+
+        <!-- Sender Section -->
+        <div class="mb-3">
+            <!-- Sender Street -->
+            <h3>Bill From</h3>
+            <div class="label-container">
+                <label for="sender-street" class="form-label">
+                    <p>Street Address</p>
+                </label>
+                <span [hidden]="senderStreet.valid || senderStreet.untouched" class="error">
+                    can't be empty
+                </span>
+            </div>
+            <input type="text" class="form-control" required name="sender-street" [(ngModel)]="invoiceSender.street"
+                #senderStreet="ngModel">
+
+            <!-- Sender City -->
+            <div class="label-container">
+                <label for="sender-city" class="form-label">
+                    <p>City</p>
+                </label>
+                <span [hidden]="senderCity.valid || senderCity.untouched" class="error">
+                    can't be empty
+                </span>
+            </div>
+            <input type="text" class="form-control" required name="sender-city" [(ngModel)]="invoiceSender.city"
+                #senderCity="ngModel">
+
+            <!-- Sender PostCode -->
+            <div class="label-container">
+                <label for="sender-postCode" class="form-label">
+                    <p>Post Code</p>
+                </label>
+                <span [hidden]="senderPostCode.valid || senderPostCode.untouched" class="error">
+                    can't be empty
+                </span>
+            </div>
+            <input type="text" class="form-control" required name="sender-postCode" [(ngModel)]="invoiceSender.postCode"
+                #senderPostCode="ngModel">
+
+            <!-- Sender Country -->
+            <div class="label-container">
+                <label for="sender-country" class="form-label">
+                    <p>Country</p>
+                </label>
+                <span [hidden]="senderCountry.valid || senderCountry.untouched" class="error">
+                    can't be empty
+                </span>
+            </div>
+            <input type="text" class="form-control" required name="sender-country" [(ngModel)]="invoiceSender.country"
+                #senderCountry="ngModel">
+        </div>
+
+        <!-- Client Section -->
+        <div class="mb-3">
+            <!-- Client Name -->
+            <h3>Bill To</h3>
+            <div class="label-container">
+                <label for="client-name" class="form-label">
+                    <p>Client's Name</p>
+                </label>
+                <span [hidden]="clientName.valid || clientName.untouched" class="error">
+                    can't be empty
+                </span>
+            </div>
+            <input type="text" class="form-control" required name="client-name" [(ngModel)]="invoiceClient.name"
+                #clientName="ngModel">
+
+            <!-- Client Email -->
+            <div class="label-container">
+                <label for="client-email" class="form-label">
+                    <p>Client's Email</p>
+                </label>
+                <span [hidden]="clientEmail.valid || clientEmail.untouched" class="error">
+                    can't be empty
+                </span>
+            </div>
+            <input type="text" class="form-control" required name="client-email" [(ngModel)]="invoiceClient.email"
+                #clientEmail="ngModel">
+
+            <!-- Client Street  -->
+            <div class="label-container">
+                <label for="client-street" class="form-label">
+                    <p>Street Address</p>
+                </label>
+                <span [hidden]="clientStreet.valid || clientStreet.untouched" class="error">
+                    can't be empty
+                </span>
+            </div>
+            <input type="text" class="form-control" required name="client-street" [(ngModel)]="invoiceClient.street"
+                #clientStreet="ngModel">
+
+            <!-- Client City -->
+            <div class="label-container">
+                <label for="client-city" class="form-label">
+                    <p>City</p>
+                </label>
+                <span [hidden]="clientCity.valid || clientCity.untouched" class="error">
+                    can't be empty
+                </span>
+            </div>
+            <input type="text" class="form-control" required name="client-city" [(ngModel)]="invoiceClient.city"
+                #clientCity="ngModel">
+
+            <!-- Client PostCode -->
+            <div class="label-container">
+                <label for="client-postCode" class="form-label">
+                    <p>Post Code</p>
+                </label>
+                <span [hidden]="clientPostCode.valid || clientPostCode.untouched" class="error">
+                    can't be empty
+                </span>
+            </div>
+            <input type="text" class="form-control" required name="client-postCode" [(ngModel)]="invoiceClient.postCode"
+                #clientPostCode="ngModel">
+
+            <!-- Client Country -->
+            <div class="label-container">
+                <label for="client-country" class="form-label">
+                    <p>Country</p>
+                </label>
+                <span [hidden]="clientCountry.valid || clientCountry.untouched" class="error">
+                    can't be empty
+                </span>
+            </div>
+            <input type="text" class="form-control" required name="client-country" [(ngModel)]="invoiceClient.country"
+                #clientCountry="ngModel">
+
+            <!-- Invoice Due Date -->
+            <div class="label-container">
+                <label class="form-label" for="dueDate">
+                    <p>Invoice Due Date</p>
+                </label>
+                <span [hidden]="dueDate.valid || dueDate.untouched" class="error">
+                    please pick a date
+                </span>
+            </div>
+            <mat-form-field>
+                <input name="dueDate" required matInput [matDatepicker]="picker" [(ngModel)]="invoiceDateDue"
+                    #dueDate="ngModel">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker panelClass="datepickerOne"></mat-datepicker>
+            </mat-form-field>
+
+            <!-- Payment Terms -->
+            <label class="form-label">
+                <p>Payment Terms</p>
+            </label>
+            <select name="status" id="status" class="form-control" [(ngModel)]="invoicePaymentTerms">
+                <option>
+                    Net 1 Day
+                </option>
+                <option>
+                    Net 7 Days
+                </option>
+                <option>
+                    Net 14 Days
+                </option>
+                <option>
+                    Net 30 Days
+                </option>
+            </select>
+            <label class="form-label">
+                <p>Project Description</p>
+            </label>
+            <input type="text" class="form-control" value="Graphic Design">
+        </div>
+
+        <!-- Items List -->
+        <div class="item-list-container">
+            <h2 class="form-header">Item List</h2>
+            <div *ngFor="let item of editItems;let index = index;">
+                <!-- Item Name -->
+                <div class="label-container">
+                    <label class="form-label" for="name">
+                        <p>Item Name</p>
+                    </label>
+                    <span [hidden]="itemName.valid || itemName.untouched" class="error">
+                        can't be empty
+                    </span>
+                </div>
+                <input type="text" class="form-control" required name="name{{index}}"
+                    [(ngModel)]="editItems[index].name" #itemName="ngModel">
+
+                <!-- Quantity -->
+                <div class="label-container">
+                    <label class="form-label">
+                        <p>Quantity</p>
+                    </label>
+                    <span [hidden]="itemQuantity.valid || itemQuantity.untouched || itemQuantity.value !== 0" class="error">
+                        please put valid quantity
+                    </span>
+                </div>
+                <input type="number" class="form-control" required min=1 name="quantity{{index}}"
+                    [(ngModel)]="editItems[index].quantity"
+                    onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"
+                    #itemQuantity="ngModel">
+                <!-- Price -->
+                <div class="label-container">
+                    <label class="form-label">
+                        <p>Price</p>
+                    </label>
+                    <span [hidden]="itemPrice.valid || itemPrice.untouched || itemPrice.value !== 0" class="error">
+                        please put valid price
+                    </span>
+                </div>
+                <input type="number" class="form-control" required min=1.0 [(ngModel)]="editItems[index].price"
+                    onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"
+                    step="0.01" min="0" name="price{{index}}" #itemPrice="ngModel">
+                <label class="form-label" for="total">
+                    <p>Total</p>
+                </label>
+                <input disabled name="total-price{{index}}" [value]="calculateTotal(item)" class="form-control">
+                <div class="trash-can-item-btn" (click)="deleteItem(index)">
+                    <img src="../../assets/icon-delete.svg">
+                </div>
+            </div>
+        </div>
+        <button class="add-new-item-btn" (click)="addItem()">
+            <span>
+                <p><b>+ Add New Item</b></p>
+            </span>
+        </button>
+    </form>
+</div>
+
+<div class="invoice-edit-delete-mark">
+    <!-- Edit mode buttons -->
+    <button *ngIf="!addingInvoiceMode" class="invoice-edit-btn" (click)="editReturnToMain()">
+        <p>Cancel</p>
+    </button>
+    <button *ngIf="!addingInvoiceMode && this.invoiceStatus.toLowerCase() !== 'draft'" class="invoice-mark-btn"
+        (click)="saveChanges()">
+        <p>Save Changes</p>
+    </button>
+
+    <!-- Add mode buttons -->
+    <button *ngIf="addingInvoiceMode" class="invoice-edit-btn" (click)="editReturnToMain()">
+        <p>Discard</p>
+    </button>
+    <button *ngIf="addingInvoiceMode" class="invoice-save-btn"
+        (click)="saveToDraft()">
+        <p>Save as Draft</p>
+    </button>
+    <button *ngIf="addingInvoiceMode || this.invoiceStatus.toLowerCase() == 'draft'" class="invoice-mark-btn"
+        (click)="saveAndSend(invoiceForm)">
+        <p>Save and Send</p>
+    </button>
+</div>

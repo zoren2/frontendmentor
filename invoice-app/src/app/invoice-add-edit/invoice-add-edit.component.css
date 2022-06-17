@@ -1,0 +1,167 @@
+.form-container {
+    margin: 0 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header {
+    margin-bottom: 1.5rem;
+}
+
+.form-header-hash {
+    color: #888EB0;
+}
+
+.form-control {
+    height: 2.25rem;
+    width: 100%;
+    border: 1px solid #DFE3FA;
+    border-radius: .25rem;
+    padding: .5rem 1rem .25rem 1rem;
+    background-color: white;
+    margin-bottom: 1.5rem;
+}
+
+/* Move this to global styles.css */
+.form-label {
+    display: inline;
+    color: #7E88C3;
+    margin-bottom: 0.625rem;
+}
+
+.form-label p {
+    margin-bottom: .25rem;
+    display: inline;
+    padding-right: 59vw;
+}
+
+.label-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+form h3 {
+    color: #7C5DFA;
+    margin-bottom: 1rem;
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
+}
+
+/* ::ng-deep .mat-datepicker-toggle-default-icon {
+    transform: translateX(-2rem);
+} */
+
+::ng-deep .mat-form-field-suffix {
+    transform: translateX(-2rem);
+}
+
+
+::ng-deep .mat-form-field-infix {
+    background-color: white;
+    border-radius: .25rem;
+    border: 1px solid #DFE3FA;
+}
+
+.item-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.invoice-edit-delete-mark {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    height: 5.7rem;
+    background-color: white;
+}
+
+/* Perhaps put this in a mixin with width + font color */
+.invoice-edit-btn {
+    all: unset;
+    width: 19.5vw;
+    height: 3rem;
+    border: none;
+    background-color: #dfe4f7;
+    color: #7E88C3;
+    text-align: center;
+    border-radius: 1.5rem;
+}
+
+.invoice-delete-btn {
+    all: unset;
+    width: 23.7vw;
+    height: 3rem;
+    border: none;
+    background-color: #EC5757;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 1.5rem;
+}
+
+.invoice-save-btn {
+    all: unset;
+    width: 23.7vw;
+    height: 3rem;
+    border: none;
+    background-color: #373B53;
+    color: #888EB0;
+    text-align: center;
+    border-radius: 1.5rem;
+}
+
+.invoice-mark-btn {
+    all: unset;
+    width: 35vw;
+    height: 3rem;
+    border: none;
+    background-color: #7C5DFA;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 1.5rem;
+}
+
+.trash-can-item-btn {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.trash-can-item-btn:hover {
+    cursor: pointer;
+}
+
+.add-new-item-btn {
+    all: unset;
+    height: 3rem;
+    border: none;
+    background-color: #e9ebf4;
+    color: #7E88C3;
+    text-align: center;
+    border-radius: 1.5rem;
+    transition: 0.3s;
+}
+
+.add-new-item-btn:hover {
+    opacity: .5
+}
+
+.add-edit-grand-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*
+ * Errors
+ */
+
+ .error {
+    color: #EC5757;
+ }
+
+ input.ng-invalid.ng-touched , input.ng-invalid.ng-dirty{ 
+    border: 2px solid #EC5757;
+}

@@ -25,8 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* Components */
 import { InvoiceViewComponent } from './invoice-view/invoice-view.component';
 import { InvoiceItemComponent } from './invoice-item/invoice-item.component';
-import { InvoiceEditComponent } from './invoice-edit/invoice-edit.component';
-import { InvoiceComponent } from './invoice/invoice.component';
+import { InvoiceAddEditComponent } from './invoice-add-edit/invoice-add-edit.component';
+import { InvoiceCardComponent } from './invoice-card/invoice-card.component';
 
 /* Date formats */
 import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
@@ -37,10 +37,10 @@ import { MY_DATE_FORMATS } from './my-date-formats';
 @NgModule({
   declarations: [
     AppComponent,
-    InvoiceComponent,
+    InvoiceCardComponent,
     InvoiceViewComponent,
     InvoiceItemComponent,
-    InvoiceEditComponent
+    InvoiceAddEditComponent
   ],
   imports: [
     BrowserModule,
