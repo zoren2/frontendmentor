@@ -139,7 +139,7 @@ export class InvoiceAddEditComponent implements OnInit {
         this.apiService.addItem(editItem);
       });
 
-    
+
     this.apiService.addInvoice(tempInvoice).subscribe();
 
     this.returnToMain();
@@ -161,7 +161,7 @@ export class InvoiceAddEditComponent implements OnInit {
       this.totalDue,
       this.invoiceClient,
       this.invoiceSender);
-      tempInvoice.client.item = new Array(); // Prepare new temp array
+    tempInvoice.client.item = new Array(); // Prepare new temp array
     /* Set items then the Invoice */
     this.editItems.forEach
       (item => {
@@ -178,7 +178,10 @@ export class InvoiceAddEditComponent implements OnInit {
    * HTTP Put Invoice
    * Edit Existing Invoice
    */
-  saveChanges() {
+  saveChanges(invoiceForm: any) {
+    invoiceForm.form.markAllAsTouched();
+    if (!invoiceForm.form.valid)
+      return;
     this.calculatePrices();
     this.processItems();
 

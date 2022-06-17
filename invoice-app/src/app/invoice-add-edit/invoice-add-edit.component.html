@@ -78,11 +78,12 @@
                     <p>Client's Email</p>
                 </label>
                 <span [hidden]="clientEmail.valid || clientEmail.untouched" class="error">
-                    can't be empty
+                    <small *ngIf="clientEmail.errors?.['required']">e-mail can't be empty</small>
+                    <small *ngIf="clientEmail.errors?.['pattern']">e-mail address is invalid</small>
                 </span>
             </div>
-            <input type="text" class="form-control" required name="client-email" [(ngModel)]="invoiceClient.email"
-                #clientEmail="ngModel">
+            <input type="text" class="form-control" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+[\s]*" name="client-email"
+                [(ngModel)]="invoiceClient.email" #clientEmail="ngModel">
 
             <!-- Client Street  -->
             <div class="label-container">
@@ -193,7 +194,8 @@
                     <label class="form-label">
                         <p>Quantity</p>
                     </label>
-                    <span [hidden]="itemQuantity.valid || itemQuantity.untouched || itemQuantity.value !== 0" class="error">
+                    <span [hidden]="itemQuantity.valid || itemQuantity.untouched || itemQuantity.value !== 0"
+                        class="error">
                         please put valid quantity
                     </span>
                 </div>
@@ -236,7 +238,7 @@
         <p>Cancel</p>
     </button>
     <button *ngIf="!addingInvoiceMode && this.invoiceStatus.toLowerCase() !== 'draft'" class="invoice-mark-btn"
-        (click)="saveChanges()">
+        (click)="saveChanges(invoiceForm)">
         <p>Save Changes</p>
     </button>
 
@@ -244,8 +246,7 @@
     <button *ngIf="addingInvoiceMode" class="invoice-edit-btn" (click)="editReturnToMain()">
         <p>Discard</p>
     </button>
-    <button *ngIf="addingInvoiceMode" class="invoice-save-btn"
-        (click)="saveToDraft()">
+    <button *ngIf="addingInvoiceMode" class="invoice-save-btn" (click)="saveToDraft()">
         <p>Save as Draft</p>
     </button>
     <button *ngIf="addingInvoiceMode || this.invoiceStatus.toLowerCase() == 'draft'" class="invoice-mark-btn"
