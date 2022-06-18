@@ -23,7 +23,7 @@
 
 .invoice-card-container:hover {
     border-style: solid;
-    border-width: 1px;
+    border-width: 2px;
     border-color: #7C5DFA;
     cursor: pointer;
 }
@@ -49,6 +49,7 @@
 .invoice-due-date {
     color: #7E88C3;
 }
+
 .invoice-due-date::before {
     content: 'Due';
     color: #888EB0;
@@ -73,19 +74,6 @@
     color: #858BB2;
 }
 
-/* Refactor this into a mixin and move to styles.css */
-/* .invoice-status {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    width: 33vw;
-    height: 2.5rem;
-    border-radius: 0.375rem;
-    margin: auto;
-} */
-
 .invoice-status-indicator {
     width: 0.5rem;
     height: 0.5rem;
@@ -94,7 +82,49 @@
     margin-right: .75rem;
 }
 
-.invoice-number  div p{
+.invoice-number div p {
     color: #7E88C3;
 
+}
+
+.gotoinvoice-img {
+    display: none;
+}
+
+/*
+ * Tablet Design
+ */
+
+@media screen and (min-width: 768px) {
+
+    .invoice-card-container {
+        height: 4.5rem;
+    }
+
+    .invoice-info-left {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%
+    }
+
+    .invoice-info-right {
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        width: 50%
+    }
+
+    .invoice-number {
+        margin-bottom: 0;
+    }
+
+    .invoice-status-paid, .invoice-status-draft, .invoice-status-pending{
+        width: 13.5vw;
+        margin: 0 2rem 0 2rem;
+    }
+
+    .gotoinvoice-img {
+        display: block;
+    }
 }
