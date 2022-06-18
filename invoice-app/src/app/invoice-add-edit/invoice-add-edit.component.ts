@@ -120,6 +120,9 @@ export class InvoiceAddEditComponent implements OnInit {
     if (!invoiceForm.form.valid)
       return;
 
+    if(this.invoiceStatus.toLowerCase() == "draft")
+      this.apiService.deleteDraft(this.invoiceId);
+
     this.calculatePrices();
     this.processItems();
 
@@ -132,7 +135,7 @@ export class InvoiceAddEditComponent implements OnInit {
     tempInvoice.client = this.invoiceClient;
     tempInvoice.setSender(this.invoiceSender);
 
-    /* Set items */
+    /* Set items -> Maybe move this to another private function */
     this.editItems.forEach
       (editItem => {
         tempInvoice.client.item.push(editItem);
@@ -151,26 +154,24 @@ export class InvoiceAddEditComponent implements OnInit {
    */
   saveToDraft(): void {
     this.calculatePrices();
-    this.processItems();
 
-    let tempInvoice: Invoice = new Invoice(
-      Guid.create().toString(),
-      "Draft",
-      this.invoicePaymentTerms,
-      this.invoiceDateDue,
-      this.totalDue,
-      this.invoiceClient,
-      this.invoiceSender);
-    tempInvoice.client.item = new Array(); // Prepare new temp array
-    /* Set items then the Invoice */
+    /* Need new object since we don't know which fields are filled out by the user */
+    let tempInvoice = new Invoice();
+    tempInvoice.setId(Guid.create().toString());
+    tempInvoice.setStatus("Draft");
+    tempInvoice.setPaymentTerms(this.invoicePaymentTerms);
+    tempInvoice.setDateDue(this.invoiceDateDue);
+    tempInvoice.setTotalDue(this.totalDue);
+    tempInvoice.client = this.invoiceClient;
+    tempInvoice.setSender(this.invoiceSender);
+
     this.editItems.forEach
-      (item => {
-        tempInvoice.getClient().item.push(item);
-        this.apiService.addItem(item);
+      (editItem => {
+        tempInvoice.client.item.push(editItem);
+        this.apiService.addItem(editItem);
       });
 
-    this.apiService.addInvoice(tempInvoice).subscribe();
-
+    this.apiService.saveInvoiceAsDraft(tempInvoice);
     this.returnToMain();
   }
 
@@ -182,6 +183,7 @@ export class InvoiceAddEditComponent implements OnInit {
     invoiceForm.form.markAllAsTouched();
     if (!invoiceForm.form.valid)
       return;
+
     this.calculatePrices();
     this.processItems();
 
@@ -198,10 +200,13 @@ export class InvoiceAddEditComponent implements OnInit {
     /* Entityframework each table to be explicitly edited */
     this.editItems.forEach(
       item => {
+        //?
+        this.invoiceClient.item.push(item);
         this.apiService.updateItems(item.id, item)
       }
     );
 
+    this.apiService.updateClient(this.invoiceClient.id, this.invoiceClient);
     /* If Invoice is a draft save it as a permanent one in the Pending state */
     if (this.invoiceStatus.toLowerCase() === "draft")
       this.apiService.updateInvoice(this.invoiceId, new Invoice(

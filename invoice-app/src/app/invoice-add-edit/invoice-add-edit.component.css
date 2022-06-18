@@ -24,7 +24,7 @@
 
 /* Move this to global styles.css */
 .form-label {
-    display: inline;
+    display: block;
     color: #7E88C3;
     margin-bottom: 0.625rem;
 }
@@ -43,25 +43,6 @@
 form h3 {
     color: #7C5DFA;
     margin-bottom: 1rem;
-}
-
-::ng-deep .mat-form-field-underline {
-    display: none;
-}
-
-/* ::ng-deep .mat-datepicker-toggle-default-icon {
-    transform: translateX(-2rem);
-} */
-
-::ng-deep .mat-form-field-suffix {
-    transform: translateX(-2rem);
-}
-
-
-::ng-deep .mat-form-field-infix {
-    background-color: white;
-    border-radius: .25rem;
-    border: 1px solid #DFE3FA;
 }
 
 .item-list-container {
@@ -160,8 +141,33 @@ form h3 {
 
  .error {
     color: #EC5757;
+    font-size: .75rem;
+    line-height: 0.9375rem;
+    letter-spacing: -0.25px;
  }
 
  input.ng-invalid.ng-touched , input.ng-invalid.ng-dirty{ 
     border: 2px solid #EC5757;
+}
+
+/*
+ * Overriding Angular Material Style
+ */
+ ::ng-deep .mat-form-field-underline {
+    display: none;
+}
+
+::ng-deep .mat-form-field-suffix {
+    transform: translateX(-2rem);
+}
+
+::ng-deep .mat-form-field-infix {
+    background-color: white;
+    border-radius: .25rem;
+    border: 1px solid #DFE3FA;
+}
+
+.mat-input-element {
+    font-size: .75rem;
+    padding: 5px 0 2px 16px;
 }

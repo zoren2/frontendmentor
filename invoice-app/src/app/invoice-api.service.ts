@@ -94,6 +94,16 @@ export class InvoiceApiService {
     return this.http.delete(this.invoiceAPIUrl + `/invoices/${id}`).subscribe();
   }
 
+  /* Saves temporarily into the temporary BehaviorSubject arrays and not to EF backend */
+  saveInvoiceAsDraft(invoice: Invoice) {
+    this.invoices.push(invoice);
+    this._invoices.next(Object.assign([], this.invoices));
+  }
+
+  deleteDraft(id: number | string) {
+    this.invoices.splice(this.invoices.findIndex(invoices => invoices.id === id), 1);
+  }
+
   /*
    * Client
    */
