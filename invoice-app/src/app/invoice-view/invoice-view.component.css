@@ -242,6 +242,9 @@
         width: 13vw;
     }
 
+    ::ng-deep .mat-dialog-content {
+        overflow: unset !important;
+    }
 }
 
 /*

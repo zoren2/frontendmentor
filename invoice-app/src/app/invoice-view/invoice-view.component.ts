@@ -82,15 +82,15 @@ export class InvoiceViewComponent implements OnInit {
     if (this.screenWidth >= 1440) {
       this.dialog.open(templateRef, {
         width: 'calc(45vw + 100px)',
-        height: '75vh',
+        height: '100vh',
         position: { left: '103px' }
       });
     }
     else {
       this.dialog.open(templateRef, {
         width: 'calc(45vw + 100px)',
-        height: '75vh',
-        position: { left: '0' }
+        height: '92vh',
+        position: { left: '0', top: '75px'}
       });
     }
   }
