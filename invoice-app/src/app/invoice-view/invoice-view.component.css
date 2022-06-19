@@ -162,7 +162,7 @@
     width: 19.5vw;
     height: 2.5rem;
     border: none;
-    background-color: #F9FAFE;
+    background-color: #ebecf3;
     color: #7E88C3;
     text-align: center;
     border-radius: 1.5rem;
@@ -225,18 +225,30 @@
     .tablet-desktop-btn {
         display: inline !important;
     }
-}
 
+    .invoice-edit-delete-mark {
+        display: none;
+    }
+
+    .invoice-edit-btn {
+        width: 10vw;
+    }
+
+    .invoice-delete-btn {
+        width: 10vw;
+    }
+
+    .invoice-mark-btn {
+        width: 13vw;
+    }
+
+}
 
 /*
  * Desktop Design
  */
 
 @media screen and (min-width: 1440px) {
-    .invoice-edit-delete-mark {
-        display: none;
-    }
-
     .status-container {
         width: 44vw;
     }
@@ -262,7 +274,7 @@
         overflow-y: auto;
     }
 
-    ::ng-deep .invoice-view-form.mat-dialog-container  {
+    ::ng-deep .invoice-view-form.mat-dialog-container {
         height: 100vh !important;
     }
 
