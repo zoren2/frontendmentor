@@ -38,9 +38,8 @@ export class ReservationComponent implements OnInit {
 
   toggleSubmitted() {
     this.submitted = !this.submitted;
-    console.log('hi');
-    alert('hi');
   }
+  
   touchAll(reservationForm: any) {
     reservationForm.form.markAllAsTouched();
   }
