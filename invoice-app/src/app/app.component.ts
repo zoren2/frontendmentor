@@ -1,12 +1,9 @@
-import { NgStyle } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter } from '@angular/core';
-import { Event } from '@angular/router';
-import { BehaviorSubject, delay, map, Observable, tap } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Client } from './client.model';
 import { InvoiceApiService } from './invoice-api.service';
 import { Invoice } from './invoice.model';
 import { Item } from './item.model';
-import { Sender } from './sender.model';
 
 @Component({
   selector: 'app-root',
@@ -51,6 +48,9 @@ export class AppComponent {
 
   constructor(private service: InvoiceApiService, private cdr: ChangeDetectorRef) { }
 
+  /*
+   * Setup Models, Data Structures, and Screen Size Tracker
+   */
   ngOnInit(): void {
     this.service.getInvoiceList(); // Gather All Backend Endpoints
     this.service.getClient();

@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav'
 
 /* Forms */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -54,6 +55,7 @@ import { MY_DATE_FORMATS } from './my-date-formats';
     MatInputModule,
     MatDialogModule,
     MatIconModule,
+    MatSidenavModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
