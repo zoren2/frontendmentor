@@ -1,3 +1,7 @@
+:host {
+    width: 100%;
+}
+
 .form-container {
     margin: 0 1.5rem 1.5rem 1.5rem;
     display: flex;
