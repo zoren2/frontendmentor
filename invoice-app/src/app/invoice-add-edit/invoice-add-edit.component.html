@@ -234,7 +234,7 @@
 
 <div class="invoice-edit-delete-mark">
     <!-- Edit mode buttons -->
-    <button *ngIf="!addingInvoiceMode" class="invoice-edit-btn" (click)="editReturnToMain()">
+    <button *ngIf="!addingInvoiceMode" class="invoice-edit-btn" (click)="returnToMain()">
         <p class="btn-text">Cancel</p>
     </button>
     <button *ngIf="!addingInvoiceMode && this.invoiceStatus.toLowerCase() !== 'draft'" class="invoice-mark-btn"
@@ -243,7 +243,7 @@
     </button>
 
     <!-- Add mode buttons -->
-    <button *ngIf="addingInvoiceMode" class="invoice-edit-btn" (click)="editReturnToMain()">
+    <button *ngIf="addingInvoiceMode" class="invoice-edit-btn" (click)="returnToMain()">
         <p class="btn-text">Discard</p>
     </button>
     <button *ngIf="addingInvoiceMode" class="invoice-save-btn" (click)="saveToDraft()">
