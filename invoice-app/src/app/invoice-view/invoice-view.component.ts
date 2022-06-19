@@ -11,6 +11,10 @@ import { Item } from '../item.model';
   styleUrls: ['./invoice-view.component.css']
 })
 export class InvoiceViewComponent implements OnInit {
+  /* Screen Resolutions */
+  public screenWidth!: number;
+  public screenHeight!: number;
+
   /* Emit to the main component when user wants to leave View Invoice State */
   @Output() endView = new EventEmitter();
   @Output() startEdit = new EventEmitter();
@@ -19,9 +23,13 @@ export class InvoiceViewComponent implements OnInit {
   @Input() viewInvoice: Invoice = new Invoice();
   @Input() itemsForInvoice: Item[] = new Array();
 
-  constructor(private apiService: InvoiceApiService, private dialog: MatDialog, private cdr: ChangeDetectorRef) { }
+  constructor(private apiService: InvoiceApiService, private dialog: MatDialog, private cdr: ChangeDetectorRef) {
+    this.screenWidth = window.innerWidth;
+    this.screenHeight = window.innerHeight;
+  }
 
   ngOnInit(): void {
+
   }
 
   /* 
@@ -71,10 +79,20 @@ export class InvoiceViewComponent implements OnInit {
   }
 
   openFormDialog(templateRef: TemplateRef<any>) {
-    this.dialog.open(templateRef, {
-      width: '50vw',
-      height: '75vh'
-    });
+    if (this.screenWidth >= 1440) {
+      this.dialog.open(templateRef, {
+        width: 'calc(45vw + 100px)',
+        height: '75vh',
+        position: { left: '103px' }
+      });
+    }
+    else {
+      this.dialog.open(templateRef, {
+        width: 'calc(45vw + 100px)',
+        height: '75vh',
+        position: { left: '0' }
+      });
+    }
   }
 
   closeDialog(event: any) {
