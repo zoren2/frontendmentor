@@ -1,14 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectorRef, TemplateRef, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectorRef} from '@angular/core';
 import { Client } from '../client.model';
 import { Invoice } from '../invoice.model';
 import { Item } from '../item.model';
 import { Sender } from '../sender.model';
 import { Guid } from 'guid-typescript';
 
-/* Material Imports */
-import { MatFormFieldControl } from '@angular/material/form-field';
 import { InvoiceApiService } from '../invoice-api.service';
-import { Form, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -120,7 +117,7 @@ export class InvoiceAddEditComponent implements OnInit {
     if (!invoiceForm.form.valid)
       return;
 
-    if(this.invoiceStatus.toLowerCase() == "draft")
+    if (this.invoiceStatus.toLowerCase() == "draft")
       this.apiService.deleteDraft(this.invoiceId);
 
     this.calculatePrices();
@@ -200,25 +197,15 @@ export class InvoiceAddEditComponent implements OnInit {
     /* Entityframework each table to be explicitly edited */
     this.editItems.forEach(
       item => {
-        //?
-        this.invoiceClient.item.push(item);
+        this.invoiceClient.item.push(item); // Item getter/setter sets off a null error
         this.apiService.updateItems(item.id, item)
       }
     );
 
     this.apiService.updateClient(this.invoiceClient.id, this.invoiceClient);
-    /* If Invoice is a draft save it as a permanent one in the Pending state */
-    if (this.invoiceStatus.toLowerCase() === "draft")
-      this.apiService.updateInvoice(this.invoiceId, new Invoice(
-        this.invoiceId,
-        "Pending",
-        this.invoicePaymentTerms,
-        this.invoiceDateDue,
-        this.totalDue,
-        this.invoiceClient,
-        this.invoiceSender
-      ));
-    else
+    this.apiService.updateSender(this.invoiceSender.id, this.invoiceSender);
+
+    if (this.invoiceStatus.toLowerCase() !== "draft") {
       this.apiService.updateInvoice(this.invoiceId, new Invoice(
         this.invoiceId,
         this.invoiceStatus,
@@ -228,6 +215,7 @@ export class InvoiceAddEditComponent implements OnInit {
         this.invoiceClient,
         this.invoiceSender
       ));
+    }
 
     this.returnToMain();
   }
