@@ -249,3 +249,73 @@ button:hover {
     color: #888EB0;
     width: 60vw;
 }
+
+/*
+ * Desktop design
+ */
+
+@media screen and (min-width: 1440px) {
+    .navbar-top {
+        flex-direction: column;
+        width: 103px;
+        height: 100vh;
+        border-radius: 0 1.25rem 1rem 0;
+        margin-bottom: 0;
+        position: fixed;
+        left: 0;
+    }
+
+    .logo-container {
+        flex-direction: column;
+    }
+
+    .logo-upper {
+        background-color: #7C5DFA;
+        border-top-right-radius: 1.25rem;
+        border-radius: 0 1.25rem 1.25rem 0;
+        width: 103px;
+        height: 103px;
+        transform: translate(-26px, 0px);
+    }
+
+    .logo-bottom {
+        width: 103px;
+        height: 51px;
+        transform: translate(-26px, -51px);
+        border-radius: 1.25rem 0 1.25rem 0;
+    }
+
+    .logo-image {
+        height: 2.5rem;
+        transform: translate(6px, -121px);
+        z-index: 3;
+        width: 2.5rem;
+    }
+
+    .theme-button {
+        transform: translate(0rem, -1rem);
+    }
+
+    .user-icon-box {
+        width: 103px;
+        height: 103px;
+        border-left: unset;
+        border-top: solid #494E6E 1px;
+    }
+
+    .invoice-app {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .invoice-mode-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        padding-top: 4.5rem;
+        max-height: 100vh;
+        margin-left: 7vw;
+    }
+}

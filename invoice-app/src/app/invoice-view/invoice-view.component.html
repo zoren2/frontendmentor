@@ -5,6 +5,16 @@
         </div>
         <p>{{viewInvoice.status | titlecase }}</p>
     </div>
+    <button class="invoice-edit-btn tablet-desktop-btn" (click)="openFormDialog(viewForm)">
+        <p>Edit</p>
+    </button>
+    <button class="invoice-delete-btn tablet-desktop-btn" (click)="openDialog(delete)">
+        <p>Delete</p>
+    </button>
+    <button *ngIf="viewInvoice.status.toLowerCase() == 'pending'" class="invoice-mark-btn"
+        (click)="openDialog(markAsPaid)">
+        <p>Mark as Paid</p>
+    </button>
 </div>
 
 <div class="client-info-container">
@@ -144,3 +154,11 @@
         <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
     </mat-dialog-actions>
 </ng-template>
+
+<ng-template #viewForm>
+    <mat-dialog-content class="mat-typography">
+        <app-invoice-add-edit [editInvoice]="viewInvoice" [editInvoiceItems]="itemsForInvoice"></app-invoice-add-edit>
+    </mat-dialog-content>
+</ng-template>
+
+

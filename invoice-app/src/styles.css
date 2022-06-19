@@ -143,6 +143,21 @@ option {
     color: #7E88C3;
 }
 
+button {
+    transition: .3s !important;
+}
+
 button:hover {
     cursor: pointer !important;
+    opacity: .5 !important;
+}
+
+@media screen and (min-width: 1440px) {
+    .go-back-button-container {
+        transform: translateX(150px);
+    }
+
+    .invoice-status-paid, .invoice-status-pending, .invoice-status-draft {
+        width: 10vw;
+    }
 }

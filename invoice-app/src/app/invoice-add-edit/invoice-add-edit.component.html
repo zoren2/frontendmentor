@@ -226,7 +226,7 @@
         </div>
         <button class="add-new-item-btn" (click)="addItem()">
             <span>
-                <p><b>+ Add New Item</b></p>
+                <p class="btn-text"><b>+ Add New Item</b></p>
             </span>
         </button>
     </form>
@@ -235,22 +235,22 @@
 <div class="invoice-edit-delete-mark">
     <!-- Edit mode buttons -->
     <button *ngIf="!addingInvoiceMode" class="invoice-edit-btn" (click)="editReturnToMain()">
-        <p>Cancel</p>
+        <p class="btn-text">Cancel</p>
     </button>
     <button *ngIf="!addingInvoiceMode && this.invoiceStatus.toLowerCase() !== 'draft'" class="invoice-mark-btn"
         (click)="saveChanges(invoiceForm)">
-        <p>Save Changes</p>
+        <p class="btn-text">Save Changes</p>
     </button>
 
     <!-- Add mode buttons -->
     <button *ngIf="addingInvoiceMode" class="invoice-edit-btn" (click)="editReturnToMain()">
-        <p>Discard</p>
+        <p class="btn-text">Discard</p>
     </button>
     <button *ngIf="addingInvoiceMode" class="invoice-save-btn" (click)="saveToDraft()">
-        <p>Save as Draft</p>
+        <p class="btn-text">Save as Draft</p>
     </button>
     <button *ngIf="addingInvoiceMode || this.invoiceStatus.toLowerCase() == 'draft'" class="invoice-mark-btn"
         (click)="saveAndSend(invoiceForm)">
-        <p>Save and Send</p>
+        <p class="btn-text">Save and Send</p>
     </button>
 </div>

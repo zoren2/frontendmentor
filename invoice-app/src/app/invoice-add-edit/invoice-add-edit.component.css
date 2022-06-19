@@ -32,10 +32,9 @@
 .form-label p {
     margin-bottom: .25rem;
     display: inline;
-    padding-right: 59vw;
 }
 
-.label-container {
+.label-container {  
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -55,7 +54,7 @@ form h3 {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     height: 5.7rem;
     background-color: white;
 }
@@ -63,7 +62,7 @@ form h3 {
 /* Perhaps put this in a mixin with width + font color */
 .invoice-edit-btn {
     all: unset;
-    width: 19.5vw;
+    width: 19.5%;
     height: 3rem;
     border: none;
     background-color: #dfe4f7;
@@ -74,7 +73,7 @@ form h3 {
 
 .invoice-delete-btn {
     all: unset;
-    width: 23.7vw;
+    width: 23.7%;
     height: 3rem;
     border: none;
     background-color: #EC5757;
@@ -85,7 +84,7 @@ form h3 {
 
 .invoice-save-btn {
     all: unset;
-    width: 23.7vw;
+    width: 23.7%;
     height: 3rem;
     border: none;
     background-color: #373B53;
@@ -96,13 +95,17 @@ form h3 {
 
 .invoice-mark-btn {
     all: unset;
-    width: 35vw;
+    width: 35%;
     height: 3rem;
     border: none;
     background-color: #7C5DFA;
     color: #FFFFFF;
     text-align: center;
     border-radius: 1.5rem;
+}
+
+.btn-text {
+    line-height: 50px;
 }
 
 .trash-can-item-btn {

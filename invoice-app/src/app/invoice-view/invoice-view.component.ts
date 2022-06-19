@@ -16,7 +16,7 @@ export class InvoiceViewComponent implements OnInit {
   @Output() startEdit = new EventEmitter();
   @Output() deleteInvoiceEmit = new EventEmitter();
 
-  @Input() viewInvoice:Invoice = new Invoice();
+  @Input() viewInvoice: Invoice = new Invoice();
   @Input() itemsForInvoice: Item[] = new Array();
 
   constructor(private apiService: InvoiceApiService, private dialog: MatDialog, private cdr: ChangeDetectorRef) { }
@@ -68,6 +68,13 @@ export class InvoiceViewComponent implements OnInit {
 
   openDialog(templateRef: TemplateRef<any>) {
     this.dialog.open(templateRef);
+  }
+
+  openFormDialog(templateRef: TemplateRef<any>) {
+    this.dialog.open(templateRef, {
+      width: '50vw',
+      height: '75vh'
+    });
   }
 
 
