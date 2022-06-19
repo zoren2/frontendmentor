@@ -157,7 +157,7 @@
 
 <ng-template #viewForm>
     <mat-dialog-content class="mat-typography">
-        <app-invoice-add-edit [editInvoice]="viewInvoice" [editInvoiceItems]="itemsForInvoice"></app-invoice-add-edit>
+        <app-invoice-add-edit [editInvoice]="viewInvoice" [editInvoiceItems]="itemsForInvoice" (closeForm)="this.closeDialog($event)"></app-invoice-add-edit>
     </mat-dialog-content>
 </ng-template>
 

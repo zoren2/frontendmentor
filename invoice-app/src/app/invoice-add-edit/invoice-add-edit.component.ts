@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectorRef} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectorRef } from '@angular/core';
 import { Client } from '../client.model';
 import { Invoice } from '../invoice.model';
 import { Item } from '../item.model';
@@ -35,6 +35,7 @@ export class InvoiceAddEditComponent implements OnInit {
   @Output() endEdit = new EventEmitter();
   @Output() saveDraft = new EventEmitter();
   @Output() addInvoice = new EventEmitter();
+  @Output() closeForm = new EventEmitter();
 
   /*
    * Form Fields
@@ -88,9 +89,7 @@ export class InvoiceAddEditComponent implements OnInit {
     }
   }
 
-  returnToMain(): void {
-    this.endEdit.emit('main');
-  }
+
 
   calculateTotal(item: Item): number {
     /* Fixes falsey values to return 0 instead of unhelpful NaN */
@@ -244,8 +243,9 @@ export class InvoiceAddEditComponent implements OnInit {
   /*
    * Emitted Events
    */
-  editReturnToMain(): void {
-    // this.cdr.markForCheck();
-    this.endEdit.emit("main");
+  returnToMain(): void {
+    this.editInvoice = new Invoice();
+    this.closeForm.emit('close');
+    this.endEdit.emit('main');
   }
 }

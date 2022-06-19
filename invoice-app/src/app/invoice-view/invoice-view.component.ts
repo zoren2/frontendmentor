@@ -77,6 +77,9 @@ export class InvoiceViewComponent implements OnInit {
     });
   }
 
+  closeDialog(event: any) {
+    this.dialog.closeAll();
+  }
 
   /*
    * Directive controlled CSS Functions
