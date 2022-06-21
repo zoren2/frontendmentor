@@ -51,6 +51,12 @@ export class InvoiceAddEditComponent implements OnInit {
   totalDue!: number;
 
   /*
+   * Extra Data Structures
+   */
+
+  itemsToDelete: number[] = new Array();
+
+  /*
    * Edit / Add Mode 
    * - If Adding Invoice is true then serve an empty object.
    */
@@ -97,6 +103,7 @@ export class InvoiceAddEditComponent implements OnInit {
   }
 
   deleteItem(index: number): void {
+    this.itemsToDelete.push(this.editItems[index].id);
     this.editItems.splice(index, 1);
   }
 
@@ -181,7 +188,7 @@ export class InvoiceAddEditComponent implements OnInit {
       return;
 
     this.calculatePrices();
-    this.processItems();
+    // this.processItems();
 
     let tempInvoice: Invoice = new Invoice(
       this.invoiceId,
@@ -193,13 +200,14 @@ export class InvoiceAddEditComponent implements OnInit {
       this.invoiceSender
     )
 
-    /* Entityframework each table to be explicitly edited */
+    /* Edit every affected table explicitly */
     this.editItems.forEach(
       item => {
         this.invoiceClient.item.push(item); // Item getter/setter sets off a null error
         this.apiService.updateItems(item.id, item)
       }
     );
+    this.itemsToDelete.forEach(itemId => this.apiService.deleteItem(itemId));
 
     this.apiService.updateClient(this.invoiceClient.id, this.invoiceClient);
     this.apiService.updateSender(this.invoiceSender.id, this.invoiceSender);
@@ -233,11 +241,14 @@ export class InvoiceAddEditComponent implements OnInit {
     this.totalDue = tempTotal;
   }
 
+  /* 
+   * Change it so it removes null items in case it somehow gets past the form validation 
+   */
   private processItems() {
-    this.editInvoiceItems.forEach(item => {
-      if (item !== null)
-        this.editItems.push(item);
-    });
+    /*
+     * Process array and remove null items as a security measure - code shouldn't 
+     * get here by normal use of the application.
+     */
   }
 
   /*
