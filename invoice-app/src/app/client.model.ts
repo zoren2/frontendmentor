@@ -20,7 +20,7 @@ export class Client implements Deserializable {
 
     constructor(id?: number) {
         this.id = id ?? 0;
-        this.item = new Array();
+        this.item = new Array<Item>();
     }
     setId(id: number) {
         this.id = id;

@@ -10,6 +10,9 @@ export class Item implements Deserializable {
 
     constructor() {
         this.id = 0;
+        this.name = "";
+        this.quantity = 0;
+        this.price = 0;
     }
 
      deserialize(input: any) {
