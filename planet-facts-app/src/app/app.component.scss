@@ -1,0 +1,21 @@
+.app-grid {
+    display: grid;
+    // gap: 1rem;
+    // grid-template-columns: 1fr 2fr;
+    // margin: 0 0 1rem 0;
+    // grid-template-columns: 1fr;
+    grid-template-rows: 68px;
+    grid-template-areas: "navigation";
+}
+
+.app-menu-nav {
+    grid-area: navigation;
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.grid > div {
+    height: 100px;
+    background: red;
+}
