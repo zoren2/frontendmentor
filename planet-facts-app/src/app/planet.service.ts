@@ -74,7 +74,7 @@ export class PlanetService {
     externalImg: "planet-jupiter.svg",
     internalImg: "planet-jupiter-internal.svg",
     geologyImg: "geology-jupiter.png",
-    imgSize: "34vw"
+    imgSize: "60vw"
   },
   {
     name: "Saturn",
@@ -102,7 +102,7 @@ export class PlanetService {
     externalImg: "planet-uranus.svg",
     internalImg: "planet-uranus-internal.svg",
     geologyImg: "geology-uranus.png",
-    imgSize: "64vw"
+    imgSize: "37vw"
   },
   {
     name: "Neptune",
@@ -116,7 +116,7 @@ export class PlanetService {
     externalImg: "planet-neptune.svg",
     internalImg: "planet-neptune-internal.svg",
     geologyImg: "geology-neptune.png",
-    imgSize: "64vw"
+    imgSize: "46vw"
   }
   ]
 

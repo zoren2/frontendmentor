@@ -22,13 +22,30 @@
 }
 
 .planet-img {
-    max-width: 250px;
+    max-height: 250px;
+    max-width: 250px
 }
 
 .planet-indicator {
     width: 10vw;
     position: absolute;
     transform: translate(10vw, 16vw);
+}
+
+.planet-info {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+.planet-info-left {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+.planet-info-right {
+    display: none;
 }
 
 .planet-header {
@@ -39,7 +56,7 @@
     margin-bottom: 1.75rem;
 }
 
-.fact-container {
+.fact-card-container {
     display: flex;
     flex-direction: row;
     border: 1px solid $border-gray;
@@ -55,4 +72,86 @@
     font-size: 0.75rem;
     line-height: 1rem;
     color: #ffffff80;
+}
+
+@media screen and (min-width: 768px) {
+    :host {
+        // padding: 0 39px 0 39px;
+    }
+
+    .clear-background {
+        background-color: unset;
+    }
+
+    .planet-info {
+        flex-direction: row;
+        width: 85vw;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .planet-img-container {
+        height: 40vh;
+    }
+
+    .planet-img {
+        max-width: 300px;
+        max-height: 300px;
+    }
+    .planet-indicator {
+        max-width: 70px;
+    }
+
+    .planet-info-left {
+        place-items: self-start;
+        width: 45vw;
+        min-height: 200px;
+    }
+
+    .planet-info-right {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        min-height: 200px;
+    }
+
+    /* Mixin */
+    .planet-info-right-btn {
+        // flex
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        // position
+        width: 30vw;
+        height: 5vh;
+        // styling
+        border: 1px solid $border-gray;
+        // margins
+        margin-bottom: 1vh;
+        padding: 0 1.5rem 0 1.5rem;
+    }
+
+    .fact-label {
+        margin-right: 1.5rem;
+    }
+    .planet-overview {
+        text-align: left;
+        width: unset;
+    }
+
+    .fact-card {
+        display: flex;
+        flex-direction: row;
+        width: 85vw;
+        justify-content: space-between;
+    }
+
+    .fact-card-container {
+        flex-direction: column;
+        width: 20vw;
+        height: 8.5vh;
+        padding: 1rem;
+        place-items: baseline;
+    }
 }

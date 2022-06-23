@@ -34,11 +34,13 @@ export class AppComponent {
     return this.planets.indexOf(this.currentPlanet);
   }
 
-  setPlanet(planetName: any, checkbox: HTMLInputElement) {
+  setPlanet(planetName: any, checkbox?: HTMLInputElement) {
+    if (checkbox) {
+      checkbox.checked = false;
+    }
     this.currentPlanet = this.planets.filter(planet => {
       return planet.name.toLowerCase() === planetName.toLowerCase();
     })[0];
-    checkbox.checked = false;
     this.infoMode = 'overview';
   }
 

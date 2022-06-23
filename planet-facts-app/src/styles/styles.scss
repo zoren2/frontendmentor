@@ -55,6 +55,11 @@ h1 {
   font-weight: 400;
   font-size: 40px;
   line-height: 51.76px;
+  color: white;
+}
+
+h2 {
+  font-family: "Antonio", sans-serif;
 }
 
 p {
@@ -65,9 +70,11 @@ p {
   line-height: 22px;
 }
 
-
 /*
- * Usage - .color-mercury, .color-venus, ... , etc
+ * Usage 
+ *       - .color-mercury, .color-venus, ... , etc
+ *       - .mercury-indicator, .venus-indicator, ..., etc
+ *       - .mercury-hover, .mercury-hover, ..., etc
  */
 @each $colorName, $color in $planetColors {
   .color-#{$colorName} {
@@ -76,16 +83,20 @@ p {
       border-bottom: 4px solid $color;
     }
   }
-}
 
-/*
- * Usage - .mercury-indicator, .venus-indicator, ..., etc
- */
-@each $colorName, $color in $planetColors {
   .#{$colorName}-indicator {
-      border-radius: 50%;
-      height: 25px;
-      width: 25px;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background-color: $color;
+  }
+
+  .#{$colorName}-hover {
+    background-color: $color;
+    transition: 0.3s;
+    &:hover {
       background-color: $color;
+      cursor: pointer;
+    }
   }
 }

@@ -7,34 +7,57 @@
         src="../assets/{{planet.externalImg}}">
     <img *ngIf="this.infoMode=='surface'" class="planet-indicator" src="../assets/{{planet.geologyImg}}">
 </div>
-<h1 class="planet-header"> {{planet.name | uppercase }} </h1>
 
-<!-- Text -->
-<div *ngIf="this.infoMode == 'overview'" class="planet-overview">
-    <p>{{planet.overview}}</p>
+<div class="planet-info">
+    <div class="planet-info-left">
+        <h1 class="planet-header"> {{planet.name | uppercase }} </h1>
+        <!-- Text -->
+        <div *ngIf="this.infoMode == 'overview'" class="planet-overview">
+            <p>{{planet.overview}}</p>
+        </div>
+        <div *ngIf="this.infoMode == 'structure'" class="planet-overview">
+            <p>{{planet.structure}}</p>
+        </div>
+        <div *ngIf="this.infoMode == 'surface'" class="planet-overview">
+            <p>{{planet.surface}}</p>
+        </div>
+        <div class="wiki">
+            <a>Source: Wikipedia</a>
+        </div>
+    </div>
+    <div class="planet-info-right">
+        <div #overview class="overview planet-info-right-btn" [ngClass]="getButtonColor(overview)"
+            (click)="setInfoMode('overview')">
+            <p class="fact-label"> 01 </p>
+            <p> OVERVIEW </p>
+        </div>
+        <div #structure class="structure planet-info-right-btn" [ngClass]="getButtonColor(structure)"
+            (click)="setInfoMode('structure')">
+            <p class=" fact-label"> 02 </p>
+            <p> INTERNAL STRUCTURE </p>
+        </div>
+        <div #surface class="surface planet-info-right-btn" [ngClass]="getButtonColor(surface)"
+            (click)="setInfoMode('surface')">
+            <p class=" fact-label"> 03 </p>
+            <p> SURFACE </p>
+        </div>
+    </div>
 </div>
-<div *ngIf="this.infoMode == 'structure'" class="planet-overview">
-    <p>{{planet.structure}}</p>
-</div>
-<div *ngIf="this.infoMode == 'surface'" class="planet-overview">
-    <p>{{planet.surface}}</p>
-</div>
-<div class="wiki">
-    <a>Source: Wikipedia</a>
-</div>
-<div class="fact-container">
-    <p class="fact-label">ROTATION TIME</p>
-    <h2> {{planet.rotationTime}} </h2>
-</div>
-<div class="fact-container">
-    <p class="fact-label">REVOLUTION TIME</p>
-    <h2> {{planet.revolutionTime}} </h2>
-</div>
-<div class="fact-container">
-    <p class="fact-label">RADIUS</p>
-    <h2> {{planet.radius}} </h2>
-</div>
-<div class="fact-container">
-    <p class="fact-label"> AVERAGE TEMP.</p>
-    <h2> {{planet.averageTemp}} </h2>
+<div class="fact-card">
+    <div class="fact-card-container">
+        <p class="fact-label">ROTATION TIME</p>
+        <h2> {{planet.rotationTime}} </h2>
+    </div>
+    <div class="fact-card-container">
+        <p class="fact-label">REVOLUTION TIME</p>
+        <h2> {{planet.revolutionTime}} </h2>
+    </div>
+    <div class="fact-card-container">
+        <p class="fact-label">RADIUS</p>
+        <h2> {{planet.radius}} </h2>
+    </div>
+    <div class="fact-card-container">
+        <p class="fact-label"> AVERAGE TEMP.</p>
+        <h2> {{planet.averageTemp}} </h2>
+    </div>
 </div>
