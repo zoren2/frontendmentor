@@ -1,5 +1,62 @@
 <div class="app-grid">
-  <div class="app-menu-nav">
+  <div class="menu-nav">
     <h1>THE PLANETS</h1>
+    <input #checkBox id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+      <div class='menu-button'></div>
+    </label>
+    <ul class="planet-list">
+      <li (click)="setPlanet('mercury', checkBox)">
+        <div class="mercury-indicator"></div>
+        <p class="planet-menu-text">MERCURY</p>
+        <img src="../assets/icon-chevron.svg" alt="right-arrow">
+      </li>
+      <li (click)="setPlanet('venus', checkBox)">
+        <div class="venus-indicator"></div>
+        <p class="planet-menu-text">VENUS</p>
+        <img src="../assets/icon-chevron.svg" alt="right-arrow">
+      </li>
+      <li (click)="setPlanet('earth', checkBox)">
+        <div class="earth-indicator"></div>
+        <p class="planet-menu-text">EARTH</p>
+        <img src="../assets/icon-chevron.svg" alt="right-arrow">
+      </li>
+      <li (click)="setPlanet('mars', checkBox)">
+        <div class="mars-indicator"></div>
+        <p class="planet-menu-text">MARS</p>
+        <img src="../assets/icon-chevron.svg" alt="right-arrow">
+      </li>
+      <li (click)="setPlanet('jupiter', checkBox)">
+        <div class="jupiter-indicator"></div>
+        <p class="planet-menu-text">JUPITER</p>
+        <img src="../assets/icon-chevron.svg" alt="right-arrow">
+      </li>
+      <li (click)="setPlanet('saturn', checkBox)">
+        <div class="saturn-indicator"></div>
+        <p class="planet-menu-text">SATURN</p>
+        <img src="../assets/icon-chevron.svg" alt="right-arrow">
+      </li>
+      <li (click)="setPlanet('uranus', checkBox)">
+        <div class="uranus-indicator"></div>
+        <p class="planet-menu-text">URANUS</p>
+        <img src="../assets/icon-chevron.svg" alt="right-arrow">
+      </li>
+      <li (click)="setPlanet('neptune',checkBox)">
+        <div class="neptune-indicator"></div>
+        <p class="planet-menu-text">NEPTUNE</p>
+        <img src="../assets/icon-chevron.svg" alt="right-arrow">
+      </li>
+    </ul>
+  </div>
+  <div class="fact-nav">
+    <div #overview [ngClass]="getMenuBottom(overview)" class="overview fact-nav-btn" (click)="setMode('overview')">
+      OVERVIEW</div>
+    <div #structure [ngClass]="getMenuBottom(structure)" class="structure fact-nav-btn" (click)="setMode('structure')">
+      STRUCTURE</div>
+    <div #surface [ngClass]="getMenuBottom(surface)" class="surface fact-nav-btn" (click)="setMode('surface')">SURFACE
+    </div>
+  </div>
+  <div class="planet-facts">
+    <app-planet [planet]="this.currentPlanet" [infoMode]="this.infoMode"></app-planet>
   </div>
 </div>

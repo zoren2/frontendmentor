@@ -35,15 +35,57 @@ $planet-facts-app-theme: mat.define-light-theme(
 @include mat.all-component-themes($planet-facts-app-theme);
 
 @import "./reset";
+@import "./variables";
+@import "./mixins";
 
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   background-color: #070724;
   background-image: url(../assets/background-stars.svg);
-  font-family: "Antonio", sans-serif;
+  font-family: "League Spartan", "Antonio", sans-serif;
+}
+
+h1 {
+  font-family: "Antonio";
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 51.76px;
+}
+
+p {
   font-family: "League Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+
+/*
+ * Usage - .color-mercury, .color-venus, ... , etc
+ */
+@each $colorName, $color in $planetColors {
+  .color-#{$colorName} {
+    border-bottom: 4px solid $color;
+    &:hover {
+      border-bottom: 4px solid $color;
+    }
+  }
+}
+
+/*
+ * Usage - .mercury-indicator, .venus-indicator, ..., etc
+ */
+@each $colorName, $color in $planetColors {
+  .#{$colorName}-indicator {
+      border-radius: 50%;
+      height: 25px;
+      width: 25px;
+      background-color: $color;
+  }
 }

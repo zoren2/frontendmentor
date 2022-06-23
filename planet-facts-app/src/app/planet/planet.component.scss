@@ -1,0 +1,58 @@
+@import "../../styles/styles";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5rem 2.5rem 1.5rem;
+    color: white;
+    place-items: center;
+}
+
+.planet-overview {
+    text-align: center;
+    width: 87vw;
+    margin-bottom: 2rem;
+}
+
+.planet-img-container {
+    display: flex;
+    flex-direction: column;
+    height: 32vh;
+    justify-content: center;
+}
+
+.planet-img {
+    max-width: 250px;
+}
+
+.planet-indicator {
+    width: 10vw;
+    position: absolute;
+    transform: translate(10vw, 16vw);
+}
+
+.planet-header {
+    margin-bottom: 1rem;
+}
+
+.wiki {
+    margin-bottom: 1.75rem;
+}
+
+.fact-container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid $border-gray;
+    width: 87vw;
+    height: 5vh;
+    margin-bottom: 1vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem 0 1.5rem;
+}
+
+.fact-label {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: #ffffff80;
+}
