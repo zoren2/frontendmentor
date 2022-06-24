@@ -39,7 +39,9 @@
 .planet-indicator {
     width: 10vw;
     position: absolute;
-    transform: translate(50%, 50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -250%);
 }
 
 .planet-info {
@@ -111,6 +113,7 @@
     }
     .planet-indicator {
         max-width: 70px;
+        transform: translate(-50%, 0);
     }
 
     .planet-info-left {
@@ -202,7 +205,7 @@
     }
 
     .planet-indicator {
-        transform: translate(2%, 284%);
+        transform: translate(-388%, -50%);
     }
 
     .planet-img {
