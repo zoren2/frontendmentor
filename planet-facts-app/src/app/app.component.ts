@@ -48,10 +48,10 @@ export class AppComponent {
     this.infoMode = mode;
   }
 
-  hideMenu() {
-
+  // Gets information node from inner component
+  setMainInfoMode(event: any) {
+    this.infoMode = event;
   }
-
 
   // Tied with @menu-nav-bottom mixin
   getMenuBottom(button: HTMLDivElement) {

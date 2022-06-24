@@ -100,3 +100,37 @@ p {
     }
   }
 }
+
+/*
+ * Media Queries
+ */
+
+@media screen and (min-width: 1440px) {
+  h1 {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -1.05px;
+  }
+}
+
+/*
+ * Usage: .mercury-width, .venus-width, ... , etc 
+ */
+@each $colorName, $width in $planetImageMobile {
+  .#{$colorName}-width {
+    width: $width;
+  }
+
+  @media screen and (min-width: 768px) {
+    .#{$colorName}-width {
+      width: $width/1.5;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .#{$colorName}-width {
+      width: $width/2;
+    }
+  }
+}

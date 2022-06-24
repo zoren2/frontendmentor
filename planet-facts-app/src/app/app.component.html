@@ -58,7 +58,7 @@
     </div>
   </div>
   <div class="planet-facts">
-    <app-planet [planet]="this.currentPlanet" [infoMode]="this.infoMode"></app-planet>
+    <app-planet [planet]="this.currentPlanet" [infoMode]="this.infoMode" (innerInfoMode)="setMainInfoMode($event)"></app-planet>
   </div>
   <!-- Tablet / Desktop Nav -->
   <div class="fact-menu-nav">

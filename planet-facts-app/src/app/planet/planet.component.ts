@@ -18,9 +18,12 @@ export class PlanetComponent implements OnInit {
   ngOnInit(): void { }
 
   setInfoMode(mode: String) {
-    this.infoMode = mode;
+    this.innerInfoMode.emit(mode);
   }
 
+  getImageSize() {
+    return this.planet.name.toLowerCase() + "-width"
+  }
   getButtonColor(button: HTMLDivElement) {
     if (this.infoMode === 'overview') {
       if (button.classList.contains('structure') ||

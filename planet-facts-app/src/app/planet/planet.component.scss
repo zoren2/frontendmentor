@@ -8,6 +8,12 @@
     place-items: center;
 }
 
+.planet-desktop-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .planet-overview {
     text-align: center;
     width: 87vw;
@@ -21,21 +27,26 @@
     justify-content: center;
 }
 
+.planet-img-container-desktop {
+    display: none;
+}
+
 .planet-img {
-    max-height: 250px;
-    max-width: 250px
+    max-height: 200px;
+    max-width: 200px;
 }
 
 .planet-indicator {
     width: 10vw;
     position: absolute;
-    transform: translate(10vw, 16vw);
+    transform: translate(50%, 50%);
 }
 
 .planet-info {
     display: flex;
     flex-direction: column;
     place-items: center;
+    min-height: 300px;
 }
 
 .planet-info-left {
@@ -76,7 +87,7 @@
 
 @media screen and (min-width: 768px) {
     :host {
-        // padding: 0 39px 0 39px;
+        flex-direction: column;
     }
 
     .clear-background {
@@ -91,7 +102,7 @@
     }
 
     .planet-img-container {
-        height: 40vh;
+        height: 60vh;
     }
 
     .planet-img {
@@ -124,7 +135,7 @@
         align-items: center;
         // position
         width: 30vw;
-        height: 5vh;
+        height: 6vh;
         // styling
         border: 1px solid $border-gray;
         // margins
@@ -150,8 +161,56 @@
     .fact-card-container {
         flex-direction: column;
         width: 20vw;
-        height: 8.5vh;
+        height: 10.5vh;
         padding: 1rem;
-        place-items: baseline;
+        justify-content: space-around;
+        align-items: baseline;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .planet-desktop-container {
+        flex-direction: row;
+        height: 65vh;
+    }
+
+    .planet-img-container {
+        display: none;
+        // width: 55vw;
+        // align-items: center;
+    }
+
+    .planet-img-container-desktop {
+        display: flex;
+        flex-direction: column;
+        width: 55vw;
+        align-items: center;
+    }
+    .planet-info {
+        flex-direction: column;
+        width: 33vw;
+    }
+
+    .planet-info-left,
+    .planet-info-right,
+    .planet-info-right-btn {
+        width: 20vw;
+    }
+
+    .planet-info-right-btn {
+        height: 5vh;
+    }
+
+    .planet-indicator {
+        transform: translate(2%, 284%);
+    }
+
+    .planet-img {
+        max-width: 400px;
+        max-height: 400px;
+    }
+
+    .fact-card-container {
+        height: 11.5vh;
     }
 }

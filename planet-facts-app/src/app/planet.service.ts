@@ -17,8 +17,7 @@ export class PlanetService {
     averageTemp: "430°c",
     externalImg: "planet-mercury.svg",
     internalImg: "planet-mercury-internal.svg",
-    geologyImg: "geology-mercury.png",
-    imgSize: "30vw"
+    geologyImg: "geology-mercury.png"
   },
   {
     name: "Venus",
@@ -31,8 +30,7 @@ export class PlanetService {
     averageTemp: "471°c",
     externalImg: "planet-venus.svg",
     internalImg: "planet-venus-internal.svg",
-    geologyImg: "geology-venus.png",
-    imgSize: "41vw"
+    geologyImg: "geology-venus.png"
   },
   {
     name: "Earth",
@@ -45,8 +43,7 @@ export class PlanetService {
     averageTemp: "16°c",
     externalImg: "planet-earth.svg",
     internalImg: "planet-earth-internal.svg",
-    geologyImg: "geology-earth.png",
-    imgSize: "46vw"
+    geologyImg: "geology-earth.png"
   },
   {
     name: "Mars",
@@ -59,8 +56,7 @@ export class PlanetService {
     averageTemp: "-28°c",
     externalImg: "planet-mars.svg",
     internalImg: "planet-mars-internal.svg",
-    geologyImg: "geology-mars.png",
-    imgSize: "34vw"
+    geologyImg: "geology-mars.png"
   },
   {
     name: "Jupiter",
@@ -73,8 +69,7 @@ export class PlanetService {
     averageTemp: "-108°c",
     externalImg: "planet-jupiter.svg",
     internalImg: "planet-jupiter-internal.svg",
-    geologyImg: "geology-jupiter.png",
-    imgSize: "60vw"
+    geologyImg: "geology-jupiter.png"
   },
   {
     name: "Saturn",
@@ -87,8 +82,7 @@ export class PlanetService {
     averageTemp: "-138°c",
     externalImg: "planet-saturn.svg",
     internalImg: "planet-saturn-internal.svg",
-    geologyImg: "geology-saturn.png",
-    imgSize: "60vw"
+    geologyImg: "geology-saturn.png"
   },
   {
     name: "Uranus",
@@ -101,8 +95,7 @@ export class PlanetService {
     averageTemp: "-195°c",
     externalImg: "planet-uranus.svg",
     internalImg: "planet-uranus-internal.svg",
-    geologyImg: "geology-uranus.png",
-    imgSize: "37vw"
+    geologyImg: "geology-uranus.png"
   },
   {
     name: "Neptune",
@@ -115,8 +108,7 @@ export class PlanetService {
     averageTemp: "-201°c",
     externalImg: "planet-neptune.svg",
     internalImg: "planet-neptune-internal.svg",
-    geologyImg: "geology-neptune.png",
-    imgSize: "46vw"
+    geologyImg: "geology-neptune.png"
   }
   ]
 

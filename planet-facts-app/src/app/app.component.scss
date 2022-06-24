@@ -249,3 +249,28 @@ h2 {
         cursor: pointer;
     }
 }
+
+@media screen and (min-width: 1440px) {
+    h1 {
+        padding-left: 2rem;
+        width: 11vw;
+    }
+    .app-grid {
+        display: grid;
+        grid-template-rows: 85px 1fr;
+        grid-template-areas:
+            "grid-fact-menu-nav"
+            "grid-planet-facts";
+        min-width: 375px;
+    }
+
+    .fact-menu-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+
+    .planet-nav {
+        width: 65%;
+    }
+}
