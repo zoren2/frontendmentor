@@ -124,13 +124,13 @@ p {
 
   @media screen and (min-width: 768px) {
     .#{$colorName}-width {
-      width: $width/1.5;
+      width: calc($width/1.5);
     }
   }
 
   @media screen and (min-width: 1440px) {
     .#{$colorName}-width {
-      width: $width/2;
+      width: calc($width/2);
     }
   }
 }
