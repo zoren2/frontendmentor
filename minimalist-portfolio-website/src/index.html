@@ -1,38 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./styles/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;700&family=Public+Sans&display=swap"
+    rel="stylesheet">
+
   <title>Frontend Mentor | Minimalist Portfolio</title>
 </head>
+
 <body>
-  
-  Home
-  Portfolio
-  Contact Me
+  <div class="app-container">
+    <div class="menu-nav">
+      <img src="./images/logo.svg">
+      <input #checkBox id="menu-toggle" type="checkbox">
+      <label class='menu-button-container' for="menu-toggle">
+        <div class='menu-button'></div>
+      </label>
+      <ul class="planet-list">
+        <li>HOME</li>
+        <li>PORTFOLIO</li>
+        <li>CONTACT ME</li>
+      </ul>
+    </div>
 
-  Hey, I’m Alex Spencer and I love building beautiful websites
 
-  About Me
+    <div class="description-container">
+      <img srcset="images/homepage/mobile/image-homepage-hero@2x.jpg 375w" alt="hero-image" class="hero-img">
+      <h2>Hey, I’m Alex Spencer and I love building beautiful websites</h2>
 
-  About Me
+      <div class="primary-button">
+        <div class="primary-button-left"><img class="down-arrows" src="images/icons/down-arrows.svg"></div>
+        <div class="primary-button-right">
+          <p>ABOUT ME</p>
+        </div>
+      </div>
+    </div>
 
-  I’m a junior front-end developer looking for a new role in an exciting company. 
-  I focus on writing accessible HTML, using modern CSS practices and writing clean 
-  JavaScript. When writing JavaScript code, I mostly use React, but I can adapt to 
-  whatever tools are required. I’m based in London, UK, but I’m happy working remotely 
-  and have experience in remote teams. When I’m not coding, you’ll find me outdoors. 
-  I love being out in nature whether that’s going for a walk, run or cycling. I’d love 
-  you to check out my work.
+    <div class="about-container">
+      <img src="images/homepage/mobile/image-homepage-profile@2x.jpg" class="profile-img" alt="profile-image">
+      <div class="image-border-bottom"></div>
+      <h2>About Me</h2>
 
-  Go to Portfolio
+      <p>
+        I’m a junior front-end developer looking for a new role in an exciting company.
+        I focus on writing accessible HTML, using modern CSS practices and writing clean
+        JavaScript. When writing JavaScript code, I mostly use React, but I can adapt to
+        whatever tools are required. I’m based in London, UK, but I’m happy working remotely
+        and have experience in remote teams. When I’m not coding, you’ll find me outdoors.
+        I love being out in nature whether that’s going for a walk, run or cycling. I’d love
+        you to check out my work.
+      </p>
 
-  Interested in doing a project together?
+      <div class="secondary-button">GO TO PORTFOLIO</div>
+      <div class="image-border-bottom"> </div>
+    </div>
 
-  Contact Me
-
+    <div class="interest-container">
+      <h2>Interested in doing a project together?</h2>
+      <div class="secondary-button">CONTACT ME</div>
+    </div>
+    <div class="footer">
+      <img src="./images/logo.svg" class="logo-white">
+      <p>HOME</p>
+      <p>PORTFOLIO</p>
+      <p>CONTACT ME</p>
+      <div class="contact-icons">
+        <img class="contact-icons-img" src="./images/icons/github.svg" alt="github-icon">
+        <img class="contact-icons-img" src="./images/icons/twitter.svg" alt="twitter-icon">
+        <img class="contact-icons-img" src="./images/icons/linkedin.svg" alt="linkedin-icon">
+      </div>
+    </div>
+  </div>
+  </div>
 </body>
+
 </html>

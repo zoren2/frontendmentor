@@ -1,0 +1,346 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0; }
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none; }
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth; }
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5; }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto; }
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block; }
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+
+body {
+  font-family: "Ibarra Real Nova", "Public Sans", sans-serif; }
+
+h1 {
+  font-family: "Ibarra Real Nova";
+  font-weight: 700;
+  font-size: 3.125rem;
+  line-height: 3.125rem;
+  letter-spacing: -0.45px; }
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 2.625rem;
+  letter-spacing: -0.36px; }
+
+h3 {
+  font-size: 2rem;
+  line-height: 2.25rem;
+  letter-spacing: -0.29px; }
+
+p {
+  font-family: "Public Sans";
+  font-size: 1rem;
+  line-height: 1.875rem; }
+
+small {
+  font-size: 0.9375rem;
+  line-height: 1.875rem; }
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.menu-nav {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  padding: 32px 32px 40px 32px;
+  justify-content: space-between; }
+
+.menu-button {
+  display: inline-block;
+  cursor: pointer;
+  transform: translateY(5px);
+  transition: 0.4s; }
+
+.menu-button:hover {
+  opacity: 0.3; }
+
+.planet-list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1; }
+
+.planet-list > li {
+  margin: 0 1rem;
+  overflow: hidden; }
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+#menu-toggle {
+  display: none; }
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #33323d;
+  position: absolute;
+  height: 3px;
+  width: 30px; }
+
+.menu-button::before {
+  content: "";
+  margin-top: -8px; }
+
+.menu-button::after {
+  content: "";
+  margin-top: 8px; }
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg); }
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: rgba(255, 255, 255, 0); }
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg); }
+
+@media (max-width: 768px) {
+  .menu-button-container {
+    display: flex; }
+  .planet-list {
+    font-family: "League Spartan", sans-serif;
+    position: absolute;
+    top: 0;
+    margin-top: 68px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center; }
+  #menu-toggle ~ .planet-list li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1); }
+  #menu-toggle:checked ~ .planet-list li {
+    border-bottom: 1px solid purple;
+    height: 13vh;
+    width: 100%;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    background-color: #070724;
+    display: flex;
+    justify-content: space-around; }
+  .planet-list > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: white;
+    background-color: #222;
+    align-items: center; }
+  .planet-list > li:not(:last-child) {
+    border-bottom: 1px solid #444; } }
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  width: 83vw;
+  justify-content: center; }
+
+.description-container h2 {
+  margin-bottom: 2rem; }
+
+.hero-img {
+  margin-bottom: 1.5rem; }
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  font-family: "Public Sans";
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 30px;
+  width: 83vw;
+  color: #33323d; }
+
+.image-border-bottom {
+  border-bottom: 1px solid #e3e3e3;
+  margin-bottom: 2rem; }
+
+.profile-img {
+  margin-bottom: 2rem; }
+
+.about-container h2 {
+  font-family: "Ibarra Real Nova";
+  margin-bottom: 2rem; }
+
+.about-container p {
+  margin-bottom: 1.5rem; }
+
+.about-container .secondary-button {
+  margin-bottom: 3rem; }
+
+.interest-container {
+  display: flex;
+  flex-direction: column;
+  width: 83vw;
+  align-items: center;
+  justify-content: center;
+  text-align: center; }
+
+.interest-container h2 {
+  margin-bottom: 2.5rem; }
+
+.interest-container .secondary-button {
+  margin-bottom: 5rem; }
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #33323d;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: 354px; }
+
+.footer p {
+  color: #FFF; }
+
+.logo-white {
+  filter: brightness(0) invert(1); }
+
+.contact-icons {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  justify-content: center; }
+
+.contact-icons-img {
+  filter: brightness(0) invert(1);
+  padding: 0 10px 0 10px; }
+
+/*
+ * Buttons
+ */
+.primary-button {
+  font-family: "Public Sans";
+  display: flex;
+  flex-direction: row;
+  width: 53vw;
+  height: 48px;
+  background-color: #33323d;
+  align-items: center;
+  transition: 0.3s;
+  margin-bottom: 6rem; }
+
+.down-arrows {
+  width: 30%;
+  height: 30%; }
+
+.primary-button p {
+  font-family: "Public Sans";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.1px;
+  letter-spacing: 2px;
+  color: #fff; }
+
+.primary-button-left {
+  display: flex;
+  flex-direction: row;
+  width: 65px;
+  height: 48px;
+  background-color: rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s; }
+
+.primary-button:hover {
+  background-color: #53a493;
+  cursor: pointer; }
+
+.primary-button-right {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center; }
+
+.secondary-button {
+  font-family: "Public Sans";
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 53vw;
+  height: 48px;
+  border: 1px solid #000000;
+  transition: 0.3s; }
+
+.secondary-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer; }
