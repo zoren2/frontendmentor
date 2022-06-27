@@ -93,14 +93,16 @@ small {
 .app-container {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  min-width: 375px; }
 
 .menu-nav {
   display: flex;
   flex-direction: row;
   width: 100vw;
   padding: 32px 32px 40px 32px;
-  justify-content: space-between; }
+  justify-content: space-between;
+  min-width: 375px; }
 
 .menu-button {
   display: inline-block;
@@ -111,7 +113,7 @@ small {
 .menu-button:hover {
   opacity: 0.3; }
 
-.planet-list {
+.menu-contact-list {
   display: flex;
   flex-direction: row;
   list-style-type: none;
@@ -119,13 +121,13 @@ small {
   padding: 0;
   z-index: 1; }
 
-.planet-list > li {
+.menu-contact-list > li {
   margin: 0 1rem;
   overflow: hidden; }
 
 .menu-button-container {
   display: none;
-  height: 100%;
+  height: 1.5rem;
   width: 30px;
   cursor: pointer;
   flex-direction: column;
@@ -141,7 +143,7 @@ small {
   display: block;
   background-color: #33323d;
   position: absolute;
-  height: 3px;
+  height: 1px;
   width: 30px; }
 
 .menu-button::before {
@@ -166,32 +168,31 @@ small {
 @media (max-width: 768px) {
   .menu-button-container {
     display: flex; }
-  .planet-list {
+  .menu-contact-list {
     font-family: "League Spartan", sans-serif;
     position: absolute;
-    top: 0;
+    top: 1.5rem;
     margin-top: 68px;
-    left: 0;
+    left: 11vw;
     flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center; }
-  #menu-toggle ~ .planet-list li {
+  #menu-toggle ~ .menu-contact-list li {
     height: 0;
     margin: 0;
     padding: 0;
     border: 0;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1); }
-  #menu-toggle:checked ~ .planet-list li {
-    border-bottom: 1px solid purple;
-    height: 13vh;
-    width: 100%;
+    transition: 400ms cubic-bezier(0.23, 1, 0.32, 1); }
+  #menu-toggle:checked ~ .menu-contact-list li {
+    height: 62px;
+    width: 60vw;
     padding: 0.5em;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    background-color: #070724;
+    transition: 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    background-color: #33323d;
     display: flex;
     justify-content: space-around; }
-  .planet-list > li {
+  .menu-contact-list > li {
     display: flex;
     justify-content: center;
     margin: 0;
@@ -199,15 +200,19 @@ small {
     width: 100%;
     color: white;
     background-color: #222;
-    align-items: center; }
-  .planet-list > li:not(:last-child) {
+    align-items: center;
+    font-size: 12px; }
+  .menu-contact-list > li:hover {
+    cursor: pointer; }
+  .menu-contact-list > li:not(:last-child) {
     border-bottom: 1px solid #444; } }
 
 .description-container {
   display: flex;
   flex-direction: column;
   width: 83vw;
-  justify-content: center; }
+  justify-content: center;
+  min-width: 375px; }
 
 .description-container h2 {
   margin-bottom: 2rem; }
@@ -223,7 +228,8 @@ small {
   font-size: 1rem;
   line-height: 30px;
   width: 83vw;
-  color: #33323d; }
+  color: #33323d;
+  min-width: 375px; }
 
 .image-border-bottom {
   border-bottom: 1px solid #e3e3e3;
@@ -248,7 +254,8 @@ small {
   width: 83vw;
   align-items: center;
   justify-content: center;
-  text-align: center; }
+  text-align: center;
+  min-width: 375px; }
 
 .interest-container h2 {
   margin-bottom: 2.5rem; }
@@ -256,6 +263,9 @@ small {
 .interest-container .secondary-button {
   margin-bottom: 5rem; }
 
+/*
+ * Footer
+ */
 .footer {
   display: flex;
   flex-direction: column;
@@ -263,15 +273,27 @@ small {
   justify-content: space-evenly;
   align-items: center;
   width: 100vw;
-  height: 354px; }
+  height: 354px;
+  min-width: 375px; }
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 8rem;
+  justify-content: space-between;
+  align-items: center; }
 
 .footer p {
-  color: #FFF; }
+  color: #fff; }
+
+.footer p:hover {
+  cursor: pointer; }
 
 .logo-white {
   filter: brightness(0) invert(1); }
 
-.contact-icons {
+.footer-contact-icons {
   display: flex;
   flex-direction: row;
   width: 50vw;
