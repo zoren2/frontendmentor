@@ -3,6 +3,7 @@
 
 body {
     font-family: "Ibarra Real Nova", "Public Sans", sans-serif;
+    min-width: 375px;
 }
 
 h1 {
@@ -40,7 +41,7 @@ small {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 375px;
+    min-width: 300px;
 }
 
 .menu-nav {
@@ -49,7 +50,7 @@ small {
     width: 100vw;
     padding: 32px 32px 40px 32px;
     justify-content: space-between;
-    min-width: 375px;
+    min-width: 300px;
 }
 
 .menu-button {
@@ -75,8 +76,14 @@ small {
 .menu-contact-list > li {
     margin: 0 1rem;
     overflow: hidden;
+    font-family: "Public Sans";
+    letter-spacing: 2px;
+    transition: 0.3s;
 }
 
+.menu-contact-list > li:hover {
+    color: $primary-cyan;
+}
 .menu-button-container {
     display: none;
     height: 1.5rem;
@@ -130,7 +137,7 @@ small {
         display: flex;
     }
     .menu-contact-list {
-        font-family: "League Spartan", sans-serif;
+        font-family: "Public Sans", sans-serif;
         position: absolute;
         top: 1.5rem;
         margin-top: 68px;
@@ -149,7 +156,7 @@ small {
     }
     #menu-toggle:checked ~ .menu-contact-list li {
         height: 62px;
-        width: 60vw;
+        width: 61vw;
         padding: 0.5em;
         transition: 400ms cubic-bezier(0.23, 1, 0.32, 1);
         background-color: $primary-darkblue;
@@ -167,6 +174,7 @@ small {
         background-color: #222;
         align-items: center;
         font-size: 12px;
+        letter-spacing: 2px;
     }
 
     .menu-contact-list > li:hover {
@@ -183,7 +191,7 @@ small {
     flex-direction: column;
     width: 83vw;
     justify-content: center;
-    min-width: 375px;
+    min-width: 300px;
 }
 
 .description-container h2 {
@@ -203,7 +211,7 @@ small {
     line-height: 30px;
     width: 83vw;
     color: #33323d;
-    min-width: 375px;
+    min-width: 300px;
 }
 
 .image-border-bottom {
@@ -235,7 +243,7 @@ small {
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-width: 375px;
+    min-width: 300px;
 }
 
 .interest-container h2 {
@@ -258,7 +266,7 @@ small {
     align-items: center;
     width: 100vw;
     height: 354px;
-    min-width: 375px;
+    min-width: 300px;
 }
 
 .footer-contact {
@@ -271,6 +279,11 @@ small {
 }
 
 .footer p {
+    font-family: "Public Sans";
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.1px;
+    letter-spacing: 2px;
     color: #fff;
 }
 
@@ -302,6 +315,8 @@ small {
     display: flex;
     flex-direction: row;
     width: 53vw;
+    min-width: 136px;
+    max-width: 200px;
     height: 48px;
     background-color: $primary-darkblue;
     align-items: center;
@@ -355,9 +370,19 @@ small {
     align-items: center;
     justify-content: center;
     width: 53vw;
+    min-width: 190px;
+    max-width: 200px;
     height: 48px;
     border: 1px solid #000000;
     transition: 0.3s;
+}
+
+.secondary-button p {
+    font-family: "Public Sans";
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.1px;
+    letter-spacing: 2px;
 }
 
 .secondary-button:hover {
@@ -366,3 +391,93 @@ small {
     cursor: pointer;
 }
 
+@media screen and (min-width: 768px) {
+    .description-container,
+    .about-container,
+    .interest-container {
+        width: 89.5vw;
+    }
+
+    .description-container {
+        margin-bottom: -262px;
+    }
+
+    .description-text-container {
+        width: 62vw;
+        padding-top: 3.5rem;
+        transform: translateY(-80%);
+        background-color: #fff;
+        max-height: 358px;
+    }
+
+    .description-text-container h2 {
+        width: 80%;
+    }
+
+    .about-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .about-container p {
+        margin-bottom: 0;
+    }
+
+    .about-text-container {
+        display: flex;
+        flex-direction: column;
+        width: 44vw;
+        border: 1px #e3e3e3;
+        border-style: solid none;
+        justify-content: space-around;
+        padding: 40px 0 40px 0;
+    }
+
+    .about-text-container .image-border-bottom {
+        display: none;
+    }
+
+    .about-text-container .secondary-button {
+        margin-bottom: 0px;
+    }
+
+    .profile-img {
+        width: 36.5vw;
+        max-width: 350px;
+        margin-bottom: unset;
+    }
+
+    .interest-container {
+        flex-direction: row;
+        height: 15rem;
+        justify-content: space-between;
+    }
+
+    .interest-container h2 {
+        text-align: left;
+        transform: translateY(25%);
+        width: 60%;
+    }
+
+    .interest-container .secondary-button {
+        margin-bottom: unset;
+    }
+
+    .interest-container .image-border-bottom {
+        width: 13vw;
+        margin: 3px 3vw 0 0;
+    }
+
+    .footer {
+        flex-direction: row;
+        height: 8rem;
+    }
+
+    .footer-contact {
+        flex-direction: row;
+        width: 40%;
+    }
+
+    .footer-contact-icons {
+        width: 12%;
+    }
+}
