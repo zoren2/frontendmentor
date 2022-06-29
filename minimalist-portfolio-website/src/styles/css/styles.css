@@ -100,10 +100,15 @@ small {
 .menu-nav {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 98vw;
+  min-width: 300px;
+  height: 104px;
   padding: 32px 32px 40px 32px;
-  justify-content: space-between;
-  min-width: 300px; }
+  justify-content: space-between; }
+
+.logo-img {
+  max-width: 80px;
+  max-height: 40px; }
 
 .menu-button {
   display: inline-block;
@@ -172,7 +177,7 @@ small {
   margin-top: 0px;
   transform: rotate(-405deg); }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .menu-button-container {
     display: flex; }
   .menu-contact-list {
@@ -237,24 +242,35 @@ small {
   line-height: 30px;
   width: 83vw;
   color: #33323d;
-  min-width: 300px; }
+  min-width: 300px;
+  z-index: 1; }
 
 .image-border-bottom {
   border-bottom: 1px solid #e3e3e3;
   margin-bottom: 2rem; }
 
 .profile-img {
-  margin-bottom: 2rem; }
+  background-image: url(../../images/homepage/mobile/image-homepage-profile@2x.jpg);
+  background-size: cover;
+  margin-bottom: 2rem;
+  width: 83vw;
+  height: 346px;
+  max-height: 400px;
+  max-width: 400px;
+  align-self: center; }
 
 .about-container h2 {
   font-family: "Ibarra Real Nova";
   margin-bottom: 2rem; }
 
-.about-container p {
+.about-container-text {
   margin-bottom: 1.5rem; }
 
 .about-container .secondary-button {
   margin-bottom: 3rem; }
+
+.secondary-button-text {
+  margin-bottom: 0; }
 
 .interest-container {
   display: flex;
@@ -282,14 +298,15 @@ small {
   align-items: center;
   width: 100vw;
   height: 354px;
-  min-width: 300px; }
+  min-width: 300px;
+  padding: 60px 0 56px 0; }
 
 .footer-contact {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 8rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center; }
 
 .footer p {
@@ -304,7 +321,11 @@ small {
   cursor: pointer; }
 
 .logo-white {
-  filter: brightness(0) invert(1); }
+  filter: brightness(0) invert(1);
+  margin-bottom: 20px; }
+
+.footer-contact {
+  margin-bottom: 20px; }
 
 .footer-contact-icons {
   display: flex;
@@ -315,6 +336,9 @@ small {
 .contact-icons-img {
   filter: brightness(0) invert(1);
   padding: 0 10px 0 10px; }
+
+.contact-icons-img:hover {
+  cursor: pointer; }
 
 /*
  * Buttons
@@ -392,25 +416,31 @@ small {
   cursor: pointer; }
 
 @media screen and (min-width: 768px) {
+  .menu-nav,
   .description-container,
   .about-container,
   .interest-container {
     width: 89.5vw; }
+  .menu-nav,
+  .description-container,
+  .about-container,
+  .interest-container,
+  .footer {
+    height: unset; }
   .description-container {
-    margin-bottom: -262px; }
+    margin-bottom: -240px; }
   .description-text-container {
     width: 62vw;
+    max-height: 358px;
     padding-top: 3.5rem;
     transform: translateY(-80%);
-    background-color: #fff;
-    max-height: 358px; }
+    background-color: #fff; }
   .description-text-container h2 {
     width: 80%; }
   .about-container {
+    height: 600px;
     flex-direction: row;
     justify-content: space-around; }
-  .about-container p {
-    margin-bottom: 0; }
   .about-text-container {
     display: flex;
     flex-direction: column;
@@ -424,9 +454,13 @@ small {
   .about-text-container .secondary-button {
     margin-bottom: 0px; }
   .profile-img {
+    background-image: url(../../images/homepage/tablet/image-homepage-profile@2x.jpg);
+    background-size: cover;
     width: 36.5vw;
-    max-width: 350px;
-    margin-bottom: unset; }
+    max-height: 600px;
+    margin-bottom: unset;
+    margin-right: 1vw;
+    height: 100%; }
   .interest-container {
     flex-direction: row;
     height: 15rem;
@@ -448,3 +482,55 @@ small {
     width: 40%; }
   .footer-contact-icons {
     width: 12%; } }
+
+@media screen and (min-width: 1440px) {
+  .menu-nav,
+  .description-container,
+  .about-container,
+  .interest-container {
+    width: 77.1vw; }
+  .menu-nav {
+    padding: 64px 0 54px 0;
+    height: 7.6%; }
+  .description-text-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3.5rem;
+    width: 31vw;
+    transform: translateY(-84.1%);
+    max-height: unset; }
+  .description-text-container h2 {
+    width: 88%;
+    margin-bottom: 53px;
+    font-size: 50px;
+    line-height: 50px;
+    letter-spacing: -0.45px; }
+  .profile-img {
+    background-image: url(../../images/homepage/desktop/image-homepage-profile@2x.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 37.5vw;
+    max-width: unset;
+    margin-right: 8.6vw; }
+  .about-container {
+    height: 625px;
+    justify-content: flex-start; }
+  .about-container .secondary-button {
+    margin-top: 2rem; }
+  .about-text-container {
+    width: 24.3vw; }
+  .interest-container {
+    height: 276px; }
+  .interest-container h2 {
+    width: 31%; }
+  .interest-container .image-border-bottom {
+    width: 30vw; }
+  .footer {
+    height: 5rem;
+    justify-content: unset;
+    padding-left: 10rem; }
+  .footer .logo-white {
+    margin-right: 3.33vw; }
+  .footer-contact {
+    width: 25%;
+    margin-right: 38.5vw; } }

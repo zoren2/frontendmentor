@@ -18,7 +18,7 @@
 <body>
   <div class="app-container">
     <div class="menu-nav">
-      <img src="./images/logo.svg">
+      <img class="logo-img" src="./images/logo.svg">
       <input #checkBox id="menu-toggle" type="checkbox">
       <label class='menu-button-container' for="menu-toggle">
         <div class='menu-button'></div>
@@ -33,7 +33,9 @@
 
     <div class="description-container">
       <img srcset="images/homepage/mobile/image-homepage-hero@2x.jpg 375w,
-                    images/homepage/tablet/image-homepage-hero@2x.jpg 768w" " alt=" hero-image" class="hero-img">
+                    images/homepage/tablet/image-homepage-hero@2x.jpg 768w,
+                    images/homepage/desktop/image-homepage-hero@2x.jpg 1440w
+                    " " alt=" hero-image" class="hero-img">
 
       <div class="description-text-container">
         <h2>Hey, I’m Alex Spencer and I love building beautiful websites</h2>
@@ -47,13 +49,11 @@
     </div>
 
     <div class="about-container">
-      <img srcset="images/homepage/mobile/image-homepage-profile@2x.jpg 375w,
-                  images/homepage/tablet/image-homepage-profile@2x.jpg 768w" class="profile-img" alt="profile-image">
+      <img class="profile-img">
       <div class="image-border-bottom"></div>
       <div class="about-text-container">
         <h2>About Me</h2>
-
-        <p>
+        <p class="about-container-text">
           I’m a junior front-end developer looking for a new role in an exciting company.
           I focus on writing accessible HTML, using modern CSS practices and writing clean
           JavaScript. When writing JavaScript code, I mostly use React, but I can adapt to
@@ -64,7 +64,7 @@
         </p>
 
         <div class="secondary-button">
-          <p>GO TO PORTFOLIO</p>
+          <p class="secondary-button-text">GO TO PORTFOLIO</p>
         </div>
         <div class="image-border-bottom"> </div>
       </div>
