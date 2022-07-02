@@ -88,20 +88,24 @@
 @media screen and (min-width: 768px) {
     .invoice-card-container {
         height: 4.5rem;
+        display: grid;
+        grid-template-columns: 50% 45%;
+        align-content: center;
     }
 
     .invoice-info-left {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
-        width: 50%;
+        width: 100%;
     }
 
     .invoice-info-right {
-        flex-direction: row;
-        justify-content: end;
+        display: grid;
+        grid-template-columns: 33% 33% auto;
+        justify-content: space-between;
         align-items: center;
-        width: 50%;
+        width: 100%;
     }
 
     .invoice-number {

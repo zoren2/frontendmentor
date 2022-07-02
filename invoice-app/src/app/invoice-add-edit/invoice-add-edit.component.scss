@@ -118,6 +118,7 @@ form h3 {
 .trash-can-item-btn {
     text-align: center;
     margin-bottom: 1rem;
+    transition: 0.3s;
 }
 
 .trash-can-item-btn img {
@@ -126,6 +127,7 @@ form h3 {
 
 .trash-can-item-btn:hover {
     cursor: pointer;
+    filter: brightness(.5) invert(1);
 }
 
 .add-new-item-btn {

@@ -51,10 +51,12 @@
     height: 1.25rem;
     align-items: center;
     transform: translate(1.25rem, 0);
+    transition: 0.3s;
 }
 
 .theme-button:hover {
     cursor: pointer;
+    filter: brightness(0.5) invert(1);
 }
 
 .user-icon-box {
@@ -309,7 +311,7 @@ button:hover {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        width: 50vw;
+        width: 90vw;
         padding-top: 4.5rem;
         max-height: 100vh;
         margin-left: 7vw;
