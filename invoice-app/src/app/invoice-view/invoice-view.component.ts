@@ -8,7 +8,7 @@ import { Item } from '../item.model';
 @Component({
   selector: 'app-invoice-view',
   templateUrl: './invoice-view.component.html',
-  styleUrls: ['./invoice-view.component.css']
+  styleUrls: ['./invoice-view.component.scss']
 })
 export class InvoiceViewComponent implements OnInit {
   /* Screen Resolutions */

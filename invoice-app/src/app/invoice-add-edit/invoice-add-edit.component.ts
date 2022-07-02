@@ -11,7 +11,7 @@ import { InvoiceApiService } from '../invoice-api.service';
 @Component({
   selector: 'app-invoice-add-edit',
   templateUrl: './invoice-add-edit.component.html',
-  styleUrls: ['./invoice-add-edit.component.css']
+  styleUrls: ['./invoice-add-edit.component.scss']
 })
 
 export class InvoiceAddEditComponent implements OnInit {

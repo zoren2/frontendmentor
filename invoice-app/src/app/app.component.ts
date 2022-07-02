@@ -4,11 +4,12 @@ import { Client } from './client.model';
 import { InvoiceApiService } from './invoice-api.service';
 import { Invoice } from './invoice.model';
 import { Item } from './item.model';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class AppComponent {
@@ -19,6 +20,7 @@ export class AppComponent {
   editingInvoice: boolean = false;
   viewingInvoice: boolean = false;
   addingInvoice: boolean = false;
+  isLightMode: boolean = true;
 
   /* Pipe filters for invoices */
   showDraftsChecked = true;
@@ -26,7 +28,7 @@ export class AppComponent {
   showPaidChecked = true;
 
   /* Temporary variables to that gets sent between components */
-  currentClient!: number;;
+  currentClient!: number;
 
   /* Counters to keep track of temporary draft items */
   draftCounter: number = 0;
@@ -46,7 +48,7 @@ export class AppComponent {
   items: Item[] = new Array();
   clients: Client[] = new Array();
 
-  constructor(private service: InvoiceApiService, private cdr: ChangeDetectorRef) { }
+  constructor(private service: InvoiceApiService, private themeService: ThemeService, private cdr: ChangeDetectorRef) { }
 
   /*
    * Setup Models, Data Structures, and Screen Size Tracker
@@ -55,6 +57,8 @@ export class AppComponent {
     this.service.getInvoiceList(); // Gather All Backend Endpoints
     this.service.getClient();
     this.service.getItems();
+
+    this.themeService.setLightTheme();
 
     this.invoices$ = this.service.invoices$; // Grab the readOnly values
     this.clients$ = this.service.clients$;
@@ -114,7 +118,7 @@ export class AppComponent {
     return invoice.id;
   }
 
-  /* Reset all mode boolean values */
+  /* Reset mode boolean values */
   returnToMain() {
     this.hasInvoices = true;
     this.editingInvoice = false;
@@ -122,6 +126,16 @@ export class AppComponent {
     this.addingInvoice = false;
 
     this.updateInvoices();
+  }
+
+  toggleLightMode() {
+    this.themeService.setLightTheme();
+    this.isLightMode = true;
+  }
+
+  toggleDarkMode() {
+    this.themeService.setDarkTheme();
+    this.isLightMode = false;
   }
 
   /* 

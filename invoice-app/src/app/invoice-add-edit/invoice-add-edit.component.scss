@@ -21,7 +21,7 @@
 .form-control {
     height: 2.25rem;
     width: 100%;
-    border: 1px solid var(--btn-add-hover);
+    border: 1px solid var(--form-border);
     border-radius: 0.25rem;
     padding: 0.5rem 1rem 0.25rem 1rem;
     background-color: var(--app-background);
@@ -120,7 +120,7 @@ form h3 {
     margin-bottom: 1rem;
 }
 
-.trash-can-item-btn img{
+.trash-can-item-btn img {
     margin: auto;
 }
 
@@ -179,10 +179,15 @@ input.ng-invalid.ng-dirty {
 ::ng-deep .mat-form-field-infix {
     background-color: var(--app-background);
     border-radius: 0.25rem;
-    border: 1px solid var(--btn-add-hover);
+    border: 1px solid var(--form-border);
 }
 
 .mat-input-element {
     font-size: 0.75rem;
     padding: 5px 0 2px 16px;
+    color: var(--text);
+}
+
+::ng-deep .mat-datepicker-toggle-default-icon {
+    color: var(--text);
 }
