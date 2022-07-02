@@ -415,6 +415,13 @@ small {
   color: #ffffff;
   cursor: pointer; }
 
+/*
+ * Image after effects
+ */
+.logo-img,
+.logo-white:hover {
+  cursor: pointer; }
+
 @media screen and (min-width: 768px) {
   .menu-nav,
   .description-container,
