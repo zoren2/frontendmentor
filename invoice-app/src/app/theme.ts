@@ -39,6 +39,7 @@ export const light: Theme = {
         "--btn-background-edit": "#ebecf3",
         "--btn-background-delete": "#ec5757",
         "--btn-background-mark": "#7c5dfa",
+        "--btn-background-draft": "#373b53",
 
         "--btn-add": "#f9fafe",
         "--btn-add-hover": "#dfe3fa"
@@ -63,7 +64,7 @@ export const dark: Theme = {
         "--button-pending-light-indicator": "#ff8f00",
 
         "--button-draft-light": "#97979722",
-        "--button-draft-light-indicator": "#373b53",
+        "--button-draft-light-indicator": "#ffffff",
 
         "--primary-font": "#7e88c3",
         "--secondary-font": "#888eb0",
@@ -81,6 +82,7 @@ export const dark: Theme = {
         "--btn-background-edit": "#252945",
         "--btn-background-delete": "#ec5757",
         "--btn-background-mark": "#7c5dfa",
+        "--btn-background-draft": "#373b53",
 
         "--btn-add": "#f9fafe",
         "--btn-add-hover": "#dfe3fa"
