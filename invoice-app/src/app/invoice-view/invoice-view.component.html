@@ -11,7 +11,7 @@
     <button class="invoice-delete-btn tablet-desktop-btn" (click)="openDialog(delete)">
         <p>Delete</p>
     </button>
-    <button *ngIf="viewInvoice.status.toLowerCase() == 'pending'" class="invoice-mark-btn"
+    <button *ngIf="viewInvoice.status.toLowerCase() == 'pending'" class="invoice-mark-btn tablet-desktop-btn"
         (click)="openDialog(markAsPaid)">
         <p>Mark as Paid</p>
     </button>
@@ -87,7 +87,6 @@
 
     <!-- Items List -->
     <div class="client-info-itemized">
-        <!-- <app-invoice-item></app-invoice-item> -->
         <div *ngFor="let item of itemsForInvoice" class="invoice-item-container">
             <div class="quantity-total-container">
                 <h3>{{item.name}}</h3>
@@ -160,5 +159,3 @@
         <app-invoice-add-edit [editInvoice]="viewInvoice" [editInvoiceItems]="itemsForInvoice" (closeForm)="this.closeDialog($event)"></app-invoice-add-edit>
     </mat-dialog-content>
 </ng-template>
-
-

@@ -13,7 +13,7 @@ export const light: Theme = {
         "--background-color-light": "#f8f8fb",
 
         "--add-indicator": "#ffffff",
-        
+
         "--button-paid-light": "#f2fcf922",
         "--button-paid-light-indicator": "#33d69f",
 
@@ -30,7 +30,7 @@ export const light: Theme = {
         "--logo-bottom": "#9277ff",
 
         "--menu-divider": "#494e6e",
-
+        "--form-border": "#dfe3fa",
 
         "--view-card-top": "#f9fafe",
         "--view-card-bottom": "#373b53",
@@ -48,7 +48,7 @@ export const light: Theme = {
 export const dark: Theme = {
     name: "dark",
     properties: {
-        "--app-background": "#1E2139",
+        "--app-background": "#1e2139",
         "--header": "#ffffff",
         "--text": "#ffffff",
         
@@ -72,7 +72,7 @@ export const dark: Theme = {
         "--logo-bottom": "#9277ff",
 
         "--menu-divider": "#494e6e",
-
+        "--form-border": "#252945",
 
         "--view-card-top": "#252945",
         "--view-card-bottom": "#373b53",
