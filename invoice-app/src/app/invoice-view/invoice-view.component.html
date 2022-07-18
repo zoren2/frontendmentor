@@ -6,14 +6,14 @@
         <p>{{viewInvoice.status | titlecase }}</p>
     </div>
     <button class="invoice-edit-btn tablet-desktop-btn" (click)="openFormDialog(viewForm)">
-        <p>Edit</p>
+        <p class="edit-btn-text">Edit</p>
     </button>
     <button class="invoice-delete-btn tablet-desktop-btn" (click)="openDialog(delete)">
-        <p>Delete</p>
+        <p class="btn-text">Delete</p>
     </button>
     <button *ngIf="viewInvoice.status.toLowerCase() == 'pending'" class="invoice-mark-btn tablet-desktop-btn"
         (click)="openDialog(markAsPaid)">
-        <p>Mark as Paid</p>
+        <p class="btn-text">Mark as Paid</p>
     </button>
 </div>
 
@@ -98,7 +98,7 @@
     </div>
     <div class="client-info-grandtotal">
         <p>Grand Total</p>
-        <h2>£ {{viewInvoice.totalDue | number : '1.2-2' }}</h2>
+        <h2 class="grand-total">£ {{viewInvoice.totalDue | number : '1.2-2' }}</h2>
     </div>
 </div>
 
@@ -107,14 +107,14 @@
 -->
 <div class="invoice-edit-delete-mark">
     <button class="invoice-edit-btn" (click)="startEditInvoice()">
-        <p>Edit</p>
+        <p class="edit-btn-text">Edit</p>
     </button>
     <button class="invoice-delete-btn" (click)="openDialog(delete)">
-        <p>Delete</p>
+        <p class="btn-text">Delete</p>
     </button>
     <button *ngIf="viewInvoice.status.toLowerCase() == 'pending'" class="invoice-mark-btn"
         (click)="openDialog(markAsPaid)">
-        <p>Mark as Paid</p>
+        <p class="btn-text">Mark as Paid</p>
     </button>
 </div>
 
@@ -126,14 +126,18 @@
 <ng-template #delete>
     <h2 mat-dialog-title></h2>
     <mat-dialog-content class="mat-typography">
-        <h2>Confirm Deletion</h2>
+        <h2 class="confirm-header">Confirm Deletion</h2>
         <p>Are you sure you want to delete invoice
             #{{viewInvoice.id | slice:0:6}}? This action cannot be undone.
         </p>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close class="invoice-edit-btn" style="margin-right:1rem;">Cancel</button>
-        <button (click)="deleteInvoice()" mat-button mat-dialog-close class="invoice-delete-btn">Delete</button>
+        <button mat-button mat-dialog-close class="invoice-edit-btn" style="margin-right:1rem;">
+            <p class="edit-btn-text">Cancel</p>
+        </button>
+        <button (click)="deleteInvoice()" mat-button mat-dialog-close class="invoice-delete-btn">
+            <p class="btn-text">Delete</p>
+        </button>
         <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
     </mat-dialog-actions>
 </ng-template>
@@ -142,20 +146,23 @@
 <ng-template #markAsPaid>
     <h2 mat-dialog-title></h2>
     <mat-dialog-content class="mat-typography">
-        <h2>Confirm Deletion</h2>
+        <h2 class="confirm-header">Confirm Mark As Paid</h2>
         <p>Are you sure you want to mark invoice
             #{{viewInvoice.id | slice:0:6}} as paid? This action cannot be undone.
         </p>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close class="invoice-edit-btn" style="margin-right:1rem;">Cancel</button>
-        <button (click)="markInvoiceAsPaid()" mat-dialog-close class="invoice-mark-btn">Mark as Paid</button>
+        <button (click)="markInvoiceAsPaid()" mat-dialog-close class="invoice-mark-btn">
+            <p class=" btn-text">Mark as Paid</p>
+        </button>
         <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
     </mat-dialog-actions>
 </ng-template>
 
 <ng-template #viewForm>
     <mat-dialog-content class="mat-typography">
-        <app-invoice-add-edit [editInvoice]="viewInvoice" [editInvoiceItems]="itemsForInvoice" (closeForm)="this.closeDialog($event)"></app-invoice-add-edit>
+        <app-invoice-add-edit [editInvoice]="viewInvoice" [editInvoiceItems]="itemsForInvoice"
+            (closeForm)="this.closeDialog($event)"></app-invoice-add-edit>
     </mat-dialog-content>
 </ng-template>

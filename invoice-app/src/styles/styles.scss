@@ -159,8 +159,12 @@ button:hover {
     opacity: 0.5 !important;
 }
 
-button p {
-    color: var(--text);
+p .edit-btn-text {
+    color: var(--primary-font);
+}
+
+.btn-text {
+    color: var(--btn-text);
 }
 
 /* Chrome, Safari, Edge, Opera */

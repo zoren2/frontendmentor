@@ -34,6 +34,14 @@
     display: none !important;
 }
 
+/*
+ * Modal
+ */
+
+.confirm-header {
+    margin-bottom: 10px;
+}
+
 /* 
  * Custom Flow
  * Flex design is a column of rows
@@ -133,7 +141,7 @@
 .client-info-grandtotal {
     display: flex;
     flex-direction: row;
-    background-color: var(--button-draft-light-indicator);
+    background-color: var(--view-card-bottom);
     border-radius: 0 0 0.5rem 0.5rem;
     width: 100%;
     align-self: center;
@@ -142,8 +150,8 @@
     color: var(--app-background);
 }
 
-.client-info-grandtotal h2 {
-    color: var(--text);
+.grand-total {
+    color: var(--add-indicator);
 }
 
 .invoice-edit-delete-mark {

@@ -8,7 +8,7 @@ export const light: Theme = {
     properties: {
         "--app-background": "#ffffff",
         "--header": "#0c0e16",
-        "--text": "0C0E16",
+        "--text": "#0c0e16",
 
         "--background-color-light": "#f8f8fb",
 
@@ -35,14 +35,14 @@ export const light: Theme = {
         "--view-card-top": "#f9fafe",
         "--view-card-bottom": "#373b53",
 
-
         "--btn-background-edit": "#ebecf3",
         "--btn-background-delete": "#ec5757",
         "--btn-background-mark": "#7c5dfa",
         "--btn-background-draft": "#373b53",
 
         "--btn-add": "#f9fafe",
-        "--btn-add-hover": "#dfe3fa"
+        "--btn-add-hover": "#dfe3fa",
+        "--btn-text": "#ffffff"
     }
 }
 
@@ -76,7 +76,7 @@ export const dark: Theme = {
         "--form-border": "#252945",
 
         "--view-card-top": "#252945",
-        "--view-card-bottom": "#373b53",
+        "--view-card-bottom": "#0C0E16",
 
 
         "--btn-background-edit": "#252945",
@@ -85,6 +85,8 @@ export const dark: Theme = {
         "--btn-background-draft": "#373b53",
 
         "--btn-add": "#f9fafe",
-        "--btn-add-hover": "#dfe3fa"
+        "--btn-add-hover": "#dfe3fa",
+
+        "--btn-text": "#ffffff"
     }
 };
