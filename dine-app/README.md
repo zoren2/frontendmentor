@@ -53,17 +53,14 @@ Javascript
 
 ### What I learned
 
-What I learned is I had to be very vigilant about how to implement complex responsive designs and keeping that in mind with the mobile-first workflow. It's hard to reorganize content without proper container setup (2D Flexbox design) and the necessary planning. I regretfully made
-the mobile design first then had to redesign it all after realizing making the tablet responsive design that I'd need some additional containers for the desktop responsive design.
+I learned to be more vigilant about how to implement complex responsive designs and keeping that in mind with the mobile-first workflow. I did not realize
+I needed additional containers in order to keep it as a Flexbox design.
 
-I also learned the differnce between template driven forms and reactive forms and the interfaces implemented underneath the hood that allow 
-reactive forms to work in Angular. It's quite complicated to get custom behavior and validation rules for native HTML forms unless I read the 
-documentation for these interfaces and sometimes keeping it simple can save a lot of headache from (unnecessary) hand coded form design. 
+I also learned the difference between template driven forms and reactive forms and the interfaces and found them quite convenient in implementing form validation.
+I learned that understanding FormModule and its features saves a lot of (unnecessary) hand coded form design.
 
-There is a lot of frustration implementing a very beautiful design that doesn't conform 1:1 to Material Design (Bootstrap, etc)
-because the developers put in a lot of thought in how the components are wired, validated and how they appear in responsive design.
-I learned that simple changes on the front end can be a lot more of a nightmare to implement at the UI level and it's mindblowing
-how elegant some solutions can be on StackOverflow and in the FrontEndMentor community.
+I felt frustrated because some of the built in form components are sufficient for use but don't match the UI design Figma document.
+I learned that simple changes on the front end can change how it's implemented inside a JavaScript framework.
 
 ### Continued development
 
@@ -76,7 +73,7 @@ Some of the component dimensions also don't match the specifications of the Figm
 
 TLDR:
 
-1. Fix CSS / Mixins
+1. Refactor CSS
 2. Implement Events such that they move on click and/or rotate over time like a jumbotron
 3. Match the Design 1-to-1
 4. Consider implementing and learning more ways to safeguard the application with both front-end and backend validation
@@ -95,4 +92,4 @@ TLDR:
 
 This gave me a lot more pleasure and headache than I thought it would. I knocked out most of the responsive designs within 2 hours
 then ended up banging my head on what I thought would be the easiest part - the forms. It gets hairy once the designs don't map directly
-to Material Design components :( - shoutout to MDN Web Docs.
+to Material Design components and it helps to be clever so I don't repeat myself - shoutout to MDN Web Docs.
