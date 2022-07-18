@@ -162,7 +162,7 @@ export class InvoiceApiService {
       });
   }
 
-  updateItems(id: number, data: Item) {
+  updateItems(id: number|string, data: Item) {
     if (id === 0) {
       this.addItem(data);
     }

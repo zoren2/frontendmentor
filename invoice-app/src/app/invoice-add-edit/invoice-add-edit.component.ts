@@ -142,7 +142,7 @@ export class InvoiceAddEditComponent implements OnInit {
     this.editItems.forEach
       (editItem => {
         tempInvoice.client.item.push(editItem);
-        this.apiService.addItem(editItem);
+        this.apiService.updateItems(this.invoiceId, editItem);
       });
 
 
@@ -188,7 +188,6 @@ export class InvoiceAddEditComponent implements OnInit {
       return;
 
     this.calculatePrices();
-    // this.processItems();
 
     let tempInvoice: Invoice = new Invoice(
       this.invoiceId,

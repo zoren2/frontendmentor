@@ -226,7 +226,7 @@
         </div>
         <button class="add-new-item-btn" (click)="addItem()">
             <span>
-                <p class="btn-text"><b>+ Add New Item</b></p>
+                <p class="edit-btn-text"><b>+ Add New Item</b></p>
             </span>
         </button>
     </form>
@@ -244,7 +244,7 @@
 
     <!-- Add mode buttons -->
     <button *ngIf="addingInvoiceMode" class="invoice-edit-btn" (click)="returnToMain()">
-        <p class="btn-text">Discard</p>
+        <p class="edit-btn-text">Discard</p>
     </button>
     <button *ngIf="addingInvoiceMode" class="invoice-save-btn" (click)="saveToDraft()">
         <p class="btn-text">Save as Draft</p>
