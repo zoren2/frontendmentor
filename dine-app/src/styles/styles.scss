@@ -68,7 +68,15 @@ body {
 /*
  * Buttons 
  */
- 
+
+.book-button-black,
+.book-button-white,
+.book-button-transparent,
+.book-button-reservation {
+    font-weight: 600;
+    letter-spacing: 2.5px;
+}
+
 .book-button-reservation {
     border: 2px solid white;
     background-color: black;
@@ -150,4 +158,24 @@ body {
     @include font-style($primary-white, map-get($font-weight-body, "body"), (14px), (10px), (0px));
     margin-bottom: 1.3rem;
     text-align: center;
+}
+
+/*
+ * Tablet / Desktop resolutions
+ */
+
+@media screen and (min-width: $tablet-breakpoint) {
+    .book-button-black,
+    .book-button-white,
+    .book-button-transparent {
+        width: 32vw;
+    }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+    .book-button-black,
+    .book-button-white,
+    .book-button-transparent {
+        width: 17vw;
+    }
 }

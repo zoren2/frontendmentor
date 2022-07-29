@@ -42,7 +42,7 @@
     <!-- Pattern -->
     <picture>
       <source media="(min-width: 768px)" srcset="../assets/patterns/pattern-lines.svg">
-      <img class="family-lines">
+      <img class="beige-lines-1">
     </picture>
 
     <!-- Locally Sourced Scallop Thing-->
@@ -105,18 +105,17 @@
   </div>
 
 
+  <!-- Pattern -->
+  <picture>
+    <source media="(min-width: 768px)" srcset="../../assets/patterns/pattern-curve-top-right.svg">
+    <img class="pattern-img-left">
+  </picture>
+  <picture>
+    <source media="(min-width: 768px)" srcset="../assets/patterns/pattern-lines.svg">
+    <img class="beige-lines-2">
+  </picture>
   <!-- Family Gathering Section !-->
   <div class="family-gathering-container">
-    <!-- Pattern -->
-    <picture>
-      <source media="(min-width: 768px)" srcset="../../assets/patterns/pattern-curve-top-right.svg">
-      <img class="pattern-img-left">
-    </picture>
-    <picture>
-      <source media="(min-width: 768px)" srcset="../assets/patterns/pattern-lines.svg">
-      <img class="family-lines">
-    </picture>
-
     <img class="family-gathering-img" srcset="
     ../assets/homepage/family-gathering-mobile@2x.jpg 350w
     ../assets/homepage/family-gathering-tablet@2x.jpg 768w,
@@ -124,12 +123,13 @@
      " src="../assets/homepage/family-gathering-mobile@2x.jpg">
 
     <!-- Extra container for desktop design !-->
-    <div class="family-gathering-desktop">
-      <h4 class="family-gathering-header-small">FAMILY GATHERING</h4>
-      <hr class="family-gathering-divide">
-      <h4 class="family-gathering-header-small family-header-shaded">SPECIAL EVENTS</h4>
-      <h4 class="family-gathering-header-small family-header-shaded">SOCIAL EVENTS</h4>
-      <hr>
+    <div class="family-gathering-right">
+      <div class="family-select">
+        <h4 class="family-gathering-header-small">FAMILY GATHERING</h4>
+        <h4 class="family-gathering-header-small">SPECIAL EVENTS</h4>
+        <h4 class="family-gathering-header-small">SOCIAL EVENTS</h4>
+      </div>
+      <!-- <hr> -->
 
       <h2 class="family-gathering-header-large">Family Gathering</h2>
 
@@ -138,7 +138,7 @@
         your loved ones. We’ll provide a memorable experience for all.</p>
 
 
-      <button routerLink="/reservation" class="book-button-black">BOOK A TABLE</button>
+      <button routerLink="/reservation" class="book-button-black family-gathering-btn">BOOK A TABLE</button>
     </div>
   </div>
   <div class="reservation-container">

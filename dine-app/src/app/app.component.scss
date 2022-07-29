@@ -234,6 +234,11 @@
     padding: 0.5rem;
 }
 
+.family-gathering-header-small:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #9e7f66;
+}
+
 /* Design Doc has more undocumented designs ...*/
 .family-gathering-header-large {
     @include font-style($secondary-color, map-get($font-weight-header, "l"), (2rem), (2.5rem), (-0.4px));
@@ -246,10 +251,10 @@
     transform: translateY(-0.5rem);
 }
 
-.family-header-shaded {
-    opacity: 0.5;
-    transform: translateY(-0.5rem);
-}
+// .family-header-shaded {
+//     opacity: 0.5;
+//     transform: translateY(-0.5rem);
+// }
 
 .reservation-container {
     @include container((flex), (column), (100vw), (328px));

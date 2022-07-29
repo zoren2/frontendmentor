@@ -43,7 +43,7 @@
                         <small *ngIf="email.errors?.['pattern']">Email address is invalid</small>
                     </div>
 
-                    <label for=" time" class="label">Pick A Date</label>
+                    <label for="time" class="label">Pick A Date</label>
                     <div class="date-container">
                         <input type="text" pattern="\d*" class="date-input" id="month" required maxlength="2"
                             placeholder="MM" name="month" #month="ngModel" [(ngModel)]="reservation.month" [ngClass]="
@@ -123,6 +123,6 @@
 
         <picture>
             <source media="(min-width: 768px)" srcset="../assets/patterns/pattern-lines.svg">
-            <img class="family-lines">
+            <img class="beige-lines">
         </picture>
     </div>

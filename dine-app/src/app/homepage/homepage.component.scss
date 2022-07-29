@@ -217,15 +217,16 @@
     margin-bottom: 10rem;
 }
 
-.family-gathering-desktop {
+.family-gathering-right {
     @include container((flex), (column), (100vw), (null));
     align-items: center;
 }
-.family-lines {
+
+.beige-lines-2 {
     align-self: flex-start;
     padding-left: 23px;
     transform: translate(-280px, 35px);
-    position: relative;
+    position: absolute;
     z-index: 2;
 }
 
@@ -247,6 +248,19 @@
         map-get($letter-spacing, "s")
     );
     padding: 0.5rem;
+    border: 2px solid transparent;
+    opacity: 0.5;
+}
+
+.family-gathering-header-small:hover {
+    cursor: pointer;
+    text-underline-offset: 10px;
+    text-decoration: 2px underline solid #9e7f66;
+    opacity: 1;
+}
+
+.family-gathering-header-small-clicked {
+    border-bottom: 2px solid #9e7f66;
 }
 
 /* Design Doc has more undocumented designs ...*/
@@ -261,9 +275,8 @@
     transform: translateY(-0.5rem);
 }
 
-.family-header-shaded {
-    opacity: 0.5;
-    transform: translateY(-0.5rem);
+.family-select {
+    margin-bottom: 0.85rem;
 }
 
 .reservation-container {
@@ -307,8 +320,19 @@
         width: 40vw;
     }
 
-    .book-button-white {
-        width: 32vw;
+    .beige-lines-1,
+    .beige-lines-2 {
+        width: 15.8vw;
+        height: 80px;
+    }
+
+    .beige-lines-1 {
+        transform: translate(41vw, 1000%);
+    }
+
+    .beige-lines-2 {
+        transform: translate(2vw, 60px);
+        padding-left: 0;
     }
 
     .family-forest-img {
@@ -338,10 +362,18 @@
         width: 60vw;
     }
 
+    .family-select {
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        justify-content: space-evenly;
+        margin-bottom: 3rem;
+    }
+
     .locally-sourced-header {
         font-size: 3rem;
         line-height: 3rem;
-        letter-spacing: 0.5px;  
+        letter-spacing: 0.5px;
     }
 
     .locally-sourced-text {
@@ -429,10 +461,6 @@
         background-image: image-url("../../assets/homepage/ready-bg-tablet@2x.jpg");
         background-size: cover;
     }
-
-    button {
-        width: 32vw !important;
-    }
 }
 
 /*
@@ -485,6 +513,10 @@
         width: 25vw;
     }
 
+    .family-text {
+        align-items: center;
+    }
+
     .divide {
         margin-right: 300px;
         transform: translateX(-2vw);
@@ -498,14 +530,32 @@
         width: 65vw;
     }
 
+    .pattern-img-left {
+        transform: translate(-32vw, 0px);
+    }
+
     .family-info-desktop {
         align-items: baseline;
         margin-left: 10vw;
     }
 
     .family-text {
+        grid-area: grid-text;
         padding: unset;
         text-align: left;
+        align-self: end;
+    }
+
+    .family-gathering-btn {
+        grid-area: grid-button;
+        align-self: end;
+    }
+
+    .family-select {
+        flex-direction: column;
+        width: 100%;
+        grid-area: grid-select;
+        align-self: end;
     }
 
     .family-forest-img {
@@ -563,10 +613,12 @@
         width: 30vw;
     }
 
-    .family-lines {
+    .beige-lines-1 {
         width: 11vw;
         transform: translate(-2vw, 75px);
         position: absolute;
+        z-index: 2;
+        height: 75px;
     }
 
     .menu-items-container {
@@ -618,28 +670,64 @@
         display: flex;
         align-items: center;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: unset;
         width: 100vw;
         margin: 10rem 0 10rem 0;
     }
 
-    .family-gathering-container .family-lines {
-        transform: translate(-6vw, -24vw);
+    .family-gathering-header-small {
+        padding: 0.5rem 0 0.5rem 0;
+    }
+
+    .family-gathering-header-small:hover:after {
+        content: "";
+        display: block;
+        top: 0px;
+        left: 0px;
+        width: 35%;
+        height: 100%;
+        border-bottom: 2px solid #9e7f66;
+        transform: translate(-12vw, -17px);
+        pointer-events: none;
+    }
+
+    .family-gathering-header-small:hover {
+        text-decoration: none;
+    }
+
+    .beige-lines-2 {
+        width: 11vw;
+        position: absolute;
+        transform: translate(6vw, 130px);
+        height: 75px;
     }
 
     .family-gathering-img {
         display: flex;
         width: 37.5vw;
-        margin-right: 8.6vw;
+        margin: 0 0 0 11.4vw;
         transform: translateX(-35px);
+        margin-right: 8.6vw;
     }
 
-    .family-gathering-desktop {
-        display: flex;
-        flex-direction: column;
+    .family-gathering-right {
+        display: grid;
+        grid-template-rows: 91px 183px 32px 256px;
+        grid-template-areas:
+            "grid-header"
+            "grid-text"
+            "grid-button"
+            "grid-select";
         justify-content: space-between;
         width: 50vw;
         padding-right: 11.11vw;
+        height: 530px;
+    }
+
+    .family-gathering-header-large {
+        grid-area: grid-header;
+        align-self: end;
+        font-size: 3rem;
     }
 
     // Line
