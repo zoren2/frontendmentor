@@ -1,0 +1,46 @@
+@import "../styles/styles";
+
+.nav-container {
+    background-image: url(../../assets/suggestions/mobile/background-header.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 4.5rem;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    margin-left: 6.4vw;
+    padding-bottom: 2%;
+}
+
+.nav-menu-btn {
+    cursor: pointer;
+    margin: 20px;
+    align-self: center;
+}
+
+.icon-bar {
+    width: 25px;
+    height: 3px;
+    background: $color-4;
+    margin: 3px;
+    position: relative;
+}
+
+.logo-top, .logo-bottom {
+    color: $color-4;
+}
+.logo-top {
+    font-size: 0.9375rem;
+}
+
+.logo-bottom {
+    font-weight: 400;
+}
+

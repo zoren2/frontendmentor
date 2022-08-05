@@ -1,0 +1,11 @@
+<div class="nav-container">
+    <div class="logo">
+        <h1 class="logo-top">Frontend Mentor</h1>
+        <p class="logo-bottom body-3">Feedback Board</p>
+    </div>
+    <div (click)="onClick()" class="nav-menu-btn">
+        <div class="icon-bar" [@hamburgerX]="isHamburger ? 'hamburger' : 'topX'"></div>
+        <div class="icon-bar" [@hamburgerX]="isHamburger ? 'hamburger' : 'hide'"></div>
+        <div class="icon-bar" [@hamburgerX]="isHamburger ? 'hamburger' : 'bottomX'"></div>
+    </div>
+</div>
