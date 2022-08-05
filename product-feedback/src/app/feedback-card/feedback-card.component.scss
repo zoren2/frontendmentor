@@ -1,0 +1,17 @@
+@import "../styles/styles.scss";
+
+
+.feedback-card-container {
+    width: 87.2vw;
+    height: 200px;
+    border-radius: 10px;
+    background-color: $color-4;
+    margin: .5rem auto .5rem auto;
+    padding: 1.5rem;
+}
+
+.feedback-card-container:hover {
+    cursor: pointer;
+    border: 1px solid $color-10;
+}
+
