@@ -16,4 +16,9 @@ export class FeedbackCardComponent implements OnInit {
   viewFeedback() {
     this.router.navigateByUrl('/feedback');
   }
+
+  onClick(event: Event) {
+    event.stopPropagation();
+    console.log("card button clicked");
+  }
 }

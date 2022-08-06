@@ -1,12 +1,14 @@
 @import "../styles/styles.scss";
 
-
 .feedback-card-container {
+    display: flex;
+    flex-direction: row; /* change this to row instead of 'column' */
+    flex-wrap: wrap; /* added flex-wrap */
     width: 87.2vw;
     height: 200px;
     border-radius: 10px;
     background-color: $color-4;
-    margin: .5rem auto .5rem auto;
+    margin: 0.5rem auto 0.5rem auto;
     padding: 1.5rem;
 }
 
@@ -15,3 +17,62 @@
     border: 1px solid $color-10;
 }
 
+.feedback-title {
+    font-size: 13px;
+    letter-spacing: -0.18px;
+    color: $color-7;
+}
+
+.feedback-text {
+    font-size: 13px;
+    color: $color-8;
+    margin-bottom: 0.5rem;
+}
+
+.feature-list {
+    margin-bottom: 22px;
+    width: 100%;
+}
+
+.upvote-btn {
+    display: flex;
+    flex-direction: row;
+    height: 32px;
+    padding: 6px 16px 6px 16px;
+    background-color: $color-5;
+    color: $color-7;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+    border-radius: 10px;
+    width: 69px;
+    box-sizing: border-box;
+    margin-right: 57%;
+}
+
+.arrow-up {
+    width: 8px;
+    height: 4px;
+    margin: auto;
+}
+
+.comments {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.comments-text {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 19px;
+    color: $color-7;
+    font-weight: 700;
+}
+
+.speech-bubble {
+    width: 18px;
+    height: 16px;
+    margin-right: 4px;
+}

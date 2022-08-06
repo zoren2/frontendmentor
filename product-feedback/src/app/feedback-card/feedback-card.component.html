@@ -1,15 +1,23 @@
 <div class="feedback-card-container" (click)="viewFeedback()">
-    <h2>Add tags for solutions</h2>
-    <p>
+    <h2 class="feedback-title">Add tags for solutions</h2>
+    <p class="feedback-text">
         Easier to search for solutions based on a specific stack.
     </p>
-    <div>
-        Enhancement
+
+    <div class="feature-list">
+        <mat-chip-list aria-label="feature">
+            <mat-basic-chip (click)="onClick($event)">
+                Enhancement
+            </mat-basic-chip>
+        </mat-chip-list>
     </div>
-    <div>
-        112
+
+    <div class="upvote-btn" (click)="onClick($event)">
+        <img class="arrow-up" src="../../assets/shared/icon-arrow-up.svg" alt="arrow-up">
+        <p class="upvote-btn-text">112</p>
     </div>
-    <div>
-        2
+    <div class="comments">
+        <img class="speech-bubble" src="../../assets/shared/icon-comments.svg" alt="comments">
+        <p class="comments-text">2</p>
     </div>
 </div>
