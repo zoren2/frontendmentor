@@ -9,4 +9,25 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5rem 0 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.sort-by {
+    font-size: 13px;
+    color: $color-4;
+}
+
+.add-feedback {
+    background-color: $color-1;
+    color: $color-4;
+    border-radius: 10px;
+    width: 35.7vw;
+    height: 40px;
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+}
+
+.upvote-dropdown {
+    color: $color-4;
 }
