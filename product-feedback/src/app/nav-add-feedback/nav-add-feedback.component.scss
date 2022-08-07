@@ -10,6 +10,7 @@
     align-items: center;
     padding: 0 1.5rem 0 1.5rem;
     margin-bottom: 1.25rem;
+    min-width: 375px;
 }
 
 .sort-by {
@@ -29,5 +30,21 @@
 }
 
 .upvote-dropdown {
+    display: flex;
+    flex-direction: row;
+    width: 45vw;
+}
+
+.upvote-dropdown-text {
     color: $color-4;
+    margin-left: 6px;
+    padding-bottom: 2px;
+}
+
+.arrow-down {
+    filter: brightness(0) invert(1);
+    width: 8px;
+    height: 6px;
+    align-self: center;
+    margin: 0 6px 0 6px;
 }

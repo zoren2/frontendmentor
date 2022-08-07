@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: row;
     width: 100vw;
+    min-width: 375px;
     height: 4.5rem;
     justify-content: space-between;
 }
@@ -33,7 +34,8 @@
     position: relative;
 }
 
-.logo-top, .logo-bottom {
+.logo-top,
+.logo-bottom {
     color: $color-4;
 }
 .logo-top {
@@ -43,4 +45,3 @@
 .logo-bottom {
     font-weight: 400;
 }
-
