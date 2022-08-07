@@ -1,0 +1,160 @@
+@import "../styles/styles";
+
+:host {
+    height: 100%;
+}
+
+.feedback-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    margin: auto;
+}
+
+.feedback-container,
+.add-comment-container,
+.comment-card-container {
+    max-width: 500px;
+}
+
+.feedback-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 24px;
+}
+
+.go-back-btn {
+    display: flex;
+    flex-direction: row;
+}
+
+.go-back-btn:hover {
+    cursor: pointer;
+}
+
+.go-back-arrow-left {
+    width: 6px;
+    height: 10px;
+    margin-right: 1rem;
+    align-self: center;
+}
+
+.go-back-text {
+    font-size: 13px;
+    color: $color-8;
+    font-weight: 700;
+}
+
+/* Buttons */
+.edit-feedback-btn,
+.post-comment-btn {
+    color: $color-4;
+    line-height: 19px;
+    width: 119px;
+    height: 40px;
+    font-weight: 700;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0 16px 0 16px;
+}
+
+.edit-feedback-btn {
+    background-color: $color-2;
+}
+
+.post-comment-btn {
+    background-color: $color-1;
+}
+
+.comment-card-container,
+.add-comment-container {
+    width: 87.2vw;
+    background-color: $color-4;
+    padding: 24px;
+}
+
+.comment-card-container {
+    margin-bottom: 16px;
+}
+
+.user-info {
+    display: grid;
+    grid-template-columns: 20% 65% 15%;
+    grid-template-rows: 20px 20px;
+    grid-template-areas:
+        "grid-user-image grid-op-name grid-reply"
+        "grid-user-image grid-flair   grid-reply";
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.user-comment, .characters-left {
+    font-size: 13px;
+    line-height: 18.8px;
+    font-weight: 400;
+    color: $color-8;
+}
+
+.number-comments {
+    color: $color-7;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.25px;
+    margin-bottom: 16px;
+}
+
+.original-poster-image {
+    grid-area: grid-user-image;
+    height: 40px;
+    width: 40px;
+    border-radius: 9999px;
+}
+
+.original-poster-name {
+    grid-area: grid-op-name;
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-7;
+    align-self: center;
+}
+
+.flair {
+    grid-area: grid-flair;
+    font-size: 14px;
+    line-height: 20px;
+    color: $color-8;
+}
+
+.reply {
+    grid-area: grid-reply;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19px;
+    color: $color-2;
+}
+
+.form-input {
+    border: none;
+    width: 100%;
+    grid-column: span 2;
+    border-radius: 5px;
+    padding: 1rem;
+    height: 80px;
+    background-color: #33323d0f;
+    color: #33323d90;
+    resize: none;
+}
+
+.add-comment-container {
+    display: grid;
+    grid-template-rows: 50px 97px 40px;
+}
+
+.characters-left {
+    align-self: center;
+}

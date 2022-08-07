@@ -1,11 +1,40 @@
 <div class="feedback-container">
     <div class="feedback-nav">
-        <!-- Left Image -->
-        <div>
-            <p>Go Back</p>
+        <div class="go-back-btn">
+            <img class="go-back-arrow-left" src="../../assets/shared/icon-arrow-left.svg" alt="arrow-left">
+            <p class="go-back-text">Go Back</p>
         </div>
-        <button>Edit Feedback</button>
+        <button class="edit-feedback-btn">Edit Feedback</button>
     </div>
     <app-feedback-card></app-feedback-card>
-    <app-comment-card></app-comment-card>
+    <!-- <app-comment-card></app-comment-card> -->
+    <div class="comment-container">
+        <!-- Profile Image -->
+        <div class="comment-card-container">
+            <h1 class="number-comments"> 4 comments </h1>
+            <div class="user-info">
+                <img class="original-poster-image" src="../../assets/user-images/image-elijah.jpg" alt="elijah">
+                <h2 class="original-poster-name">Elijah Moss</h2>
+                <p class="flair">@hexagon.bestagon</p>
+                <a class="reply">Reply</a>
+            </div>
+            <p class="user-comment">Also, please allow styles to be applied based on system preferences. I would love to
+                be
+                able to browse
+                Frontend
+                Mentor in the evening after my device’s dark mode turns on without the bright background it currently
+                has.
+            </p>
+        </div>
+        <div class="add-comment-container">
+            <h2 class="number-comments">Add Comment</h2>
+            <!-- Input Textarea -->
+            <textarea maxlength=1500 class="form-control form-input" id="comment" required name="message"
+                placeholder="Type your comment here" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Type your comment here'"></textarea>
+            <p class="characters-left">250 characters left</p>
+            <button class="post-comment-btn">Post Comment</button>
+        </div>
+    </div>
+
 </div>
