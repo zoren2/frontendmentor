@@ -14,7 +14,7 @@
     <mat-dialog-content class="mat-typography">
         <div class="roadmap-dialog-container">
             <div class="chip-container">
-                <mat-chip-list>
+                <mat-chip-list class=".modal-chip-list">
                     <mat-basic-chip selected>All</mat-basic-chip>
                     <mat-basic-chip>UI</mat-basic-chip>
                     <mat-basic-chip>UX</mat-basic-chip>
@@ -23,15 +23,19 @@
                     <mat-basic-chip>Feature</mat-basic-chip>
                 </mat-chip-list>
             </div>
+
             <div class="roadmap-container">
-                <h2>Roadmap</h2>
-                <a>View</a>
-                <p>Planned</p>
-                <p>2</p>
-                <p>In-Progress</p>
-                <p>3</p>
-                <p>Live</p>
-                <p>1</p>
+                <h2 class="roadmap-header">Roadmap</h2>
+                <a class="roadmap-view">View</a>
+                <div class="planned-icon"></div>
+                <p class="roadmap-title planned">Planned</p>
+                <p class="roadmap-count planned-count">2</p>
+                <div class="in-progress-icon"></div>
+                <p class="roadmap-title in-progress">In-Progress</p>
+                <p class="roadmap-count">3</p>
+                <div class="live-icon"></div>
+                <p class="roadmap-title live">Live</p>
+                <p class="roadmap-count">1</p>
             </div>
         </div>
     </mat-dialog-content>

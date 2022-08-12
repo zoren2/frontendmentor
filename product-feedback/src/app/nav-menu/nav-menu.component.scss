@@ -60,17 +60,49 @@ mat-dialog-content {
     height: 100%;
 }
 
-// mat-dialog-container .mat-dialog-container {
-//     background-color: #f7f8f8 !important;
-// }
-
-.mat-chip-list {
+.modal-chip-list {
     padding: 24px;
 }
 
-.chip-container, roadmap-container {
+.chip-container,
+roadmap-container {
     width: 100%;
     border-radius: 10px;
     background-color: $color-4;
-    padding: 2px 16px 2px 16px;
+    padding: 24px 16px 24px 16px;
+}
+
+/* Implicit rows can solve this */
+.roadmap-container {
+    display: grid;
+    width: 100%;
+    background-color: $color-4;
+    border-radius: 10px;
+    padding: 24px;
+    grid-template-columns: [first-col] 10% [col-1] 45% [col2] 45% [last-col];
+    grid-template-rows: [first-row] 40px [row-1] 20px [row-2] 20px [row-3] 20px [last-row];
+    grid-template-areas:
+        "grid-header grid-header grid-view"
+        "grid-planned-icon grid-planned grid-planned-count"
+        "grid-in-progress-icon grid-in-progress grid-in-progress-count"
+        "grid-live-icon grid-live grid-live-count";
+}
+
+.roadmap-header {
+    grid-area: grid-header;
+    font-family: "Jost" !important;
+    font-weight: 700 !important;
+    color: $color-7 !important;
+}
+
+.roadmap-view {
+    grid-area: grid-view;
+    color: $color-2;
+}
+
+.planned-icon, .live-icon, .in-progress-icon {
+    border-radius: 9999px;
+    width: 10px;
+    height: 10px;
+    background-color: $color-11;
 }
