@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';;
 import { Component, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -62,7 +63,7 @@ export class NavMenuComponent implements OnInit {
   dialogRef!: MatDialogRef<any>;
 
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private router: Router) {
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
   }
@@ -74,6 +75,11 @@ export class NavMenuComponent implements OnInit {
     console.log("clicked");
     this.isHamburger = !this.isHamburger;
     this.openFormDialog(templateRef);
+  }
+
+  onRoadmapClicked(event: Event) {
+    event.stopPropagation();
+    this.router.navigateByUrl('/roadmap');
   }
 
   private openFormDialog(templateRef: TemplateRef<any>) {

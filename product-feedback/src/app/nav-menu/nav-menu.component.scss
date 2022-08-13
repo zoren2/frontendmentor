@@ -72,6 +72,10 @@ roadmap-container {
     padding: 24px 16px 24px 16px;
 }
 
+.chip-container {
+    margin-bottom: 24px;
+}
+
 /* Implicit rows can solve this */
 .roadmap-container {
     display: grid;
@@ -79,7 +83,7 @@ roadmap-container {
     background-color: $color-4;
     border-radius: 10px;
     padding: 24px;
-    grid-template-columns: [first-col] 10% [col-1] 45% [col2] 45% [last-col];
+    grid-template-columns: [first-col] 20% [col-1] 70% [col2] 10% [last-col];
     grid-template-rows: [first-row] 40px [row-1] 20px [row-2] 20px [row-3] 20px [last-row];
     grid-template-areas:
         "grid-header grid-header grid-view"
@@ -93,16 +97,46 @@ roadmap-container {
     font-family: "Jost" !important;
     font-weight: 700 !important;
     color: $color-7 !important;
+    margin: auto 0 auto 0 !important;
 }
 
 .roadmap-view {
     grid-area: grid-view;
     color: $color-2;
+    text-decoration: underline;
+    margin: auto !important;
 }
 
-.planned-icon, .live-icon, .in-progress-icon {
+.planned,
+.live,
+.in-progress {
+    color: $color-8 !important;
+}
+
+.planned-icon,
+.live-icon,
+.in-progress-icon {
     border-radius: 9999px;
     width: 10px;
     height: 10px;
+    align-self: center;
+}
+
+.roadmap-count {
+    font-weight: 700;
+    font-size: 16px;
+    color: $color-8;
+    text-align: right;
+}
+
+.planned-icon {
+    background-color: $color-9;
+}
+
+.in-progress-icon {
     background-color: $color-11;
+}
+
+.live-icon {
+    background-color: $color-10;
 }

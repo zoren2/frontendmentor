@@ -1,0 +1,58 @@
+@import "../styles/styles";
+
+.roadmap-menu {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100vw;
+    height: 100px;
+    background-color: $color-3;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem 0 1.5rem;
+    margin-bottom: 1.25rem;
+    min-width: 375px;
+}
+
+.sort-by {
+    font-size: 18px;
+    color: $color-4;
+}
+
+.add-feedback {
+    background-color: $color-1;
+    color: $color-4;
+    border-radius: 10px;
+    width: 35.7vw;
+    height: 40px;
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+}
+
+.upvote-dropdown {
+    display: flex;
+    flex-direction: column;
+    width: 45vw;
+}
+
+.go-back-btn {
+    display: flex;
+    flex-direction: row;
+}
+
+.go-back-btn:hover {
+    cursor: pointer;
+}
+
+.go-back-arrow-left {
+    width: 6px;
+    height: 10px;
+    margin-right: 1rem;
+    align-self: center;
+}
+
+.go-back-text {
+    font-size: 13px;
+    color: $color-4;
+    font-weight: 700;
+}
