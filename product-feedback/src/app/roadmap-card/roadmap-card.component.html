@@ -1,0 +1,28 @@
+<div class="feedback-card-container  in-progress-border" (click)="viewFeedback()">
+    <div class="status-container">
+        <!-- Will need ng-class -->
+        <div class="in-progress-icon"></div>
+        <p class="feedback-status-text">In Progress</p>
+    </div>
+    <h2 class="feedback-title">One-click portfolio generation</h2>
+    <p class="feedback-text">
+        Add ability to create professional looking portfolio from profile.
+    </p>
+
+    <div class="feature-list">
+        <mat-chip-list aria-label="feature">
+            <mat-basic-chip (click)="onClick($event)">
+                Feature
+            </mat-basic-chip>
+        </mat-chip-list>
+    </div>
+
+    <div class="upvote-btn" (click)="onClick($event)">
+        <img class="arrow-up" src="../../assets/shared/icon-arrow-up.svg" alt="arrow-up">
+        <p class="upvote-btn-text">62</p>
+    </div>
+    <div class="comments">
+        <img class="speech-bubble" src="../../assets/shared/icon-comments.svg" alt="comments">
+        <p class="comments-text">1</p>
+    </div>
+</div>

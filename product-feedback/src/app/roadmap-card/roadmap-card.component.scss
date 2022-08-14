@@ -1,0 +1,125 @@
+@import "../styles/styles";
+
+.roadmap-card {
+    display: grid;
+}
+
+/* Refactor into styles */
+.feedback-card-container {
+    display: flex;
+    flex-direction: row; /* change this to row instead of 'column' */
+    flex-wrap: wrap; /* added flex-wrap */
+    min-width: 327px;
+    width: 87.2vw;
+    height: 235px;
+    border-radius: 10px;
+    background-color: $color-4;
+    margin: 0.5rem auto 0.5rem auto;
+    padding: 1.5rem;
+    max-width: 500px;
+}
+
+.in-progress-border {
+    border-top: 3px solid $color-1;
+}
+
+.status-container {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    width: 100%;
+}
+
+.feedback-card-container:hover {
+    cursor: pointer;
+    border: 3px solid $color-1;
+}
+
+.feedback-title {
+    font-size: 13px;
+    letter-spacing: -0.18px;
+    color: $color-7;
+    width: 100%;
+}
+
+.feedback-text {
+    font-size: 13px;
+    color: $color-8;
+    margin-bottom: 0.5rem;
+}
+
+.feedback-status-text {
+    font-size: 13px;
+    color: $color-8;
+}
+
+.feature-list {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.upvote-btn {
+    display: flex;
+    flex-direction: row;
+    height: 32px;
+    padding: 6px 16px 6px 16px;
+    background-color: $color-5;
+    color: $color-7;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+    border-radius: 10px;
+    width: 69px;
+    box-sizing: border-box;
+    margin: 0 57% 0 -4px;
+}
+
+.arrow-up {
+    width: 8px;
+    height: 4px;
+    margin: auto;
+}
+
+.comments {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.comments-text {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 19px;
+    color: $color-7;
+    font-weight: 700;
+}
+
+.speech-bubble {
+    width: 18px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+/* Refactor into styles */
+.planned-icon,
+.live-icon,
+.in-progress-icon {
+    border-radius: 9999px;
+    width: 10px;
+    height: 10px;
+    align-self: center;
+    margin-right: 8px;
+}
+
+.planned-icon {
+    background-color: $color-9;
+}
+
+.in-progress-icon {
+    background-color: $color-11;
+}
+
+.live-icon {
+    background-color: $color-10;
+}
