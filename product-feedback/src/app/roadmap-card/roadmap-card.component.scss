@@ -11,16 +11,22 @@
     flex-wrap: wrap; /* added flex-wrap */
     min-width: 327px;
     width: 87.2vw;
-    height: 235px;
+    min-height: 260px;
     border-radius: 10px;
     background-color: $color-4;
     margin: 0.5rem auto 0.5rem auto;
-    padding: 1.5rem;
     max-width: 500px;
+    padding-bottom: 24px;
 }
 
-.in-progress-border {
-    border-top: 3px solid $color-1;
+.in-progress-banner {
+    width: 100%;
+    height: 6px;
+    box-sizing: border-box;
+    background-color: $color-1;
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+    margin-bottom: 22px;
 }
 
 .status-container {
@@ -28,11 +34,7 @@
     flex-direction: row;
     align-items: baseline;
     width: 100%;
-}
-
-.feedback-card-container:hover {
-    cursor: pointer;
-    border: 3px solid $color-1;
+    margin: 0 24px;
 }
 
 .feedback-title {
@@ -40,12 +42,13 @@
     letter-spacing: -0.18px;
     color: $color-7;
     width: 100%;
+    margin: 0 24px;
 }
 
 .feedback-text {
     font-size: 13px;
     color: $color-8;
-    margin-bottom: 0.5rem;
+    margin: 0 24px 8px 24px;
 }
 
 .feedback-status-text {
@@ -56,6 +59,7 @@
 .feature-list {
     margin-bottom: 16px;
     width: 100%;
+    margin: 0 24px;
 }
 
 .upvote-btn {
@@ -71,7 +75,7 @@
     border-radius: 10px;
     width: 69px;
     box-sizing: border-box;
-    margin: 0 57% 0 -4px;
+    margin: 0 50% 0 24px;
 }
 
 .arrow-up {
